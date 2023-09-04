@@ -17,6 +17,10 @@ public class Emprestimo {
         this.livroID = livroID;
     }
 
+    public Leitor getLeitor() {
+        return leitor;
+    }
+
     public Date getInicio() {
         return inicio;
     }
