@@ -1,15 +1,13 @@
 package thejoseviictor.biblioteca.model;
 
-import java.util.Date;
-
 public class Emprestimo {
     private Leitor leitor;
-    private Date inicio;
-    private Date fim;
+    private String inicio;
+    private String fim;
     private Integer renovacoes;
     private Integer livroID;
 
-    public Emprestimo(Leitor leitor, Date inicio, Date fim, Integer renovacoes, Integer livroID) {
+    public Emprestimo(Leitor leitor, String inicio, String fim, Integer renovacoes, Integer livroID) {
         this.leitor = leitor;
         this.inicio = inicio;
         this.fim = fim;
@@ -21,19 +19,19 @@ public class Emprestimo {
         return leitor;
     }
 
-    public Date getInicio() {
+    public String getInicio() {
         return inicio;
     }
 
-    public void setInicio(Date inicio) {
+    public void setInicio(String inicio) {
         this.inicio = inicio;
     }
 
-    public Date getFim() {
+    public String getFim() {
         return fim;
     }
 
-    public void setFim(Date fim) {
+    public void setFim(String fim) {
         this.fim = fim;
     }
 
