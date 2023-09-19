@@ -26,7 +26,7 @@ public class EmprestadosDAOList implements EmprestadosDAO{
     }
 
     @Override
-    public Emprestados encontrarEmprestados(Emprestados objeto) {
+    public Emprestados encontrarEmprestado(Emprestados objeto) {
         for (Emprestados percorrer : listaEmprestados){
             if (percorrer.getLivro().getId().equals(objeto.getLivro().getId())){
                 return percorrer;
