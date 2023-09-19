@@ -27,9 +27,9 @@ public class UsuarioDAOList implements UsuarioDAO{
     }
 
     @Override
-    public Usuario encontrarUsuario(String usuario) {
+    public Usuario encontrarUsuario(Usuario objeto) {
         for (Usuario percorrer : listaUsuarios){
-            if (percorrer.getUsuario().equalsIgnoreCase(usuario)){
+            if (percorrer.getUsuario().equalsIgnoreCase(objeto.getUsuario())){
                 return percorrer;
             }
         }
