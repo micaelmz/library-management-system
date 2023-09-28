@@ -1,5 +1,7 @@
 package thejoseviictor.biblioteca.model;
 
+import java.util.LinkedList;
+
 public class Livro {
     private Acervo acervo;
     private Integer id;
@@ -11,6 +13,7 @@ public class Livro {
     private int quantidade;
     private boolean disponivel;
     private Integer limiteRenovacoes;
+    public LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 
     public Livro(Acervo acervo, Integer id, String titulo, String autor, String isbn,
                  Integer anoPublicacao, String categoria, int quantidade, boolean disponivel, Integer limiteRenovacoes) {
@@ -97,4 +100,25 @@ public class Livro {
     public void setLimitRenov(Integer limiteRenovacoes) {
         this.limiteRenovacoes = limiteRenovacoes;
     }
+
+    public void setUsers(LinkedList<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void enqueueUser(Usuario usuario) {
+        this.usuarios.add(usuario);
+    }
+
+    public Usuario dequeueUser() {
+        return this.usuarios.removeFirst();
+    }
+
+    public LinkedList<Usuario> getListaDeEspera() {
+        return (LinkedList<Usuario>) this.usuarios.subList(quantidade, this.usuarios.size());
+    }
+
+    public LinkedList<Usuario> getListaEmprestados() {
+        return (LinkedList<Usuario>) this.usuarios.subList(0, quantidade);
+    }
+
 }
