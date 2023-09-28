@@ -3,7 +3,6 @@ package thejoseviictor.biblioteca.model;
 public class Usuario {
     private String usuario;
     private String senha;
-
     private String email;
 
     public Usuario(String usuario, String senha, String email) {
@@ -34,11 +33,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String setEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void getEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }
