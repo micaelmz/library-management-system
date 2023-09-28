@@ -4,9 +4,12 @@ public class Usuario {
     private String usuario;
     private String senha;
 
-    public Usuario(String usuario, String senha) {
+    private String email;
+
+    public Usuario(String usuario, String senha, String email) {
         this.usuario = usuario;
         this.senha = senha;
+        this.email = email;
     }
 
     /*
@@ -29,5 +32,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String setEmail() {
+        return email;
+    }
+
+    public void getEmail(String email) {
+        this.email = email;
     }
 }
