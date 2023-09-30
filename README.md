@@ -7,5 +7,3 @@ Sistema de Gerenciamento de Biblioteca (MI - Programação | 2023.2)
 
 ### Diagrama de Casos de Uso:
 ![Diagrama de Casos de Uso](https://github.com/thejoseviictor/SistemaGerenciamentoBiblioteca/blob/main/doc/DiagramaCasosUso.png)
-
-
