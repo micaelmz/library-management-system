@@ -1,10 +1,11 @@
 package main.model;
 
+import main.enums.Cargo;
+
 public class Operadores extends Usuario{
 
-    public Operadores(Integer id, String usuario, String senha, String nome, Cargo cargo) {
+    public Operadores(String usuario, String senha, String nome, Cargo cargo) {
         super(
-            id,
             usuario,
             senha,
             nome
