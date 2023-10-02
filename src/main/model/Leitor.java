@@ -18,6 +18,7 @@ public class Leitor extends Usuario{
         );
         this.endereco = endereco;
         this.telefone = telefone;
+        this.setCargo(Cargo.LEITOR);
     }
 
     public String getEndereco() {
@@ -30,6 +31,10 @@ public class Leitor extends Usuario{
 
     public LocalDate getBanidoAte() {
         return banidoAte;
+    }
+
+    public LinkedList<Emprestimo> getEmprestimos() {
+        return emprestimos;
     }
 
     public boolean isBanido() {
@@ -46,5 +51,9 @@ public class Leitor extends Usuario{
 
     public void setBanidoAte(LocalDate banidoAte) {
         this.banidoAte = banidoAte;
+    }
+
+    public void adicionarEmprestimo(Emprestimo emprestimo) {
+        emprestimos.add(emprestimo);
     }
 }
