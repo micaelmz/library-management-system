@@ -1,6 +1,7 @@
 package main.dao.bibliotecario;
 
 import main.model.Bibliotecario;
+import main.model.Emprestimo;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 public class BibliotecarioDAOList implements BibliotecarioDAO{
     private List<Bibliotecario> listaBibliotecarios;
+    private Integer ultimoID = 0;
 
     public BibliotecarioDAOList() {
         this.listaBibliotecarios = new LinkedList<Bibliotecario>();
@@ -28,8 +30,11 @@ public class BibliotecarioDAOList implements BibliotecarioDAO{
      * @return objeto do bibliotecário
      */
     @Override
-    public Bibliotecario criar(Bibliotecario objeto) {
+    public Bibliotecario criar(Bibliotecario objeto){
+        // Vai verificar se o objeto já existe na lista.
         if (!listaBibliotecarios.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaBibliotecarios.add(objeto);
         }
         return objeto;
@@ -50,10 +55,10 @@ public class BibliotecarioDAOList implements BibliotecarioDAO{
      * @return retorna um bibliotecário específico
      */
     @Override
-    public Bibliotecario encontrarBibliotecario(Bibliotecario objeto) {
-        for (Bibliotecario percorrer : listaBibliotecarios){
-            if (percorrer.getNome().equalsIgnoreCase(objeto.getNome())){
-                return percorrer;
+    public Bibliotecario encontrarPorID(Integer id) {
+        for (Bibliotecario bibliotecario : listaBibliotecarios) {
+            if (bibliotecario.getId().equals(id)){
+                return bibliotecario;
             }
         }
         return null;
@@ -66,12 +71,10 @@ public class BibliotecarioDAOList implements BibliotecarioDAO{
      */
     @Override
     public Bibliotecario atualizar(Bibliotecario objeto) {
-        int indice = listaBibliotecarios.indexOf(objeto);
-        if (indice != -1){
-            listaBibliotecarios.set(indice, objeto);
-            return objeto;
+        if (listaBibliotecarios.contains(objeto)){
+            listaBibliotecarios.set(listaBibliotecarios.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     /**

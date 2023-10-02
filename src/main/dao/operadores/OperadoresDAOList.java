@@ -1,6 +1,7 @@
 package main.dao.operadores;
 
 import main.model.Operadores;
+import main.model.Usuario;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 public class OperadoresDAOList implements OperadoresDAO{
     private List<Operadores> listaOperadores;
+    private Integer ultimoID = 0;
 
     public OperadoresDAOList() {
         this.listaOperadores = new LinkedList<Operadores>();
@@ -28,8 +30,11 @@ public class OperadoresDAOList implements OperadoresDAO{
      * @return objeto do operador
      */
     @Override
-    public Operadores criar(Operadores objeto) {
+    public Operadores criar(Operadores objeto){
+        // Vai verificar se o objeto já existe na lista.
         if (!listaOperadores.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaOperadores.add(objeto);
         }
         return objeto;
@@ -50,10 +55,10 @@ public class OperadoresDAOList implements OperadoresDAO{
      * @return retorna um operador específico
      */
     @Override
-    public Operadores encontrarOperador(Operadores objeto) {
-        for (Operadores percorrer : listaOperadores){
-            if (percorrer.getId().equals(objeto.getId())){
-                return percorrer;
+    public Operadores encontrarPorID(Integer id) {
+        for (Operadores operador : listaOperadores) {
+            if (operador.getId().equals(id)){
+                return operador;
             }
         }
         return null;
@@ -66,12 +71,10 @@ public class OperadoresDAOList implements OperadoresDAO{
      */
     @Override
     public Operadores atualizar(Operadores objeto) {
-        int indice = listaOperadores.indexOf(objeto);
-        if (indice != -1){
-            listaOperadores.set(indice, objeto);
-            return objeto;
+        if (listaOperadores.contains(objeto)){
+            listaOperadores.set(listaOperadores.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     /**

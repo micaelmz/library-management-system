@@ -1,5 +1,7 @@
 package main.model;
 
+import main.enums.Cargo;
+
 import java.time.LocalDate;
 
 /**
@@ -16,9 +18,8 @@ import java.time.LocalDate;
  */
 
 public class Admin extends Operadores{
-    public Admin(Integer id, String usuario, String senha, String nome) {
+    public Admin(String usuario, String senha, String nome) {
         super(
-            id,
             usuario,
             senha,
             nome,

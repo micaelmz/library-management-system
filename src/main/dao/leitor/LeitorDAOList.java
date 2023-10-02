@@ -1,6 +1,7 @@
 package main.dao.leitor;
 
 import main.model.Leitor;
+import main.model.Livro;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +18,8 @@ import java.util.List;
  */
 public class LeitorDAOList implements LeitorDAO{
     private List<Leitor> listaLeitores;
+    private Integer ultimoID = 0;
+
 
     public LeitorDAOList() {
         this.listaLeitores = new LinkedList<Leitor>();
@@ -28,8 +31,11 @@ public class LeitorDAOList implements LeitorDAO{
      * @return objeto do leitor
      */
     @Override
-    public Leitor criar(Leitor objeto) {
+    public Leitor criar(Leitor objeto){
+        // Vai verificar se o objeto já existe na lista.
         if (!listaLeitores.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaLeitores.add(objeto);
         }
         return objeto;
@@ -50,10 +56,10 @@ public class LeitorDAOList implements LeitorDAO{
      * @return retorna um leitor específico
      */
     @Override
-    public Leitor encontrarLeitor(Leitor objeto) {
-        for (Leitor percorrer : listaLeitores){
-            if (percorrer.getId().equals(objeto.getId())){
-                return percorrer;
+    public Leitor encontrarPorID(Integer id) {
+        for (Leitor leitor : listaLeitores) {
+            if (leitor.getId().equals(id)){
+                return leitor;
             }
         }
         return null;
@@ -66,12 +72,10 @@ public class LeitorDAOList implements LeitorDAO{
      */
     @Override
     public Leitor atualizar(Leitor objeto) {
-        int indice = listaLeitores.indexOf(objeto);
-        if (indice != -1){
-            listaLeitores.set(indice, objeto);
-            return objeto;
+        if (listaLeitores.contains(objeto)){
+            listaLeitores.set(listaLeitores.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     /**

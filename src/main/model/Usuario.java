@@ -1,6 +1,7 @@
 package main.model;
 
 import main.GlobalData;
+import main.enums.Cargo;
 
 /**
  * <b>Esta classe implementa os usuários do Sistema de Biblioteca e seus atributos</b>
@@ -17,21 +18,24 @@ import main.GlobalData;
  * @author José Victor Oliveira
  * @author Micael Muniz
  *
- * @see main.model.Cargo
+ * @see Cargo
  */
 
 public class Usuario {
-    private final Integer id;
+    private Integer id;
     private String usuario;
     private String senha;
     private String nome;
     private Cargo cargo;
 
-    public Usuario(Integer id, String usuario, String senha, String nome) {
-        this.id = id;
+    public Usuario(String usuario, String senha, String nome) {
         this.usuario = usuario;
         this.senha = senha;
         this.nome = nome;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class UsuarioDAOList implements UsuarioDAO{
     private List<Usuario> listaUsuarios;
+    private Integer ultimoID = 0;
 
     public UsuarioDAOList() {
         this.listaUsuarios = new LinkedList<Usuario>();
@@ -31,6 +32,8 @@ public class UsuarioDAOList implements UsuarioDAO{
     public Usuario criar(Usuario objeto){
         // Vai verificar se o objeto já existe na lista.
         if (!listaUsuarios.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaUsuarios.add(objeto);
         }
         return objeto;
@@ -51,10 +54,10 @@ public class UsuarioDAOList implements UsuarioDAO{
      * @return retorna um usuário específico
      */
     @Override
-    public Usuario encontrarUsuario(Usuario objeto) {
-        for (Usuario percorrer : listaUsuarios){
-            if (percorrer.getUsuario().equalsIgnoreCase(objeto.getUsuario())){
-                return percorrer;
+    public Usuario encontrarPorID(Integer id) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getId().equals(id)){
+                return usuario;
             }
         }
         return null;
@@ -67,13 +70,11 @@ public class UsuarioDAOList implements UsuarioDAO{
      */
     @Override
     public Usuario atualizar(Usuario objeto) {
-        int indice = listaUsuarios.indexOf(objeto);
-        // Vai verificar se o objeto está na lista.
-        if (indice != -1){
-            listaUsuarios.set(indice, objeto);
-            return objeto;
+        // Vai verificar se o objeto já existe na lista.
+        if (listaUsuarios.contains(objeto)){
+            listaUsuarios.set(listaUsuarios.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     /**

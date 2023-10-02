@@ -13,14 +13,12 @@ public class AdminTest {
     @Test
     public void testBanirLeitor() {
         Admin admin = new Admin(
-                1,
                 "joao1",
                 "123456",
                 "João"
         );
 
         Leitor leitor = new Leitor(
-                1,
                 "johndoe",
                 "123456",
                 "John Doe",
