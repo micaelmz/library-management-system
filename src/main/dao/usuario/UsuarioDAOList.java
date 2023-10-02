@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.usuario;
+package main.dao.usuario;
 
-import thejoseviictor.biblioteca.model.Usuario;
+import main.model.Usuario;
 
 import java.util.LinkedList;
 import java.util.List;

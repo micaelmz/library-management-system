@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.bibliotecario;
+package main.dao.bibliotecario;
 
-import thejoseviictor.biblioteca.model.Bibliotecario;
+import main.model.Bibliotecario;
 
 import java.util.List;
 

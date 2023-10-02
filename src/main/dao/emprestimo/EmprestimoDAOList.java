@@ -1,6 +1,7 @@
-package thejoseviictor.biblioteca.dao.emprestimo;
+package main.dao.emprestimo;
 
-import thejoseviictor.biblioteca.model.Emprestimo;
+import main.dao.leitor.LeitorDAO;
+import main.model.Emprestimo;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -27,12 +28,9 @@ public class EmprestimoDAOList implements EmprestimoDAO{
 
     @Override
     public Emprestimo encontrarEmprestimo(Emprestimo objeto) {
-        for (Emprestimo percorrer : listaEmprestimos){
-            if (percorrer.getLeitor().getId().equals(objeto.getLeitor().getId())){
-                if(percorrer.getLivroID().equals(objeto.getLivroID())){
-                    return percorrer;
-                }
-            }
+        int indice = listaEmprestimos.indexOf(objeto);
+        if (indice != -1){
+            return listaEmprestimos.get(indice);
         }
         return null;
     }

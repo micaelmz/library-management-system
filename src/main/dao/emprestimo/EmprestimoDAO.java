@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.emprestimo;
+package main.dao.emprestimo;
 
-import thejoseviictor.biblioteca.model.Emprestimo;
+import main.model.Emprestimo;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.admin;
+package main.dao.admin;
 
-import thejoseviictor.biblioteca.model.Admin;
+import main.model.Admin;
 
 import java.util.LinkedList;
 import java.util.List;

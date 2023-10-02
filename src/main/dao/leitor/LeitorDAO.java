@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.leitor;
+package main.dao.leitor;
 
-import thejoseviictor.biblioteca.model.Leitor;
+import main.model.Leitor;
 
 import java.util.List;
 

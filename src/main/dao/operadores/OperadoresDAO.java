@@ -1,6 +1,6 @@
-package thejoseviictor.biblioteca.dao.operadores;
+package main.dao.operadores;
 
-import thejoseviictor.biblioteca.model.Operadores;
+import main.model.Operadores;
 
 import java.util.List;
 
