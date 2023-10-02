@@ -52,7 +52,7 @@ public class LeitorDAOList implements LeitorDAO{
 
     /**
      * Método que retorna um leitor específico
-     * @param objeto objeto do leitor
+     * @param id objeto do leitor
      * @return retorna um leitor específico
      */
     @Override

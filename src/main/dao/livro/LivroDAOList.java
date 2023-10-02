@@ -51,7 +51,7 @@ public class LivroDAOList implements LivroDAO{
 
     /**
      * Método que retorna um livro específico
-     * @param objeto objeto do livro
+     * @param id objeto do livro
      * @return retorna um livro específico
      */
     @Override

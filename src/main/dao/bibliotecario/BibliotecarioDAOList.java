@@ -51,7 +51,7 @@ public class BibliotecarioDAOList implements BibliotecarioDAO{
 
     /**
      * Método que retorna um bibliotecário específico
-     * @param objeto objeto do bibliotecário
+     * @param id objeto do bibliotecário
      * @return retorna um bibliotecário específico
      */
     @Override
