@@ -7,4 +7,5 @@ main.dao.leitor
 main.dao.livro
 main.dao.operadores
 main.dao.usuario
+main.enums
 main.model
