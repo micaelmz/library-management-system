@@ -1,9 +1,9 @@
-package thejoseviictor.biblioteca.model;
+package main.model;
 
 import java.util.LinkedList;
 
 public class Reserva {
-    private Livro livro;
+    private final Livro livro;
     private LinkedList<Integer> reservas; // Esta lista irá armazenar os "IDs" dos usuários na fila de reserva.
 
     public Reserva(Livro livro) {
