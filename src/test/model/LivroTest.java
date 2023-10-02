@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 public class LivroTest {
 
     Livro exemploLivro = new Livro(
-            1,
             "Lorem Ipsum",
             "John Doe",
             "12B34",
@@ -20,7 +19,7 @@ public class LivroTest {
     @Test
     public void testarDisponibilidade() {
         assertTrue(exemploLivro.isDisponivel());
-        exemploLivro.decrementar();
+        exemploLivro.setQuantidade(0);
         assertFalse(exemploLivro.isDisponivel());
     }
 }

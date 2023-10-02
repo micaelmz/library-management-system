@@ -9,7 +9,6 @@ public class UsuarioTest {
     @Test
     public void testValidaAcesso() {
         Usuario usuario = new Usuario(
-            1,
             "joao1",
             "123456",
             "João"

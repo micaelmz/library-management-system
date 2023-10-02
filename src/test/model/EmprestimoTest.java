@@ -21,7 +21,6 @@ public class EmprestimoTest {
     @Before
     public void gerarEmprestimos() {
         Leitor exemploLeitor = new Leitor(
-                1,
                 "johndoe",
                 "123456",
                 "John Doe",
@@ -30,7 +29,6 @@ public class EmprestimoTest {
         );
 
         Livro exemploLivro = new Livro(
-                1,
                 "Lorem Ipsum",
                 "John Doe",
                 "12B34",
@@ -77,14 +75,6 @@ public class EmprestimoTest {
     }
 
     @Test
-    public void testaRenovacao() {
-        assertTrue(emprestimo1.isRenovavel());
-        emprestimo2.setRenovacoes(0);
-        assertFalse(emprestimo2.isRenovavel());
-        assertFalse(emprestimo3.isRenovavel());
-    }
-
-    @Test
     public void testaCalculaMulta() {
         // data de entrega era ontem
         emprestimo1.setDataEntrega(LocalDate.now().minusDays(1));
@@ -101,11 +91,12 @@ public class EmprestimoTest {
         emprestimo1.setDataEntrega(LocalDate.now());
         emprestimo1.setDiasEmprestados(3);
         emprestimo1.setRenovacoes(1);
-        emprestimo1.renovar();
+        boolean renovado = emprestimo1.renovar();
 
         int renovacoesDisponiveis = emprestimo1.getRenovacoes();
         LocalDate novaDataEntrega = emprestimo1.getDataEntrega();
 
+        assertTrue(renovado);
         assertEquals(0, renovacoesDisponiveis);
         assertEquals(LocalDate.now().plusDays(3), novaDataEntrega);
     }
@@ -114,7 +105,6 @@ public class EmprestimoTest {
     public void testarDevolucao(){
         // usando emprestimo3, que tem 1 dia de atraso
         Livro livro = emprestimo3.getLivro();
-        livro.setQuantidade(0);
         Boolean devolvido = emprestimo3.devolver();
         Leitor leitor = emprestimo3.getLeitor();
 
