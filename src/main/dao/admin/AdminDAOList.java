@@ -1,20 +1,25 @@
 package main.dao.admin;
 
 import main.model.Admin;
+import main.model.Bibliotecario;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class AdminDAOList implements AdminDAO{
     private List<Admin> listaAdmins;
+    private Integer ultimoID = 0;
 
     public AdminDAOList() {
         this.listaAdmins = new LinkedList<Admin>();
     }
 
     @Override
-    public Admin criar(Admin objeto) {
+    public Admin criar(Admin objeto){
+        // Vai verificar se o objeto já existe na lista.
         if (!listaAdmins.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaAdmins.add(objeto);
         }
         return objeto;
@@ -26,10 +31,10 @@ public class AdminDAOList implements AdminDAO{
     }
 
     @Override
-    public Admin encontrarAdmin(Admin objeto) {
-        for (Admin percorrer : listaAdmins){
-            if (percorrer.getNome().equalsIgnoreCase(objeto.getNome())){
-                return percorrer;
+    public Admin encontrarPorID(Integer id) {
+        for (Admin admin : listaAdmins) {
+            if (admin.getId().equals(id)){
+                return admin;
             }
         }
         return null;
@@ -37,12 +42,10 @@ public class AdminDAOList implements AdminDAO{
 
     @Override
     public Admin atualizar(Admin objeto) {
-        int indice = listaAdmins.indexOf(objeto);
-        if (indice != -1){
-            listaAdmins.set(indice, objeto);
-            return objeto;
+        if (listaAdmins.contains(objeto)){
+            listaAdmins.set(listaAdmins.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     @Override

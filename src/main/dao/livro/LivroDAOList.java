@@ -1,20 +1,25 @@
 package main.dao.livro;
 
 import main.model.Livro;
+import main.model.Operadores;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class LivroDAOList implements LivroDAO{
     private List<Livro> listaLivros;
+    private Integer ultimoID = 0;
 
     public LivroDAOList() {
         this.listaLivros = new LinkedList<Livro>();
     }
 
     @Override
-    public Livro criar(Livro objeto) {
+    public Livro criar(Livro objeto){
+        // Vai verificar se o objeto já existe na lista.
         if (!listaLivros.contains(objeto)){
+            ultimoID++;
+            objeto.setId(ultimoID);
             listaLivros.add(objeto);
         }
         return objeto;
@@ -26,10 +31,10 @@ public class LivroDAOList implements LivroDAO{
     }
 
     @Override
-    public Livro encontrarLivro(Livro objeto) {
-        for (Livro percorrer : listaLivros){
-            if (percorrer.getId().equals(objeto.getId())){
-                return percorrer;
+    public Livro encontrarPorID(Integer id) {
+        for (Livro livro : listaLivros) {
+            if (livro.getId().equals(id)){
+                return livro;
             }
         }
         return null;
@@ -37,12 +42,10 @@ public class LivroDAOList implements LivroDAO{
 
     @Override
     public Livro atualizar(Livro objeto) {
-        int indice = listaLivros.indexOf(objeto);
-        if (indice != -1){
-            listaLivros.set(indice, objeto);
-            return objeto;
+        if (listaLivros.contains(objeto)){
+            listaLivros.set(listaLivros.indexOf(objeto), objeto);
         }
-        return null;
+        return objeto;
     }
 
     @Override
