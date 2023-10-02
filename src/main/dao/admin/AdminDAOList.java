@@ -51,7 +51,7 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que retorna um administrador específico
-     * @param objeto objeto do administrador
+     * @param id objeto do administrador
      * @return retorna um administrador específico
      */
     @Override

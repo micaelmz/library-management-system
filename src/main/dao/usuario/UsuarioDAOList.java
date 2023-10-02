@@ -50,7 +50,7 @@ public class UsuarioDAOList implements UsuarioDAO{
 
     /**
      * Método que retorna um usuário específico
-     * @param objeto objeto do usuário
+     * @param id objeto do usuário
      * @return retorna um usuário específico
      */
     @Override

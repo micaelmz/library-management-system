@@ -13,7 +13,7 @@ import main.enums.Cargo;
  * Cargo do Usuário (Cargo).
  *
  * Exemplo de Uso:
- * Usuario usuario = new Usuario(id,"usuario", "senha", "nome");
+ * Usuario usuario = new Usuario("usuario", "senha", "nome");
  *
  * @author José Victor Oliveira
  * @author Micael Muniz

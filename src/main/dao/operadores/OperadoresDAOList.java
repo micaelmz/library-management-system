@@ -51,7 +51,7 @@ public class OperadoresDAOList implements OperadoresDAO{
 
     /**
      * Método que retorna um operador específico
-     * @param objeto objeto do operador
+     * @param id objeto do operador
      * @return retorna um operador específico
      */
     @Override

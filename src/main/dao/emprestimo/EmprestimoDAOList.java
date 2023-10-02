@@ -52,7 +52,7 @@ public class EmprestimoDAOList implements EmprestimoDAO{
 
     /**
      * Método que retorna um empréstimo específico
-     * @param objeto objeto do empréstimo
+     * @param id objeto do empréstimo
      * @return retorna um empréstimo específico
      */
     @Override

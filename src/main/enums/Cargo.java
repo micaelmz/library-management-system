@@ -6,7 +6,6 @@ package main.enums;
  *
  * @author Micael Muniz
  */
-
 public enum Cargo {
     LEITOR,
     BIBLIOTECARIO,

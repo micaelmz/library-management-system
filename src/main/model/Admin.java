@@ -9,11 +9,11 @@ import java.time.LocalDate;
  * Os administradores possuem poder absoluto sobre todos os métodos.
  *
  * Exemplo de Uso:
- * Admin admin = new Admin(id,"usuario", "senha", "nome");
+ * Admin admin = new Admin("usuario", "senha", "nome");
  *
  * @author Micael Muniz
  *
- * @see main.model.Cargo
+ * @see main.enums.Cargo
  * @see main.model.Usuario
  */
 

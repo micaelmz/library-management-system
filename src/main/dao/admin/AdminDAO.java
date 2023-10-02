@@ -29,10 +29,10 @@ public interface AdminDAO {
 
     /**
      * Método que retorna um administrador específico
-     * @param objeto objeto do administrador
+     * @param id objeto do administrador
      * @return retorna um administrador específico
      */
-    public Admin encontrarAdmin(Admin objeto);
+    public Admin encontrarPorID(Integer id);
 
     /**
      * Método que atualiza os atributos de um administrador específico
