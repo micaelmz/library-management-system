@@ -1,4 +1,4 @@
-package main.model;
+package main.enums;
 
 /**
  * <b>Esta classe implementa os cargos dos usuários do Sistema de Biblioteca</b>
