@@ -7,7 +7,7 @@ public class Livro {
     private String isbn;
     private Integer anoPublicacao;
     private String categoria;
-    private int quantidade;
+    private Integer quantidade;
     private boolean disponivel;
     private Integer limiteRenovacoes;
 
@@ -53,14 +53,13 @@ public class Livro {
         return quantidade;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
     public Integer getLimiteRenovacoes() {
         return limiteRenovacoes;
     }
 
+    public boolean isDisponivel() {
+        return disponivel;
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;

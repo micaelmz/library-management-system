@@ -17,32 +17,31 @@ public class Usuario {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public Integer getId() {
         return id;
     }
 
-    public boolean validaAcesso(String usuario, String senha) {
-        return this.usuario.equals(usuario) && this.senha.equals(senha);
-    }
-
-
     public String getUsuario() {
         return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getSenha() {
         return senha;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public boolean validaAcesso(String usuario, String senha) {
+        return this.usuario.equals(usuario) && this.senha.equals(senha);
     }
 }
