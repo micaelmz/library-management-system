@@ -67,21 +67,21 @@ public class Emprestimo {
         return renovacoes > 0 && !isAtrasado();
     }
 
-    public void renovar() {
-        if (isRenovavel()) {
-            renovacoes--;
-            dataEntrega = dataEntrega.plusDays(diasEmprestados);
-        }
-    }
-
     public int calcularMulta() {
         // Calcula multa: 2 dias de banimento para cada dia de atraso.
         int diasAtrasados = (int) (LocalDate.now().toEpochDay() - dataEntrega.toEpochDay());
         if (diasAtrasados > 0) {
             return diasAtrasados * 2;
-        }
-        else {
+        } else {
             return 0;
+        }
+    }
+
+    public void renovar() {
+        //todo: verificar se é o usuário atual é um bibliotecário.
+        if (isRenovavel()) {
+            renovacoes--;
+            dataEntrega = dataEntrega.plusDays(diasEmprestados);
         }
     }
 
@@ -91,7 +91,7 @@ public class Emprestimo {
             leitor.setBanidoAte(LocalDate.now().plusDays(calcularMulta()));
         }
         // Deixa livro disponível para empréstimo, caso não esteja.
-        if (!livro.isDisponivel()) {livro.setDisponivel(true);}
+        livro.incrementar();
         setDataEntrega(LocalDate.now());
         return true;
     }
