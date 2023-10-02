@@ -1,5 +1,7 @@
 package main.model;
 
+import main.enums.Cargo;
+
 import java.time.LocalDate;
 import java.util.LinkedList;
 
@@ -7,11 +9,10 @@ public class Leitor extends Usuario{
     private String endereco;
     private String telefone;
     private LocalDate banidoAte;
-    private LinkedList<Emprestimo> emprestimos = new LinkedList<>();
+    private LinkedList<Emprestimo> historicoEmprestimo = new LinkedList<>();
 
-    public Leitor(Integer id, String usuario, String senha, String nome, String endereco, String telefone) {
+    public Leitor(String usuario, String senha, String nome, String endereco, String telefone) {
         super(
-            id,
             usuario,
             senha,
             nome
@@ -33,8 +34,8 @@ public class Leitor extends Usuario{
         return banidoAte;
     }
 
-    public LinkedList<Emprestimo> getEmprestimos() {
-        return emprestimos;
+    public LinkedList<Emprestimo> getHistoricoEmprestimo() {
+        return historicoEmprestimo;
     }
 
     public boolean isBanido() {
@@ -53,7 +54,7 @@ public class Leitor extends Usuario{
         this.banidoAte = banidoAte;
     }
 
-    public void adicionarEmprestimo(Emprestimo emprestimo) {
-        emprestimos.add(emprestimo);
+    public void adicionarAoHistoricoEmprestimos(Emprestimo emprestimo) {
+        historicoEmprestimo.add(emprestimo);
     }
 }
