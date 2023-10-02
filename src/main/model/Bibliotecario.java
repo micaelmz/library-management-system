@@ -33,9 +33,7 @@ public class Bibliotecario extends Operadores{
      * @param livro objeto do livro
      * @param diasEmpretados dias totais do empréstimo
      * @param renovacoes quantidade de renovações
-     * @return empréstimo mal-sucedido, pois o leitor tem banimentos pendentes
-     * @return empréstimo bem-sucedido
-     * @return reserva, pois não há cópias do livro disponíveis.
+     * @return empréstimo mal-sucedido (banimentos pendentes), bem-sucedido ou reserva (não há cópias disponíveis)
      */
     public Emprestimo criarEmprestimo(Leitor leitor, Livro livro, Integer diasEmpretados, Integer renovacoes) {
         if (leitor.isBanido()) {
