@@ -3,13 +3,13 @@ package main.model;
 import java.time.LocalDate;
 
 public class Admin extends Operadores{
-    public Admin(Integer id, String usuario, String senha, String cargo, String nome) {
+    public Admin(Integer id, String usuario, String senha, String nome) {
         super(
             id,
             usuario,
             senha,
             nome,
-            cargo
+            Cargo.ADMIN
         );
     }
 
