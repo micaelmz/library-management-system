@@ -1,7 +1,9 @@
 package main.model;
 
+import java.util.LinkedList;
+
 public class Livro {
-    private final Integer id;
+    private Integer id;
     private String titulo;
     private String autor;
     private String isbn;
@@ -9,11 +11,12 @@ public class Livro {
     private String categoria;
     private Integer quantidade;
     private Integer limiteRenovacoes;
+    private LinkedList<Emprestimo> emprestados;
+    private LinkedList<Emprestimo> reservas;
 
-    public Livro(Integer id, String titulo, String autor, String isbn,
+    public Livro(String titulo, String autor, String isbn,
                  Integer anoPublicacao, String categoria, int quantidade, Integer limiteRenovacoes) {
 
-        this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
@@ -21,6 +24,8 @@ public class Livro {
         this.categoria = categoria;
         this.quantidade = quantidade;
         this.limiteRenovacoes = limiteRenovacoes;
+        this.emprestados = new LinkedList<Emprestimo>();
+        this.reservas = new LinkedList<Emprestimo>();
     }
 
     public Integer getId() {
@@ -51,8 +56,20 @@ public class Livro {
         return quantidade;
     }
 
+    public LinkedList<Emprestimo> getEmprestados() {
+        return emprestados;
+    }
+
+    public LinkedList<Emprestimo> getReservas() {
+        return reservas;
+    }
+
     public Integer getLimiteRenovacoes() {
         return limiteRenovacoes;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setTitulo(String titulo) {
@@ -83,17 +100,23 @@ public class Livro {
         this.limiteRenovacoes = limiteRenovacoes;
     }
 
-    public boolean isDisponivel() {
-        return quantidade > 0;
+    public void adicionarEmprestimo(Emprestimo emprestimo){
+        this.emprestados.add(emprestimo);
     }
 
-    public void incrementar() {
-        this.quantidade++;
+    public void adicionarReserva(Emprestimo emprestimo){
+        this.reservas.add(emprestimo);
     }
 
-    public void decrementar() {
-        this.quantidade--;
+    public void removerEmprestimo(Emprestimo emprestimo){
+        this.emprestados.remove(emprestimo);
     }
 
+    public void removerReserva(Emprestimo emprestimo){
+        this.reservas.remove(emprestimo);
+    }
 
+    public boolean isDisponivel(){
+        return this.quantidade > this.emprestados.size();
+    }
 }
