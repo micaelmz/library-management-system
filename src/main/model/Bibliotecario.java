@@ -2,13 +2,13 @@ package main.model;
 
 public class Bibliotecario extends Operadores{
 
-    public Bibliotecario(Integer id, String usuario, String senha, String cargo, String nome) {
+    public Bibliotecario(Integer id, String usuario, String senha, String nome) {
         super(
             id,
             usuario,
             senha,
             nome,
-            cargo
+            Cargo.BIBLIOTECARIO
         );
     }
 
@@ -16,7 +16,16 @@ public class Bibliotecario extends Operadores{
         if (leitor.isBanido()) {
             return null;
         }
-        return new Emprestimo(leitor, livro, diasEmpretados, renovacoes);
+        if (livro.isDisponivel()) {
+            livro.decrementar();
+            Emprestimo novoEmprestimo = new Emprestimo(leitor, livro, diasEmpretados, renovacoes);
+            leitor.adicionarEmprestimo(novoEmprestimo);
+            return novoEmprestimo;
+        }
+        else {
+            // todo: retorna uma reserva
+            return null;
+        }
     }
 
 }

@@ -7,8 +7,7 @@ public class Livro {
     private String isbn;
     private Integer anoPublicacao;
     private String categoria;
-    private int quantidade;
-    private boolean disponivel;
+    private Integer quantidade;
     private Integer limiteRenovacoes;
 
     public Livro(Integer id, String titulo, String autor, String isbn,
@@ -21,7 +20,6 @@ public class Livro {
         this.anoPublicacao = anoPublicacao;
         this.categoria = categoria;
         this.quantidade = quantidade;
-        this.disponivel = true;
         this.limiteRenovacoes = limiteRenovacoes;
     }
 
@@ -53,14 +51,9 @@ public class Livro {
         return quantidade;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
     public Integer getLimiteRenovacoes() {
         return limiteRenovacoes;
     }
-
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -86,11 +79,21 @@ public class Livro {
         this.quantidade = quantidade;
     }
 
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
-
     public void setLimiteRenovacoes(Integer limiteRenovacoes) {
         this.limiteRenovacoes = limiteRenovacoes;
     }
+
+    public boolean isDisponivel() {
+        return quantidade > 0;
+    }
+
+    public void incrementar() {
+        this.quantidade++;
+    }
+
+    public void decrementar() {
+        this.quantidade--;
+    }
+
+
 }

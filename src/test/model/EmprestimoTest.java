@@ -1,11 +1,12 @@
 package test.model;
 
+import main.model.Bibliotecario;
 import main.model.Emprestimo;
 import main.model.Leitor;
 import main.model.Livro;
+import main.GlobalData;
 import org.junit.Before;
 import org.junit.Test;
-
 
 import java.time.LocalDate;
 
@@ -113,7 +114,7 @@ public class EmprestimoTest {
     public void testarDevolucao(){
         // usando emprestimo3, que tem 1 dia de atraso
         Livro livro = emprestimo3.getLivro();
-        livro.setDisponivel(false);
+        livro.setQuantidade(0);
         Boolean devolvido = emprestimo3.devolver();
         Leitor leitor = emprestimo3.getLeitor();
 
