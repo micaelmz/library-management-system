@@ -1,5 +1,7 @@
 package main.model;
 
+import main.enums.StatusEmprestimo;
+
 import java.time.LocalDate;
 
 public class Emprestimo {
@@ -9,6 +11,8 @@ public class Emprestimo {
     private LocalDate dataEntrega;
     private Integer diasEmprestados;
     private Integer renovacoes;
+    private StatusEmprestimo status;
+    private Integer id;
 
     public Emprestimo(Leitor leitor, Livro livro, Integer diasEmprestados, Integer renovacoes) {
         this.leitor = leitor;
@@ -17,6 +21,7 @@ public class Emprestimo {
         this.diasEmprestados = diasEmprestados;
         this.dataEmprestimo = LocalDate.now();
         this.dataEntrega = dataEmprestimo.plusDays(diasEmprestados);
+        this.status = StatusEmprestimo.ATIVO;
     }
 
     public Leitor getLeitor() {
@@ -43,6 +48,14 @@ public class Emprestimo {
         return renovacoes;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public void setRenovacoes(Integer renovacoes) {
         this.renovacoes = renovacoes;
     }
@@ -59,12 +72,29 @@ public class Emprestimo {
         this.dataEmprestimo = dataEmprestimo;
     }
 
+    public void setAsFinalizado() {
+        this.status = StatusEmprestimo.FINALIZADO;
+    }
+
+    public void setAsAtivo() {
+        this.status = StatusEmprestimo.ATIVO;
+    }
+
+    public void setAsReservado() {
+        this.status = StatusEmprestimo.RESERVADO;
+        this.dataEntrega = null;
+    }
+
+    public StatusEmprestimo getStatus() {
+        return this.status;
+    }
+
     public boolean isAtrasado() {
         return LocalDate.now().isAfter(dataEntrega);
     }
 
     public boolean isRenovavel() {
-        return renovacoes > 0 && !isAtrasado();
+        return renovacoes > 0 && !isAtrasado() && status == StatusEmprestimo.ATIVO && livro.getReservas().isEmpty();
     }
 
     public int calcularMulta() {
@@ -77,12 +107,14 @@ public class Emprestimo {
         }
     }
 
-    public void renovar() {
+    public boolean renovar() {
         //todo: verificar se é o usuário atual é um bibliotecário.
         if (isRenovavel()) {
             renovacoes--;
             dataEntrega = dataEntrega.plusDays(diasEmprestados);
+            return true;
         }
+        return false;
     }
 
     public boolean devolver() {
@@ -90,9 +122,19 @@ public class Emprestimo {
             // Banir leitor por 2 dias para cada dia de atraso.
             leitor.setBanidoAte(LocalDate.now().plusDays(calcularMulta()));
         }
-        // Deixa livro disponível para empréstimo, caso não esteja.
-        livro.incrementar();
-        setDataEntrega(LocalDate.now());
+
+        this.setAsFinalizado();
+
+        if (!livro.getReservas().isEmpty()) {
+            Emprestimo proximoEmprestimo = livro.getReservas().getFirst();
+            proximoEmprestimo.setAsAtivo();
+            proximoEmprestimo.setDataEntrega(LocalDate.now().plusDays(proximoEmprestimo.getDiasEmprestados()));
+            livro.adicionarEmprestimo(proximoEmprestimo);
+            livro.removerReserva(proximoEmprestimo);
+        }
+
+        livro.removerEmprestimo(this);
+
         return true;
     }
 }
