@@ -1,10 +1,11 @@
 package main.model;
 
+import main.enums.Cargo;
+
 public class Bibliotecario extends Operadores{
 
-    public Bibliotecario(Integer id, String usuario, String senha, String nome) {
+    public Bibliotecario(String usuario, String senha, String nome) {
         super(
-            id,
             usuario,
             senha,
             nome,
@@ -16,16 +17,19 @@ public class Bibliotecario extends Operadores{
         if (leitor.isBanido()) {
             return null;
         }
-        if (livro.isDisponivel()) {
-            livro.decrementar();
-            Emprestimo novoEmprestimo = new Emprestimo(leitor, livro, diasEmpretados, renovacoes);
-            leitor.adicionarEmprestimo(novoEmprestimo);
-            return novoEmprestimo;
-        }
-        else {
-            // todo: retorna uma reserva
-            return null;
-        }
-    }
 
+        Emprestimo novoEmprestimo = new Emprestimo(leitor, livro, diasEmpretados, renovacoes);
+
+        if (livro.isDisponivel()){
+            livro.adicionarEmprestimo(novoEmprestimo);
+        }
+        else{
+            novoEmprestimo.setAsReservado();
+            livro.adicionarReserva(novoEmprestimo);
+        }
+
+        leitor.adicionarAoHistoricoEmprestimos(novoEmprestimo);
+
+        return novoEmprestimo;
+    }
 }
