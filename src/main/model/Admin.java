@@ -30,8 +30,7 @@ public class Admin extends Operadores{
      * Método que bane um leitor por atraso
      * @param leitor objeto do leitor
      * @param diasBanido quantidade de dias de banimento
-     * @return banimento bem-sucedido, caso o leitor NÃO tenha banimentos posteriores
-     * @return banimento mal-sucedido, caso o leitor TENHA banimentos posteriores
+     * @return banimento bem-sucedido (caso o leitor NÃO tenha banimentos posteriores) ou banimento mal-sucedido
      */
     public boolean banirLeitor(Leitor leitor, Integer diasBanido) {
         if (!leitor.isBanido()) {
