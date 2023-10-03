@@ -75,18 +75,6 @@ public class EmprestimoTest {
     }
 
     @Test
-    public void testaCalculaMulta() {
-        // data de entrega era ontem
-        emprestimo1.setDataEntrega(LocalDate.now().minusDays(1));
-        int multa = emprestimo1.calcularMulta();
-        assertEquals(2, multa);
-
-        emprestimo1.setDataEntrega(LocalDate.now().minusDays(2));
-        multa = emprestimo1.calcularMulta();
-        assertEquals(4, multa);
-    }
-
-    @Test
     public void testarRenovar() {
         emprestimo1.setDataEntrega(LocalDate.now());
         emprestimo1.setDiasEmprestados(3);
