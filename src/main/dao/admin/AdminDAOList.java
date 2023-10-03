@@ -12,11 +12,10 @@ import java.util.List;
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
- *
  * @see main.model.Admin
  * @see main.dao.admin.AdminDAO
  */
-public class AdminDAOList implements AdminDAO{
+public class AdminDAOList implements AdminDAO {
     private List<Admin> listaAdmins;
     private Integer ultimoID = 0;
 
@@ -26,13 +25,14 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que cria um novo administrador
+     *
      * @param objeto objeto do administrador
      * @return objeto do administrador
      */
     @Override
-    public Admin criar(Admin objeto){
+    public Admin criar(Admin objeto) {
         // Vai verificar se o objeto já existe na lista.
-        if (!listaAdmins.contains(objeto)){
+        if (!listaAdmins.contains(objeto)) {
             ultimoID++;
             objeto.setId(ultimoID);
             listaAdmins.add(objeto);
@@ -42,6 +42,7 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que retorna todos os administradores
+     *
      * @return lista de administradores
      */
     @Override
@@ -51,13 +52,14 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que retorna um administrador específico
+     *
      * @param id objeto do administrador
      * @return retorna um administrador específico
      */
     @Override
     public Admin encontrarPorID(Integer id) {
         for (Admin admin : listaAdmins) {
-            if (admin.getId().equals(id)){
+            if (admin.getId().equals(id)) {
                 return admin;
             }
         }
@@ -66,12 +68,13 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que atualiza os atributos de um administrador específico
+     *
      * @param objeto objeto do administrador
      * @return objeto do administrador
      */
     @Override
     public Admin atualizar(Admin objeto) {
-        if (listaAdmins.contains(objeto)){
+        if (listaAdmins.contains(objeto)) {
             listaAdmins.set(listaAdmins.indexOf(objeto), objeto);
         }
         return objeto;
@@ -79,6 +82,7 @@ public class AdminDAOList implements AdminDAO{
 
     /**
      * Método que remove um administrador específico
+     *
      * @param objeto objeto do administrador
      */
     @Override
