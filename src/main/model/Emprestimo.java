@@ -164,7 +164,7 @@ public class Emprestimo {
      */
     public void setAsReservado() {
         this.status = StatusEmprestimo.RESERVADO;
-        this.dataEntrega = null;
+        this.dataEntrega = LocalDate.MAX;
     }
 
     /**
@@ -195,7 +195,7 @@ public class Emprestimo {
      * Método que retorna a quantidade de dias de multa por atraso
      * @return quantidade de dias de multa por atraso
      */
-    public int calcularMulta() {
+    private int calcularMulta() {
         // Calcula multa: 2 dias de banimento para cada dia de atraso.
         int diasAtrasados = (int) (LocalDate.now().toEpochDay() - dataEntrega.toEpochDay());
         if (diasAtrasados > 0) {
