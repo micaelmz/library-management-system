@@ -18,10 +18,10 @@ Um sistema de gerenciamento de biblioteca desenvolvido para a disciplina de MI P
 
 
 <details>
-    <summary style="font-size: 18px;">📊 Diagramas do projeto</summary>
+    <summary style="font-size: 1.2rem;">📊 Diagramas do projeto</summary>
     
-  - <h5>Diagrama de Classes</h5><img src="https://raw.githubusercontent.com/thejoseviictor/SistemaGerenciamentoBiblioteca/main/doc/DiagramaClasses.png" alt="Diagrama de Classes" width="500"/>
-  - <h5>Diagrama de Casos de Uso</h5><img src="https://raw.githubusercontent.com/thejoseviictor/SistemaGerenciamentoBiblioteca/main/doc/DiagramaCasosUso.png" alt="Diagrama de Casos de Uso" width="500"/>
+  - <h5>Diagrama de Classes</h5><img src="https://raw.githubusercontent.com/thejoseviictor/SistemaGerenciamentoBiblioteca/main/diagramas/DiagramaClasses.png" alt="Diagrama de Classes" width="100%"/>
+  - <h5>Diagrama de Casos de Uso</h5><img src="https://raw.githubusercontent.com/thejoseviictor/SistemaGerenciamentoBiblioteca/main/diagramas/DiagramaCasosUso.png" alt="Diagrama de Casos de Uso" width="100%"/>
 
 </details>
 
