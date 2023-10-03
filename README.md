@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Sistema de Gerenciamento de Biblioteca
+# 📚 Sistema de Gerenciamento de Biblioteca
 <br>
 
 ![Java](https://img.shields.io/badge/Java-%23ED8B00?logo=openjdk&logoColor=white)
@@ -9,7 +9,7 @@
 
 Um sistema de gerenciamento de biblioteca desenvolvido para a disciplina de MI Programação da Universidade Estadual de Feira de Santana (UEFS).
 
-[ECOMP UEFS](https://www.ecomp.uefs.br/)&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;[Ver Documentação](#)
+[ECOMP UEFS](https://www.ecomp.uefs.br/)&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;[Ver Documentação](https://micaelmz.github.io/SistemaGerenciamentoBiblioteca)
 
 </div>
 
