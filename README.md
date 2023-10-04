@@ -9,7 +9,7 @@
 
 Um sistema de gerenciamento de biblioteca desenvolvido para a disciplina de MI Programação da Universidade Estadual de Feira de Santana (UEFS).
 
-[ECOMP UEFS](https://www.ecomp.uefs.br/)&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;[Ver Documentação](https://micaelmz.github.io/SistemaGerenciamentoBiblioteca)
+[ECOMP UEFS](https://www.ecomp.uefs.br/)&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;[Ver Documentação](https://thejoseviictor.github.io/SistemaGerenciamentoBiblioteca/)
 
 </div>
 
