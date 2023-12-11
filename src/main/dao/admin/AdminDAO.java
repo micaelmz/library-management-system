@@ -2,11 +2,12 @@ package main.dao.admin;
 
 import main.model.Admin;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para administradores</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -14,6 +15,16 @@ import java.util.List;
  * @see main.model.Admin
  */
 public interface AdminDAO {
+    /**
+     * Método que carrega os Admins do arquivo binário "Admins.dat" para a lista "listaAdmins".
+     */
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    /**
+     * Método que salva os Admins da lista "listaAdmins" para o arquivo binário "Admins.dat".
+     */
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo administrador
      * @param objeto objeto do administrador
