@@ -2,6 +2,7 @@ package main.model;
 
 import main.enums.Cargo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
@@ -27,7 +28,7 @@ import java.util.LinkedList;
  * @see main.model.Usuario
  * @see main.model.Emprestimo
  */
-public class Leitor extends Usuario{
+public class Leitor extends Usuario implements Serializable{
     private String endereco;
     private String telefone;
     private LocalDate banidoAte;

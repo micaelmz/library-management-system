@@ -2,6 +2,8 @@ package main.model;
 
 import main.enums.Cargo;
 
+import java.io.Serializable;
+
 /**
  * <b>Esta classe implementa os bibliotecários do Sistema de Biblioteca</b>
  * Os bibliotecários possuem as seguintes permissões:
@@ -17,7 +19,7 @@ import main.enums.Cargo;
  * @see main.enums.Cargo
  * @see main.model.Usuario
  */
-public class Bibliotecario extends Operadores{
+public class Bibliotecario extends Operadores implements Serializable {
 
     public Bibliotecario(String usuario, String senha, String nome) {
         super(

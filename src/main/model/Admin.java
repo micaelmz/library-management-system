@@ -2,6 +2,7 @@ package main.model;
 
 import main.enums.Cargo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -17,7 +18,7 @@ import java.time.LocalDate;
  * @see main.model.Usuario
  */
 
-public class Admin extends Operadores{
+public class Admin extends Operadores implements Serializable {
     public Admin(String usuario, String senha, String nome) {
         super(
             usuario,

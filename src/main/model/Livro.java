@@ -1,5 +1,6 @@
 package main.model;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
@@ -22,7 +23,7 @@ import java.util.LinkedList;
  * @author José Victor Oliveira
  * @author Micael Muniz
  */
-public class Livro {
+public class Livro implements Serializable {
     private Integer id;
     private String titulo;
     private String autor;

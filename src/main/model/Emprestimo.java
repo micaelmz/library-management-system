@@ -2,6 +2,7 @@ package main.model;
 
 import main.enums.StatusEmprestimo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -29,7 +30,7 @@ import java.time.LocalDate;
  * @see main.model.Leitor
  * @see main.model.Livro
  */
-public class Emprestimo {
+public class Emprestimo implements Serializable {
     private final Leitor leitor;
     private final Livro livro;
     private LocalDate dataEmprestimo;
