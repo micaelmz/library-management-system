@@ -2,7 +2,6 @@ package main.dao.usuario;
 
 import main.dao.PastaArquivos;
 import main.model.Usuario;
-
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;

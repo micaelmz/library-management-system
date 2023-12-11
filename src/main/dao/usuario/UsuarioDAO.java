@@ -3,7 +3,6 @@ package main.dao.usuario;
 import main.model.Usuario;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

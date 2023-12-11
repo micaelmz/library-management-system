@@ -1,11 +1,7 @@
 package main.dao.emprestimo;
 
 import main.dao.PastaArquivos;
-import main.dao.leitor.LeitorDAO;
-import main.model.Bibliotecario;
 import main.model.Emprestimo;
-import main.model.Leitor;
-
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
