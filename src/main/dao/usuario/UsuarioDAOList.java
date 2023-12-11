@@ -1,14 +1,15 @@
 package main.dao.usuario;
 
+import main.dao.PastaArquivos;
 import main.model.Usuario;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Esta interface implementa os métodos CRUD para usuários</b>
- * O método de armazenamento atual é LinkedList
+ * <b>Esta classe implementa os métodos CRUD para usuários</b>
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat".
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -19,19 +20,32 @@ import java.util.List;
 public class UsuarioDAOList implements UsuarioDAO{
     private List<Usuario> listaUsuarios;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Usuarios.dat";
 
     public UsuarioDAOList() {
         this.listaUsuarios = new LinkedList<Usuario>();
     }
 
+    /**
+     * Método que carrega os Usuários do arquivo binário "Usuarios.dat" para a lista "listaUsuarios".
+     */
     @Override
     public void carregarArquivo() throws IOException, ClassNotFoundException {
-
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaUsuarios = (LinkedList<Usuario>) ler.readObject();
     }
 
+    /**
+     * Método que salva os Usuários da lista "listaUsuarios" para o arquivo binário "Usuarios.dat".
+     */
     @Override
-    public void salvarArquivo() throws IOException {
-
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaUsuarios);
     }
 
     /**

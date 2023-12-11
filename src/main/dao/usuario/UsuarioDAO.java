@@ -16,8 +16,14 @@ import java.util.List;
  * @see main.model.Usuario
  */
 public interface UsuarioDAO {
+    /**
+     * Método que carrega os Usuários do arquivo binário "Usuarios.dat" para a lista "listaUsuarios".
+     */
     public void carregarArquivo() throws IOException, ClassNotFoundException;
 
+    /**
+     * Método que salva os Usuários da lista "listaUsuarios" para o arquivo binário "Usuarios.dat".
+     */
     public void salvarArquivo() throws IOException;
 
     /**
