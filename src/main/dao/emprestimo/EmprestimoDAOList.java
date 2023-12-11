@@ -1,15 +1,18 @@
 package main.dao.emprestimo;
 
+import main.dao.PastaArquivos;
 import main.dao.leitor.LeitorDAO;
+import main.model.Bibliotecario;
 import main.model.Emprestimo;
 import main.model.Leitor;
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Esta interface implementa os métodos CRUD para empréstimos</b>
- * O método de armazenamento atual é LinkedList
+ * <b>Esta classe implementa os métodos CRUD para empréstimos</b>
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -20,9 +23,32 @@ import java.util.List;
 public class EmprestimoDAOList implements EmprestimoDAO{
     private List<Emprestimo> listaEmprestimos;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Emprestimos.dat";
 
     public EmprestimoDAOList() {
         this.listaEmprestimos = new LinkedList<Emprestimo>();
+    }
+
+    /**
+     * Método que carrega os Emprestimos do arquivo binário "Emprestimos.dat" para a lista "listaEmprestimos".
+     */
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaEmprestimos = (LinkedList<Emprestimo>) ler.readObject();
+    }
+
+    /**
+     * Método que salva os Emprestimos da lista "listaEmprestimos" para o arquivo binário "Emprestimos.dat".
+     */
+    @Override
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaEmprestimos);
     }
 
     /**

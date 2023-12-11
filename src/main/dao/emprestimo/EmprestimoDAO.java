@@ -2,11 +2,12 @@ package main.dao.emprestimo;
 
 import main.model.Emprestimo;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para empréstimos</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -14,6 +15,16 @@ import java.util.List;
  * @see main.model.Emprestimo
  */
 public interface EmprestimoDAO {
+    /**
+     * Método que carrega os Emprestimos do arquivo binário "Emprestimos.dat" para a lista "listaEmprestimos".
+     */
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    /**
+     * Método que salva os Emprestimos da lista "listaEmprestimos" para o arquivo binário "Emprestimos.dat".
+     */
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo empréstimo
      * @param objeto objeto do empréstimo
