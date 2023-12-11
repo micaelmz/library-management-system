@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para bibliotecários</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
