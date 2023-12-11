@@ -1,14 +1,14 @@
 package main.dao.operadores;
 
+import main.dao.PastaArquivos;
 import main.model.Operadores;
-import main.model.Usuario;
-
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Esta interface implementa os métodos CRUD para operadores</b>
- * O método de armazenamento atual é LinkedList
+ * <b>Esta classe implementa os métodos CRUD para operadores</b>
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -19,9 +19,32 @@ import java.util.List;
 public class OperadoresDAOList implements OperadoresDAO{
     private List<Operadores> listaOperadores;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Operadores.dat";
 
     public OperadoresDAOList() {
         this.listaOperadores = new LinkedList<Operadores>();
+    }
+
+    /**
+     * Método que carrega os Operadores do arquivo binário "Operadores.dat" para a lista "listaOperadores".
+     */
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaOperadores = (LinkedList<Operadores>) ler.readObject();
+    }
+
+    /**
+     * Método que salva os Operadores da lista "listaOperadores" para o arquivo binário "Operadores.dat".
+     */
+    @Override
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaOperadores);
     }
 
     /**
