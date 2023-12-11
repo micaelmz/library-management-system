@@ -2,7 +2,7 @@ package main.dao.usuario;
 
 import main.model.Usuario;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,25 +13,17 @@ import java.util.List;
  * @author José Victor Oliveira
  * @author Micael Muniz
  *
- * @see main.model.Usuario
- * @see main.dao.usuario.UsuarioDAO
+ * @see Usuario
+ * @see UsuarioDAO
  */
-public class UsuarioDAOList implements UsuarioDAO{
+public class UsuarioDAOFile implements UsuarioDAO{
     private List<Usuario> listaUsuarios;
     private Integer ultimoID = 0;
 
-    public UsuarioDAOList() {
+    private String destinoArquivo = "C:\\Users\\Victor\\downloads\\usuarios.dat";
+
+    public UsuarioDAOFile() {
         this.listaUsuarios = new LinkedList<Usuario>();
-    }
-
-    @Override
-    public void carregarArquivo() throws IOException, ClassNotFoundException {
-
-    }
-
-    @Override
-    public void salvarArquivo() throws IOException {
-
     }
 
     /**
@@ -48,6 +40,20 @@ public class UsuarioDAOList implements UsuarioDAO{
             listaUsuarios.add(objeto);
         }
         return objeto;
+    }
+
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaUsuarios = (LinkedList<Usuario>) ler.readObject();
+    }
+
+    @Override
+    public void salvarArquivo() throws IOException{
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaUsuarios);
     }
 
     /**

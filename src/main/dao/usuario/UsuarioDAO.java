@@ -2,6 +2,8 @@ package main.dao.usuario;
 
 import main.model.Usuario;
 
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,6 +16,10 @@ import java.util.List;
  * @see main.model.Usuario
  */
 public interface UsuarioDAO {
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo usuário
      * @param objeto objeto do usuário
