@@ -37,7 +37,7 @@ gradle build
 
 | Fase 1                 | Fase 2                   | Fase 3         |
 |------------------------|--------------------------|----------------|
-| ✅ Diagramação          | ⬜ Persistência dos dados | ⬜ Views        |
+| ✅ Diagramação          | ✅ Persistência dos dados | ⬜ Views        |
 | ✅ Models               | ⬜ Testes                 | ⬜ Controllers  |
 | ✅ DAO                  | ⬜ Documentação           | ⬜ CSS          |
 | ✅ Testes Unitários     |                          | ⬜ Documentação |
