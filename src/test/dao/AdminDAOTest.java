@@ -6,6 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import main.dao.admin.AdminDAOList;
 
+import java.io.IOException;
+
 public class AdminDAOTest {
 
     AdminDAOList adminDAOList = new AdminDAOList();
@@ -40,5 +42,13 @@ public class AdminDAOTest {
     public void testDeletarTodos() {
         adminDAOList.deletarTodos();
         assertTrue(adminDAOList.lerTodos().isEmpty());
+    }
+
+    @Test
+    public void testArquivos() throws IOException, ClassNotFoundException {
+        adminDAOList.salvarArquivo();
+        adminDAOList.deletarTodos();
+        adminDAOList.carregarArquivo();
+        assertEquals("johndoe", adminDAOList.encontrarPorID(1).getUsuario());
     }
 }
