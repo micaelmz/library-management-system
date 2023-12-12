@@ -8,6 +8,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import main.dao.emprestimo.EmprestimoDAOList;
 
+import java.io.IOException;
+
 public class EmprestimoDAOTest {
 
     EmprestimoDAOList emprestimoDAOList = new EmprestimoDAOList();
@@ -63,4 +65,11 @@ public class EmprestimoDAOTest {
         assertTrue(emprestimoDAOList.lerTodos().isEmpty());
     }
 
+    @Test
+    public void testArquivos() throws IOException, ClassNotFoundException {
+        emprestimoDAOList.salvarArquivo();
+        emprestimoDAOList.deletarTodos();
+        emprestimoDAOList.carregarArquivo();
+        assertEquals("johndoe", emprestimoDAOList.encontrarPorID(1).getLeitor().getUsuario());
+    }
 }

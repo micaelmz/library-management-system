@@ -2,11 +2,12 @@ package main.dao.usuario;
 
 import main.model.Usuario;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para usuários</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -14,6 +15,16 @@ import java.util.List;
  * @see main.model.Usuario
  */
 public interface UsuarioDAO {
+    /**
+     * Método que carrega os Usuários do arquivo binário "Usuarios.dat" para a lista "listaUsuarios".
+     */
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    /**
+     * Método que salva os Usuários da lista "listaUsuarios" para o arquivo binário "Usuarios.dat".
+     */
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo usuário
      * @param objeto objeto do usuário

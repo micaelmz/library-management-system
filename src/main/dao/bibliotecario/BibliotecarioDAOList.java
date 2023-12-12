@@ -1,14 +1,17 @@
 package main.dao.bibliotecario;
 
+import main.dao.PastaArquivos;
+import main.model.Admin;
 import main.model.Bibliotecario;
 import main.model.Emprestimo;
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Esta interface implementa os métodos CRUD para bibliotecários</b>
- * O método de armazenamento atual é LinkedList
+ * <b>Esta classe implementa os métodos CRUD para bibliotecários</b>
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -19,9 +22,32 @@ import java.util.List;
 public class BibliotecarioDAOList implements BibliotecarioDAO{
     private List<Bibliotecario> listaBibliotecarios;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Bibliotecarios.dat";
 
     public BibliotecarioDAOList() {
         this.listaBibliotecarios = new LinkedList<Bibliotecario>();
+    }
+
+    /**
+     * Método que carrega os Bibliotecarios do arquivo binário "Bibliotecarios.dat" para a lista "listaBibliotecarios".
+     */
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaBibliotecarios = (LinkedList<Bibliotecario>) ler.readObject();
+    }
+
+    /**
+     * Método que salva os Bibliotecarios da lista "listaBibliotecarios" para o arquivo binário "Bibliotecarios.dat".
+     */
+    @Override
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaBibliotecarios);
     }
 
     /**

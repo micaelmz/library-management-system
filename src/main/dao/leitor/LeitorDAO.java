@@ -1,12 +1,12 @@
 package main.dao.leitor;
 
 import main.model.Leitor;
-
+import java.io.IOException;
 import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para leitores</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -14,6 +14,16 @@ import java.util.List;
  * @see main.model.Leitor
  */
 public interface LeitorDAO {
+    /**
+     * Método que carrega os Leitores do arquivo binário "Leitores.dat" para a lista "listaLeitores".
+     */
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    /**
+     * Método que salva os Leitores da lista "listaLeitores" para o arquivo binário "Leitores.dat".
+     */
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo leitor
      * @param objeto objeto do leitor

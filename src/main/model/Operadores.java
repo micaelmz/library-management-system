@@ -2,6 +2,8 @@ package main.model;
 
 import main.enums.Cargo;
 
+import java.io.Serializable;
+
 /**
  * <b>Esta classe implementa os operadores do Sistema de Biblioteca, como Administradores e Bibliotecários</b>
  *
@@ -13,7 +15,7 @@ import main.enums.Cargo;
  * @see main.enums.Cargo
  * @see main.model.Usuario
  */
-public class Operadores extends Usuario{
+public class Operadores extends Usuario implements Serializable {
 
     public Operadores(String usuario, String senha, String nome, Cargo cargo) {
         super(

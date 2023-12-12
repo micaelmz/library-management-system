@@ -1,14 +1,14 @@
 package main.dao.livro;
 
+import main.dao.PastaArquivos;
 import main.model.Livro;
-import main.model.Operadores;
-
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * <b>Esta interface implementa os métodos CRUD para livros</b>
- * O método de armazenamento atual é LinkedList
+ * <b>Esta classe implementa os métodos CRUD para livros</b>
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -19,9 +19,32 @@ import java.util.List;
 public class LivroDAOList implements LivroDAO{
     private List<Livro> listaLivros;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Livros.dat";
 
     public LivroDAOList() {
         this.listaLivros = new LinkedList<Livro>();
+    }
+
+    /**
+     * Método que carrega os Livros do arquivo binário "Livros.dat" para a lista "listaLivros".
+     */
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaLivros = (LinkedList<Livro>) ler.readObject();
+    }
+
+    /**
+     * Método que salva os Livros da lista "listaLivros" para o arquivo binário "Livros.dat".
+     */
+    @Override
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaLivros);
     }
 
     /**

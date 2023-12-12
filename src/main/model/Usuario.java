@@ -3,6 +3,8 @@ package main.model;
 import main.GlobalData;
 import main.enums.Cargo;
 
+import java.io.Serializable;
+
 /**
  * <b>Esta classe implementa os usuários do Sistema de Biblioteca e seus atributos</b>
  * Contendo as seguintes informações:
@@ -21,7 +23,7 @@ import main.enums.Cargo;
  * @see Cargo
  */
 
-public class Usuario {
+public class Usuario implements Serializable {
     private Integer id;
     private String usuario;
     private String senha;

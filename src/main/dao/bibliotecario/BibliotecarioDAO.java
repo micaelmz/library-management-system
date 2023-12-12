@@ -2,11 +2,12 @@ package main.dao.bibliotecario;
 
 import main.model.Bibliotecario;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
  * <b>Esta interface implementa os métodos CRUD para bibliotecários</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -14,6 +15,16 @@ import java.util.List;
  * @see main.model.Bibliotecario
  */
 public interface BibliotecarioDAO {
+    /**
+     * Método que carrega os Bibliotecarios do arquivo binário "Bibliotecarios.dat" para a lista "listaBibliotecarios".
+     */
+    public void carregarArquivo() throws IOException, ClassNotFoundException;
+
+    /**
+     * Método que salva os Bibliotecarios da lista "listaBibliotecarios" para o arquivo binário "Bibliotecarios.dat".
+     */
+    public void salvarArquivo() throws IOException;
+
     /**
      * Método que cria um novo bibliotecário
      * @param objeto objeto do bibliotecário

@@ -6,6 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import main.dao.bibliotecario.BibliotecarioDAOList;
 
+import java.io.IOException;
+
 public class BibliotecarioDAOTest {
 
     BibliotecarioDAOList bibliotecarioDAOList = new BibliotecarioDAOList();
@@ -42,4 +44,11 @@ public class BibliotecarioDAOTest {
         assertTrue(bibliotecarioDAOList.lerTodos().isEmpty());
     }
 
+    @Test
+    public void testArquivos() throws IOException, ClassNotFoundException {
+        bibliotecarioDAOList.salvarArquivo();
+        bibliotecarioDAOList.deletarTodos();
+        bibliotecarioDAOList.carregarArquivo();
+        assertEquals("johndoe", bibliotecarioDAOList.encontrarPorID(1).getUsuario());
+    }
 }

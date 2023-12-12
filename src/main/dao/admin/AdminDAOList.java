@@ -1,14 +1,17 @@
 package main.dao.admin;
 
+import main.dao.PastaArquivos;
 import main.model.Admin;
 import main.model.Bibliotecario;
+import main.model.Usuario;
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * <b>Esta classe implementa os métodos CRUD para administradores</b>
- * O método de armazenamento atual é LinkedList
+ * Os métodos de armazenamento atuais são os arquivos binários ".dat"
  *
  * @author José Victor Oliveira
  * @author Micael Muniz
@@ -18,9 +21,32 @@ import java.util.List;
 public class AdminDAOList implements AdminDAO {
     private List<Admin> listaAdmins;
     private Integer ultimoID = 0;
+    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Admins.dat";
 
     public AdminDAOList() {
         this.listaAdmins = new LinkedList<Admin>();
+    }
+
+    /**
+     * Método que carrega os Admins do arquivo binário "Admins.dat" para a lista "listaAdmins".
+     */
+    @Override
+    public void carregarArquivo() throws IOException, ClassNotFoundException {
+        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
+        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
+        listaAdmins = (LinkedList<Admin>) ler.readObject();
+    }
+
+    /**
+     * Método que salva os Admins da lista "listaAdmins" para o arquivo binário "Admins.dat".
+     */
+    @Override
+    public void salvarArquivo() throws IOException{
+        PastaArquivos existePastaArquivos = new PastaArquivos();
+        existePastaArquivos.verificarPastaArquivos();
+        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
+        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
+        salvar.writeObject(listaAdmins);
     }
 
     /**

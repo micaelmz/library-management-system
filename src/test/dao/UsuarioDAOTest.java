@@ -6,6 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import main.dao.usuario.UsuarioDAOList;
 
+import java.io.IOException;
+
 public class UsuarioDAOTest {
 
     UsuarioDAOList usuarioDAOList = new UsuarioDAOList();
@@ -39,5 +41,13 @@ public class UsuarioDAOTest {
     public void testDeletarTudo() {
         usuarioDAOList.deletarTodos();
         assertTrue(usuarioDAOList.lerTodos().isEmpty());
+    }
+
+    @Test
+    public void testArquivos() throws IOException, ClassNotFoundException {
+        usuarioDAOList.salvarArquivo();
+        usuarioDAOList.deletarTodos();
+        usuarioDAOList.carregarArquivo();
+        assertEquals("johndoe", usuarioDAOList.encontrarPorID(1).getUsuario());
     }
 }
