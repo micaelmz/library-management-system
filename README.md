@@ -39,7 +39,7 @@ gradle build
 |------------------------|--------------------------|----------------|
 | ✅ Diagramação          | ✅ Persistência dos dados | ⬜ Views        |
 | ✅ Models               | ⬜ Testes                 | ⬜ Controllers  |
-| ✅ DAO                  | ⬜ Documentação           | ⬜ CSS          |
+| ✅ DAO                  | ✅ Documentação           | ⬜ CSS          |
 | ✅ Testes Unitários     |                          | ⬜ Documentação |
 | ⬜ Testes de Integração |                          |                |
 | ✅ Operações de CRUD    |                          |                |
