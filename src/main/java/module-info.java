@@ -5,6 +5,16 @@ module app.main {
 
     opens app to javafx.fxml;
     exports app;
-    exports app.controllers;
+
     opens app.controllers to javafx.fxml;
+    exports app.controllers;
+
+    opens test to junit;
+    exports test;
+
+    opens test.dao to junit;
+    exports test.dao;
+
+    opens test.model to junit;
+    exports test.model;
 }
