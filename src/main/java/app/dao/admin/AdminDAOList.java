@@ -1,6 +1,7 @@
 package app.dao.admin;
 
-import app.dao.PastaArquivos;
+import app.dao.DatFilesFolder;
+
 import app.model.Admin;
 
 import java.io.*;
@@ -17,51 +18,51 @@ import java.util.List;
  * @see app.dao.admin.AdminDAO
  */
 public class AdminDAOList implements AdminDAO {
-    private List<Admin> listaAdmins;
-    private Integer ultimoID = 0;
-    private String destinoArquivo = System.getProperty("user.dir") + "\\files\\Admins.dat";
+    private List<Admin> admins;
+    private Integer lastId = 0;
+    private String filePath = System.getProperty("user.dir") + "\\files\\Admins.dat";
 
     public AdminDAOList() {
-        this.listaAdmins = new LinkedList<Admin>();
+        this.admins = new LinkedList<Admin>();
     }
 
     /**
      * Método que carrega os Admins do arquivo binário "Admins.dat" para a lista "listaAdmins".
      */
     @Override
-    public void carregarArquivo() throws IOException, ClassNotFoundException {
-        FileInputStream arquivoEntrar = new FileInputStream(destinoArquivo);
-        ObjectInputStream ler = new ObjectInputStream(arquivoEntrar);
-        listaAdmins = (LinkedList<Admin>) ler.readObject();
+    public void loadDatFile() throws IOException, ClassNotFoundException {
+        FileInputStream file = new FileInputStream(filePath);
+        ObjectInputStream object = new ObjectInputStream(file);
+        admins = (LinkedList<Admin>) object.readObject();
     }
 
     /**
      * Método que salva os Admins da lista "listaAdmins" para o arquivo binário "Admins.dat".
      */
     @Override
-    public void salvarArquivo() throws IOException{
-        PastaArquivos existePastaArquivos = new PastaArquivos();
-        existePastaArquivos.verificarPastaArquivos();
-        FileOutputStream arquivoSair = new FileOutputStream(destinoArquivo);
-        ObjectOutputStream salvar = new ObjectOutputStream(arquivoSair);
-        salvar.writeObject(listaAdmins);
+    public void saveDatFile() throws IOException {
+        DatFilesFolder folder = new DatFilesFolder();
+        folder.ensureDestinationFolderExists();
+        FileOutputStream file = new FileOutputStream(filePath);
+        ObjectOutputStream object = new ObjectOutputStream(file);
+        object.writeObject(admins);
     }
 
     /**
      * Método que cria um novo administrador
      *
-     * @param objeto objeto do administrador
-     * @return objeto do administrador
+     * @param model model do administrador
+     * @return model do administrador
      */
     @Override
-    public Admin criar(Admin objeto) {
-        // Vai verificar se o objeto já existe na lista.
-        if (!listaAdmins.contains(objeto)) {
-            ultimoID++;
-            objeto.setId(ultimoID);
-            listaAdmins.add(objeto);
+    public Admin create(Admin model) {
+        // Vai verificar se o model já existe na lista.
+        if (!admins.contains(model)) {
+            lastId++;
+            model.setId(lastId);
+            admins.add(model);
         }
-        return objeto;
+        return model;
     }
 
     /**
@@ -70,19 +71,19 @@ public class AdminDAOList implements AdminDAO {
      * @return lista de administradores
      */
     @Override
-    public List<Admin> lerTodos() {
-        return listaAdmins;
+    public List<Admin> getAll() {
+        return admins;
     }
 
     /**
      * Método que retorna um administrador específico
      *
-     * @param id objeto do administrador
+     * @param id model do administrador
      * @return retorna um administrador específico
      */
     @Override
-    public Admin encontrarPorID(Integer id) {
-        for (Admin admin : listaAdmins) {
+    public Admin findById(Integer id) {
+        for (Admin admin : admins) {
             if (admin.getId().equals(id)) {
                 return admin;
             }
@@ -93,32 +94,32 @@ public class AdminDAOList implements AdminDAO {
     /**
      * Método que atualiza os atributos de um administrador específico
      *
-     * @param objeto objeto do administrador
-     * @return objeto do administrador
+     * @param model model do administrador
+     * @return model do administrador
      */
     @Override
-    public Admin atualizar(Admin objeto) {
-        if (listaAdmins.contains(objeto)) {
-            listaAdmins.set(listaAdmins.indexOf(objeto), objeto);
+    public Admin update(Admin model) {
+        if (admins.contains(model)) {
+            admins.set(admins.indexOf(model), model);
         }
-        return objeto;
+        return model;
     }
 
     /**
      * Método que remove um administrador específico
      *
-     * @param objeto objeto do administrador
+     * @param model model do administrador
      */
     @Override
-    public void deletar(Admin objeto) {
-        listaAdmins.remove(objeto);
+    public void delete(Admin model) {
+        admins.remove(model);
     }
 
     /**
      * Método que remove todos os administradores
      */
     @Override
-    public void deletarTodos() {
-        listaAdmins.clear();
+    public void deleteAll() {
+        admins.clear();
     }
 }

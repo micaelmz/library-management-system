@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2023-12-11">
-<meta name="description" content="declaration: package: main.java.app.dao.operadores, class: OperadoresDAOList">
+<meta name="description" content="declaration: package: main.java.app.dao.moderator, class: OperadoresDAOList">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
@@ -83,21 +83,21 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.operadores</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.moderator</a></div>
 <h1 title="Class OperadoresDAOList" class="title">Class OperadoresDAOList</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.java.app.dao.operadores.OperadoresDAOList</div>
+<div class="inheritance">main.java.app.dao.moderator.ModeratorDAOList</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">OperadoresDAOList</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></span></div>
+implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></span></div>
 <div class="block"><b>Esta classe implementa os métodos CRUD para operadores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 <dl class="notes">
@@ -107,7 +107,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <dd>
 <ul class="tag-list">
 <li><a href="../../model/Operadores.html" title="class in main.java.app.model"><code>Operadores</code></a></li>
-<li><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores"><code>OperadoresDAO</code></a></li>
+<li><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator"><code>OperadoresDAO</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -218,7 +218,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que carrega os Operadores do arquivo binário "Operadores.dat" para a lista "listaOperadores".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassNotFoundException.html" title="class or interface in java.lang" class="external-link">ClassNotFoundException</a></code></dd>
@@ -233,7 +233,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que salva os Operadores da lista "listaOperadores" para o arquivo binário "Operadores.dat".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 </dl>
@@ -246,7 +246,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que cria um novo operador</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#criar(main.model.Operadores)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#criar(main.model.Operadores)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do operador</dd>
 <dt>Returns:</dt>
@@ -261,7 +261,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que retorna todos os operadores</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Returns:</dt>
 <dd>lista de operadores</dd>
 </dl>
@@ -274,7 +274,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que retorna um operador específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>id</code> - objeto do operador</dd>
 <dt>Returns:</dt>
@@ -289,7 +289,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que atualiza os atributos de um operador específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#atualizar(main.model.Operadores)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#atualizar(main.model.Operadores)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do operador</dd>
 <dt>Returns:</dt>
@@ -304,7 +304,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que remove um operador específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#deletar(main.model.Operadores)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#deletar(main.model.Operadores)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do operador</dd>
 </dl>
@@ -317,7 +317,7 @@ implements <a href="OperadoresDAO.html" title="interface in main.java.app.dao.op
 <div class="block">Método que remove todos os operadores</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="OperadoresDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></code></dd>
+<dd><code><a href="OperadoresDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></code></dd>
 </dl>
 </section>
 </li>

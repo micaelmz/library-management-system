@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.RegisterController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.RegisterController">
    <children>
       <Label layoutX="168.0" layoutY="57.0" text="Cadastro">
          <font>
@@ -17,7 +17,7 @@
       </Label>
       <TextField fx:id="fnameInput" layoutX="168.0" layoutY="98.0" prefHeight="39.0" prefWidth="129.0" promptText="Nome" styleClass="modernInput" />
       <PasswordField fx:id="confirmPasswordInput" layoutX="168.0" layoutY="215.0" prefHeight="39.0" prefWidth="258.0" promptText="Confirmar senha" styleClass="modernInput" />
-      <Button fx:id="registerButton" layoutX="168.0" layoutY="300.0" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="43.0" prefWidth="258.0" styleClass="modernButton" stylesheets="@styles.css" text="Registrar-se" />
+      <Button fx:id="registerButton" layoutX="168.0" layoutY="300.0" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="43.0" prefWidth="258.0" styleClass="modernButton" stylesheets="@css/styles.css" text="Registrar-se" />
       <Label layoutX="168.0" layoutY="264.0" prefHeight="27.0" prefWidth="149.0" text="Já tem uma conta?">
          <font>
             <Font name="Poppins Regular" size="15.0" />

@@ -87,9 +87,9 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Bibliotecario" class="title">Class Bibliotecario</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="Usuario.html" title="class in main.java.app.model">main.java.app.model.Usuario</a>
-<div class="inheritance"><a href="Operadores.html" title="class in main.java.app.model">main.java.app.model.Operadores</a>
-<div class="inheritance">main.java.app.model.Bibliotecario</div>
+<div class="inheritance"><a href="Usuario.html" title="class in main.java.app.model">main.java.app.model.BaseUser</a>
+<div class="inheritance"><a href="Operadores.html" title="class in main.java.app.model">main.java.app.model.Moderator</a>
+<div class="inheritance">main.java.app.model.Librarian</div>
 </div>
 </div>
 </div>
@@ -109,7 +109,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
  Fazer empréstimos ou devoluções
 
  Exemplo de Uso:
- Bibliotecario bibliotecario = new Bibliotecario("usuario", "senha", "nome");</div>
+ Bibliotecario librarian = new Bibliotecario("baseUser", "senha", "nome");</div>
 <dl class="notes">
 <dt>Author:</dt>
 <dd>Micael Muniz</dd>
@@ -133,7 +133,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">Bibliotecario</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usuario,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">Bibliotecario</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseUser,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;senha,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;nome)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -152,12 +152,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criarEmprestimo(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)" class="member-name-link">criarEmprestimo</a><wbr>(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;leitor,
- <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;livro,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criarEmprestimo(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)" class="member-name-link">criarEmprestimo</a><wbr>(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
+ <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;book,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasEmpretados,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;renovacoes)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que cria um novo empréstimo para um leitor</div>
+<div class="block">Método que cria um novo empréstimo para um reader</div>
 </div>
 </div>
 </div>
@@ -182,7 +182,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
 <h3>Bibliotecario</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Bibliotecario</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usuario,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Bibliotecario</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseUser,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;senha,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;nome)</span></div>
 </section>
@@ -198,15 +198,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="criarEmprestimo(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)">
 <h3>criarEmprestimo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></span>&nbsp;<span class="element-name">criarEmprestimo</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;leitor,
- <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;livro,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></span>&nbsp;<span class="element-name">criarEmprestimo</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
+ <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;book,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasEmpretados,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;renovacoes)</span></div>
-<div class="block">Método que cria um novo empréstimo para um leitor</div>
+<div class="block">Método que cria um novo empréstimo para um reader</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>leitor</code> - objeto do leitor</dd>
-<dd><code>livro</code> - objeto do livro</dd>
+<dd><code>reader</code> - objeto do reader</dd>
+<dd><code>book</code> - objeto do book</dd>
 <dd><code>diasEmpretados</code> - dias totais do empréstimo</dd>
 <dd><code>renovacoes</code> - quantidade de renovações</dd>
 <dt>Returns:</dt>

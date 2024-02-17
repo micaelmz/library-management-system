@@ -87,8 +87,8 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Admin" class="title">Class Admin</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="Usuario.html" title="class in main.java.app.model">main.java.app.model.Usuario</a>
-<div class="inheritance"><a href="Operadores.html" title="class in main.java.app.model">main.java.app.model.Operadores</a>
+<div class="inheritance"><a href="Usuario.html" title="class in main.java.app.model">main.java.app.model.BaseUser</a>
+<div class="inheritance"><a href="Operadores.html" title="class in main.java.app.model">main.java.app.model.Moderator</a>
 <div class="inheritance">main.java.app.model.Admin</div>
 </div>
 </div>
@@ -106,7 +106,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
  Os administradores possuem poder absoluto sobre todos os métodos.
 
  Exemplo de Uso:
- Admin admin = new Admin("usuario", "senha", "nome");</div>
+ Admin admin = new Admin("baseUser", "senha", "nome");</div>
 <dl class="notes">
 <dt>Author:</dt>
 <dd>Micael Muniz</dd>
@@ -130,7 +130,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">Admin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usuario,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String)" class="member-name-link">Admin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseUser,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;senha,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;nome)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -149,10 +149,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#banirLeitor(main.model.Leitor,java.lang.Integer)" class="member-name-link">banirLeitor</a><wbr>(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;leitor,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#banirLeitor(main.model.Leitor,java.lang.Integer)" class="member-name-link">banirLeitor</a><wbr>(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasBanido)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que bane um leitor por atraso</div>
+<div class="block">Método que bane um reader por atraso</div>
 </div>
 </div>
 </div>
@@ -177,7 +177,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.String)">
 <h3>Admin</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Admin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;usuario,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Admin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;baseUser,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;senha,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;nome)</span></div>
 </section>
@@ -193,15 +193,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="banirLeitor(main.model.Leitor,java.lang.Integer)">
 <h3>banirLeitor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">banirLeitor</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;leitor,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">banirLeitor</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasBanido)</span></div>
-<div class="block">Método que bane um leitor por atraso</div>
+<div class="block">Método que bane um reader por atraso</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>leitor</code> - objeto do leitor</dd>
+<dd><code>reader</code> - objeto do reader</dd>
 <dd><code>diasBanido</code> - quantidade de dias de banimento</dd>
 <dt>Returns:</dt>
-<dd>banimento bem-sucedido (caso o leitor NÃO tenha banimentos posteriores) ou banimento mal-sucedido</dd>
+<dd>banimento bem-sucedido (caso o reader NÃO tenha banimentos posteriores) ou banimento mal-sucedido</dd>
 </dl>
 </section>
 </li>

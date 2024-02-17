@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2023-12-11">
-<meta name="description" content="declaration: package: main.java.app.dao.bibliotecario, class: BibliotecarioDAOList">
+<meta name="description" content="declaration: package: main.java.app.dao.librarian, class: BibliotecarioDAOList">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
@@ -83,21 +83,21 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.bibliotecario</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.librarian</a></div>
 <h1 title="Class BibliotecarioDAOList" class="title">Class BibliotecarioDAOList</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.java.app.dao.bibliotecario.BibliotecarioDAOList</div>
+<div class="inheritance">main.java.app.dao.librarian.LibrarianDAOList</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BibliotecarioDAOList</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></span></div>
+implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></span></div>
 <div class="block"><b>Esta classe implementa os métodos CRUD para bibliotecários</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 <dl class="notes">
@@ -107,7 +107,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <dd>
 <ul class="tag-list">
 <li><a href="../../model/Bibliotecario.html" title="class in main.java.app.model"><code>Bibliotecario</code></a></li>
-<li><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario"><code>BibliotecarioDAO</code></a></li>
+<li><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian"><code>BibliotecarioDAO</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -218,7 +218,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que carrega os Bibliotecarios do arquivo binário "Bibliotecarios.dat" para a lista "listaBibliotecarios".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassNotFoundException.html" title="class or interface in java.lang" class="external-link">ClassNotFoundException</a></code></dd>
@@ -233,7 +233,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que salva os Bibliotecarios da lista "listaBibliotecarios" para o arquivo binário "Bibliotecarios.dat".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 </dl>
@@ -246,7 +246,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que cria um novo bibliotecário</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#criar(main.model.Bibliotecario)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#criar(main.model.Bibliotecario)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do bibliotecário</dd>
 <dt>Returns:</dt>
@@ -261,7 +261,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que retorna todos os bibliotecários</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Returns:</dt>
 <dd>lista de bibliotecários</dd>
 </dl>
@@ -274,7 +274,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que retorna um bibliotecário específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>id</code> - objeto do bibliotecário</dd>
 <dt>Returns:</dt>
@@ -289,7 +289,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que atualiza os atributos de um bibliotecário específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#atualizar(main.model.Bibliotecario)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#atualizar(main.model.Bibliotecario)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do bibliotecário</dd>
 <dt>Returns:</dt>
@@ -304,7 +304,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que remove um bibliotecário específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#deletar(main.model.Bibliotecario)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#deletar(main.model.Bibliotecario)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do bibliotecário</dd>
 </dl>
@@ -317,7 +317,7 @@ implements <a href="BibliotecarioDAO.html" title="interface in main.java.app.dao
 <div class="block">Método que remove todos os bibliotecários</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="BibliotecarioDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></code></dd>
+<dd><code><a href="BibliotecarioDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></code></dd>
 </dl>
 </section>
 </li>

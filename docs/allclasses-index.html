@@ -81,14 +81,14 @@ loadScripts(document, 'script');</script>
  Fazer empréstimos ou devoluções
 
  Exemplo de Uso:
- Bibliotecario bibliotecario = new Bibliotecario("usuario", "senha", "nome");</div>
+ Bibliotecario librarian = new Bibliotecario("baseUser", "senha", "nome");</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/bibliotecario/BibliotecarioDAO.html" title="interface in main.java.app.dao.bibliotecario">BibliotecarioDAO</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/librarian/BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian">BibliotecarioDAO</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para bibliotecários</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/bibliotecario/BibliotecarioDAOList.html" title="class in main.java.app.dao.bibliotecario">BibliotecarioDAOList</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/librarian/BibliotecarioDAOList.html" title="class in main.java.app.dao.librarian">BibliotecarioDAOList</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para bibliotecários</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
@@ -104,7 +104,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="main/model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
-<div class="block"><b>Esta classe implementa os recibos de empréstimo de cada leitor</b>
+<div class="block"><b>Esta classe implementa os recibos de empréstimo de cada reader</b>
  Contendo os seguintes atributos:
  Leitor associado (Leitor)
  Livro associado (Livro)
@@ -117,12 +117,12 @@ loadScripts(document, 'script');</script>
 
  Apenas os Administradores e Bibliotecários podem criar empréstimos.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/emprestimo/EmprestimoDAO.html" title="interface in main.java.app.dao.emprestimo">EmprestimoDAO</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/borrowing/EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para empréstimos</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/emprestimo/EmprestimoDAOList.html" title="class in main.java.app.dao.emprestimo">EmprestimoDAOList</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/borrowing/EmprestimoDAOList.html" title="class in main.java.app.dao.borrowing">EmprestimoDAOList</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para empréstimos</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
@@ -143,12 +143,12 @@ loadScripts(document, 'script');</script>
 
  Apenas os Administradores podem adicionar dias de banimento ao Leitor.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/leitor/LeitorDAO.html" title="interface in main.java.app.dao.leitor">LeitorDAO</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/reader/LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para leitores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/leitor/LeitorDAOList.html" title="class in main.java.app.dao.leitor">LeitorDAOList</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/reader/LeitorDAOList.html" title="class in main.java.app.dao.reader">LeitorDAOList</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para leitores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
@@ -157,26 +157,26 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os livros da Biblioteca e suas cópias</b>
  Contendo as seguintes informações:
- ID do livro
- Título do livro
- Autor do livro
- ISBN do livro (International Standard Book Number | Padrão Internacional de Numeração de Livro)
- Ano de publicação do livro
- Categoria do livro
- Quantidade de cópias do livro
- Limite de renovações do livro
+ ID do book
+ Título do book
+ Autor do book
+ ISBN do book (International Standard Book Number | Padrão Internacional de Numeração de Livro)
+ Ano de publicação do book
+ Categoria do book
+ Quantidade de cópias do book
+ Limite de renovações do book
  Lista de empréstimos
  Lista de reservas
 
  Exemplo de Uso:
- Livro livro = new Livro(id, "titulo", "autor", "isbn", anoPublicacao, "categoria", quantidade, limiteRenovacoes);</div>
+ Livro book = new Livro(id, "titulo", "autor", "isbn", anoPublicacao, "categoria", quantidade, limiteRenovacoes);</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/livro/LivroDAO.html" title="interface in main.java.app.dao.livro">LivroDAO</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/book/LivroDAO.html" title="interface in main.java.app.dao.book">LivroDAO</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para livros</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/livro/LivroDAOList.html" title="class in main.java.app.dao.livro">LivroDAOList</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/book/LivroDAOList.html" title="class in main.java.app.dao.book">LivroDAOList</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para livros</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
@@ -188,14 +188,14 @@ loadScripts(document, 'script');</script>
 <div class="block"><b>Esta classe implementa os operadores do Sistema de Biblioteca, como Administradores e Bibliotecários</b>
 
  Exemplo de Uso:
- Operadores operador = new Operador("usuario", "senha", "nome", "cargo");</div>
+ Operadores operador = new Operador("baseUser", "senha", "nome", "role");</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/operadores/OperadoresDAO.html" title="interface in main.java.app.dao.operadores">OperadoresDAO</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/operadores/OperadoresDAO.html" title="interface in main.java.app.dao.moderator">OperadoresDAO</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para operadores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/operadores/OperadoresDAOList.html" title="class in main.java.app.dao.operadores">OperadoresDAOList</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/operadores/OperadoresDAOList.html" title="class in main.java.app.dao.moderator">OperadoresDAOList</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para operadores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
@@ -224,12 +224,12 @@ loadScripts(document, 'script');</script>
  Nome Completo do Usuário (String);
  Cargo do Usuário (Cargo).</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/usuario/UsuarioDAO.html" title="interface in main.java.app.dao.usuario">UsuarioDAO</a></div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab1"><a href="main/dao/baseUser/UsuarioDAO.html" title="interface in main.java.app.dao.baseuser">UsuarioDAO</a></div>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab1">
 <div class="block"><b>Esta interface implementa os métodos CRUD para usuários</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/usuario/UsuarioDAOList.html" title="class in main.java.app.dao.usuario">UsuarioDAOList</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="main/dao/baseUser/UsuarioDAOList.html" title="class in main.java.app.dao.baseuser">UsuarioDAOList</a></div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block"><b>Esta classe implementa os métodos CRUD para usuários</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat".</div>

@@ -1,7 +1,7 @@
 package test.model;
 
 import app.model.Admin;
-import app.model.Leitor;
+import app.model.Reader;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,14 +11,14 @@ import java.time.LocalDate;
 public class AdminTest {
 
     @Test
-    public void testBanirLeitor() {
+    public void testBanReader() {
         Admin admin = new Admin(
                 "joao1",
                 "123456",
                 "João"
         );
 
-        Leitor leitor = new Leitor(
+        Reader reader = new Reader(
                 "johndoe",
                 "123456",
                 "John Doe",
@@ -26,8 +26,8 @@ public class AdminTest {
                 "(99) 99999-9999"
         );
 
-        admin.banirLeitor(leitor, 7);
-        assertTrue(leitor.isBanido());
-        assertEquals(LocalDate.now().plusDays(7), leitor.getBanidoAte());
+        admin.banReader(reader, 7);
+        assertTrue(reader.isBanned());
+        assertEquals(LocalDate.now().plusDays(7), reader.getBannedUntil());
     }
 }

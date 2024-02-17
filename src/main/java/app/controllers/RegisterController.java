@@ -1,16 +1,14 @@
 package app.controllers;
 
-import app.dao.admin.AdminDAOList;
+import app.dao.baseuser.BaseUserDAOList;
+import app.model.BaseUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import app.dao.usuario.UsuarioDAOList;
-import app.model.Usuario;
 import app.views.LoginView;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 public class RegisterController {
@@ -22,7 +20,7 @@ public class RegisterController {
     @FXML PasswordField confirmPasswordInput;
     @FXML Label statusLabel;
 
-    UsuarioDAOList users = new UsuarioDAOList();
+    BaseUserDAOList users = new BaseUserDAOList();
     Boolean erro = false;
 
     @FXML
@@ -30,8 +28,8 @@ public class RegisterController {
         String fullName = fnameInput.getText() + " " + lnameInput.getText();
         String username = usernameInput.getText();
         String password = passwordInput.getText();
-        users.carregarArquivo();
-        List<Usuario> usuarios = users.lerTodos();
+        users.loadDatFile();
+        List<BaseUser> baseUsers = users.getAll();
         if (username.isEmpty() || password.isEmpty()) {
             statusLabel.setText("Preencha todos os campos");
             erro = true;
@@ -40,15 +38,15 @@ public class RegisterController {
             statusLabel.setText("As senhas não coincidem");
             erro = true;
         }
-        for (Usuario usuario : usuarios) {
-            if (usuario.getUsuario().equals(username)) {
+        for (BaseUser baseUser : baseUsers) {
+            if (baseUser.getUsername().equals(username)) {
                 statusLabel.setText("Usuário já existe");
                 erro = true;
             }
         }
         if (!erro) {
-            users.criar(new Usuario(username, password, fullName));
-            users.salvarArquivo();
+            users.create(new BaseUser(username, password, fullName));
+            users.saveDatFile();
             statusLabel.setText("Usuário criado com sucesso");
         }
     }

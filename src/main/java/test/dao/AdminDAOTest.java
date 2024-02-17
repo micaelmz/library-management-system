@@ -14,41 +14,41 @@ public class AdminDAOTest {
 
     @Before
     public void setUp() {
-        adminDAOList.criar(new Admin("johndoe","123456","John Doe"));
-        adminDAOList.criar(new Admin("janedoe","123456","Jane Doe"));
+        adminDAOList.create(new Admin("johndoe","123456","John Doe"));
+        adminDAOList.create(new Admin("janedoe","123456","Jane Doe"));
     }
 
     @Test
-    public void testEncontrarPorID() {
-        assertEquals("janedoe", adminDAOList.encontrarPorID(2).getUsuario());
-        assertEquals("John Doe", adminDAOList.encontrarPorID(1).getNome());
+    public void testFindById() {
+        assertEquals("janedoe", adminDAOList.findById(2).getUsername());
+        assertEquals("John Doe", adminDAOList.findById(1).getName());
     }
 
     @Test
-    public void testAtualizar() {
-        Admin admin = adminDAOList.encontrarPorID(1);
-        admin.setNome("John Doe Jr.");
-        adminDAOList.atualizar(admin);
-        assertEquals("John Doe Jr.", adminDAOList.encontrarPorID(1).getNome());
+    public void testUpdate() {
+        Admin admin = adminDAOList.findById(1);
+        admin.setName("John Doe Jr.");
+        adminDAOList.update(admin);
+        assertEquals("John Doe Jr.", adminDAOList.findById(1).getName());
     }
 
     @Test
-    public void testDeletar() {
-        adminDAOList.deletar(adminDAOList.encontrarPorID(1));
-        assertNull(adminDAOList.encontrarPorID(1));
+    public void testDelete() {
+        adminDAOList.delete(adminDAOList.findById(1));
+        assertNull(adminDAOList.findById(1));
     }
 
     @Test
-    public void testDeletarTodos() {
-        adminDAOList.deletarTodos();
-        assertTrue(adminDAOList.lerTodos().isEmpty());
+    public void testDeleteAll() {
+        adminDAOList.deleteAll();
+        assertTrue(adminDAOList.getAll().isEmpty());
     }
 
     @Test
-    public void testArquivos() throws IOException, ClassNotFoundException {
-        adminDAOList.salvarArquivo();
-        adminDAOList.deletarTodos();
-        adminDAOList.carregarArquivo();
-        assertEquals("johndoe", adminDAOList.encontrarPorID(1).getUsuario());
+    public void testDataPersistence() throws IOException, ClassNotFoundException {
+        adminDAOList.saveDatFile();
+        adminDAOList.deleteAll();
+        adminDAOList.loadDatFile();
+        assertEquals("johndoe", adminDAOList.findById(1).getUsername());
     }
 }

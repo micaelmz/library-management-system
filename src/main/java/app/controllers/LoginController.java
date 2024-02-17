@@ -1,7 +1,7 @@
 package app.controllers;
 
-import app.dao.usuario.UsuarioDAOList;
-import app.model.Usuario;
+import app.dao.baseuser.BaseUserDAOList;
+import app.model.BaseUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -20,15 +20,15 @@ public class LoginController {
     @FXML
     private PasswordField passwordInput;
 
-    UsuarioDAOList users = new UsuarioDAOList();
+    BaseUserDAOList users = new BaseUserDAOList();
 
     @FXML
     protected void onLoginClick() throws IOException, ClassNotFoundException {
         String username = loginInput.getText();
         String password = passwordInput.getText();
-        users.carregarArquivo();
-        Usuario user = users.encontrarPorUsuario(username);
-        if (user != null && user.getSenha().equals(password)) {
+        users.loadDatFile();
+        BaseUser user = users.findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
             statusLabel.setText("Login successful");
         } else {
             statusLabel.setText("Login failed");

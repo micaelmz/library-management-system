@@ -1,11 +1,11 @@
 main
 main.java.app.dao
 main.java.app.dao.admin
-main.java.app.dao.bibliotecario
-main.java.app.dao.emprestimo
-main.java.app.dao.leitor
-main.java.app.dao.livro
-main.java.app.dao.operadores
-main.java.app.dao.usuario
+main.java.app.dao.librarian
+main.java.app.dao.borrowing
+main.java.app.dao.reader
+main.java.app.dao.book
+main.java.app.dao.moderator
+main.java.app.dao.baseuser
 main.java.app.enums
 main.java.app.model

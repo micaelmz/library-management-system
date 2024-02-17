@@ -8,10 +8,10 @@ import java.util.List;
  * @author Micael Muniz
  */
 public interface CRUD<T> {
-    public void criar(T objeto);
-    public List<T> lerTodos();
-    public T encontrarPorID(long id);
-    public void atualizar(T objeto);
-    public void deletar(T objeto);
-    public void deletarTodos();
+    public void create(T objeto);
+    public List<T> getAll();
+    public T findById(long id);
+    public void update(T objeto);
+    public void delete(T objeto);
+    public void deleteAll();
 }
