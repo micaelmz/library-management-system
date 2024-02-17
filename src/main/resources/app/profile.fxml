@@ -4,14 +4,23 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ProfileController">
    <children>
-      <TextField fx:id="fnameInput" layoutX="151.0" layoutY="140.0" promptText="First Name" />
-      <TextField fx:id="lnameInput" layoutX="309.0" layoutY="140.0" promptText="Last Name" />
-      <TextField fx:id="usernameInput" layoutX="226.0" layoutY="188.0" promptText="Username" />
-      <PasswordField fx:id="passwordInput" layoutX="153.0" layoutY="239.0" promptText="Password" />
+      <TextField fx:id="nameInput" layoutX="170.0" layoutY="149.0" prefHeight="25.0" prefWidth="329.0" />
+      <TextField fx:id="usernameInput" layoutX="226.0" layoutY="177.0" />
+      <PasswordField fx:id="passwordInput" layoutX="226.0" layoutY="202.0" />
       <Button fx:id="saveButton" layoutX="227.0" layoutY="286.0" mnemonicParsing="false" onAction="#onSaveButton" styleClass="modernButton" stylesheets="@css/styles.css" text="Salvar Alterações" />
-      <PasswordField fx:id="confirmPasswordInput" layoutX="309.0" layoutY="239.0" promptText="Password" />
+      <Text fx:id="nameLabel" layoutX="75.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome completo:" wrappingWidth="92.95247268676758" />
+      <Text fx:id="usernameLabel" layoutX="122.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome de usuário:" wrappingWidth="104.95247650146484" />
+      <Text fx:id="passwordLabel" layoutX="181.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" wrappingWidth="42.285804748535156" />
+      <Text layoutX="243.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo(a) ao seu" wrappingWidth="116.03909301757812" />
+      <Text layoutX="205.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Perfil de Usuário" wrappingWidth="194.76205253601074">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
