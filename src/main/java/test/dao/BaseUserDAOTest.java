@@ -25,9 +25,10 @@ public class BaseUserDAOTest {
 
     @Test
     public void testUpdate() {
-        BaseUser baseUser = baseUserDAOList.findById(1);
-        baseUser.setName("John Doe 2");
-        baseUserDAOList.update(baseUser);
+        BaseUser oldUserInfo = baseUserDAOList.findById(1);
+        BaseUser newUserInfo = oldUserInfo;
+        newUserInfo.setName("John Doe 2");
+        baseUserDAOList.update(oldUserInfo, newUserInfo);
         assertEquals("John Doe 2", baseUserDAOList.findById(1).getName());
     }
 
