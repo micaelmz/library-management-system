@@ -5,6 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import app.views.RegisterView;
+
 
 public class LoginController {
     @FXML
@@ -21,5 +23,10 @@ public class LoginController {
         } else {
             statusLabel.setText("Login failed!");
         }
+    }
+
+    @FXML
+    protected void onRegisterClick() {
+        RegisterView.show();
     }
 }

@@ -2,12 +2,16 @@ module app.main {
     requires javafx.controls;
     requires javafx.fxml;
     requires junit;
+    requires org.kordamp.bootstrapfx.core;
 
     opens app to javafx.fxml;
     exports app;
 
     opens app.controllers to javafx.fxml;
     exports app.controllers;
+
+    opens app.views to javafx.fxml;
+    exports app.views;
 
     opens test to junit;
     exports test;
