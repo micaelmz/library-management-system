@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="app.controllers.ProfileController"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ProfileController">
+   <children>
+      <TextField fx:id="fnameInput" layoutX="151.0" layoutY="140.0" promptText="First Name" />
+      <TextField fx:id="lnameInput" layoutX="309.0" layoutY="140.0" promptText="Last Name" />
+      <TextField fx:id="usernameInput" layoutX="226.0" layoutY="188.0" promptText="Username" />
+      <PasswordField fx:id="passwordInput" layoutX="153.0" layoutY="239.0" promptText="Password" />
+      <Button fx:id="saveButton" layoutX="227.0" layoutY="286.0" mnemonicParsing="false" onAction="#onSaveButton" styleClass="modernButton" stylesheets="@css/styles.css" text="Salvar Alterações" />
+      <PasswordField fx:id="confirmPasswordInput" layoutX="309.0" layoutY="239.0" promptText="Password" />
+   </children>
 </AnchorPane>
