@@ -117,4 +117,14 @@ public class UsuarioDAOList implements UsuarioDAO{
     public void deletarTodos() {
         listaUsuarios.clear();
     }
+
+    @Override
+    public Usuario encontrarPorUsuario(String usuario) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getUsuario().equals(usuario)) {
+                return u;
+            }
+        }
+        return null;
+    }
 }

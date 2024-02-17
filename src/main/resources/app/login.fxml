@@ -10,21 +10,21 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.LoginController">
     <children>
-        <Label layoutX="184.0" layoutY="107.0" text="Faça login">
+        <Label layoutX="166.0" layoutY="99.0" text="Faça login">
             <font>
                 <Font name="Poppins Medium" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="loginInput" layoutX="184.0" layoutY="150.0" prefHeight="39.0" prefWidth="258.0" promptText="Usuário" styleClass="modernInput" />
-        <PasswordField fx:id="passwordInput" layoutX="184.0" layoutY="189.0" prefHeight="39.0" prefWidth="258.0" promptText="Senha" styleClass="modernInput" />
-        <Label fx:id="statusLabel" layoutX="184.0" layoutY="316.0" prefHeight="17.0" prefWidth="258.0" textAlignment="CENTER" textFill="RED" />
-        <Button fx:id="loginButton" layoutX="184.0" layoutY="266.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="43.0" prefWidth="258.0" styleClass="modernButton" text="Login" />
-      <Label layoutX="184.0" layoutY="230.0" prefHeight="27.0" prefWidth="149.0" text="Não tem cadastro?">
+        <TextField fx:id="loginInput" layoutX="166.0" layoutY="142.0" prefHeight="39.0" prefWidth="258.0" promptText="Usuário" styleClass="modernInput" />
+        <PasswordField fx:id="passwordInput" layoutX="166.0" layoutY="181.0" prefHeight="39.0" prefWidth="258.0" promptText="Senha" styleClass="modernInput" />
+        <Label fx:id="statusLabel" layoutX="166.0" layoutY="308.0" prefHeight="17.0" prefWidth="258.0" textAlignment="CENTER" textFill="RED" />
+        <Button fx:id="loginButton" layoutX="166.0" layoutY="258.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="43.0" prefWidth="258.0" styleClass="modernButton" text="Login" />
+      <Label layoutX="166.0" layoutY="222.0" prefHeight="27.0" prefWidth="149.0" text="Não tem cadastro?">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="registerHyperLink" layoutX="351.0" layoutY="229.0" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="102.0" text="Registre-se" textAlignment="RIGHT">
+      <Hyperlink fx:id="registerHyperLink" layoutX="333.0" layoutY="221.0" onAction="#onRegisterClick" prefHeight="30.0" prefWidth="102.0" text="Registre-se" textAlignment="RIGHT">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>

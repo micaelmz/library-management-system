@@ -62,4 +62,6 @@ public interface UsuarioDAO {
      * Método que remove todos os usuários
      */
     public void deletarTodos();
+
+    public Usuario encontrarPorUsuario(String usuario);
 }
