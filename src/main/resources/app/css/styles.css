@@ -1,0 +1,29 @@
+.modernButton {
+    -fx-background-color: #3498db; /* Cor de fundo */
+    -fx-text-fill: #ffffff; /* Cor do texto */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-padding: 10 20; /* Espaçamento interno */
+    -fx-border-radius: 5; /* Raio do canto do botão */
+    -fx-background-radius: 5; /* Raio do canto do fundo */
+    -fx-border-color: #2980b9; /* Cor da borda */
+}
+
+.modernButton:hover {
+    -fx-background-color: #2980b9; /* Cor de fundo ao passar o mouse */
+    -fx-border-color: #3498db; /* Cor da borda ao passar o mouse */
+}
+
+.modernInput {
+    -fx-background-color: #ecf0f1; /* Cor de fundo */
+    -fx-text-fill: #34495e; /* Cor do texto */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-padding: 8; /* Espaçamento interno */
+    -fx-border-radius: 5; /* Raio do canto do input */
+    -fx-background-radius: 5; /* Raio do canto do fundo */
+    -fx-border-color: #bdc3c7; /* Cor da borda */
+}
+
+.modernInput:focused {
+    -fx-border-color: #3498db; /* Cor da borda quando em foco */
+}
+

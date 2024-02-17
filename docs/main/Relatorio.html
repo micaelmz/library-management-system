@@ -87,7 +87,7 @@ loadScripts(document, 'script');</script>
 <h1 title="Class Relatorio" class="title">Class Relatorio</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.Relatorio</div>
+<div class="inheritance">main.java.app.Report</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
@@ -109,8 +109,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(main.dao.emprestimo.EmprestimoDAOList,main.dao.leitor.LeitorDAOList)" class="member-name-link">Relatorio</a><wbr>(<a href="dao/emprestimo/EmprestimoDAOList.html" title="class in main.dao.emprestimo">EmprestimoDAOList</a>&nbsp;emprestimoDAOList,
- <a href="dao/leitor/LeitorDAOList.html" title="class in main.dao.leitor">LeitorDAOList</a>&nbsp;leitorDAOList)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(main.dao.borrowing.EmprestimoDAOList,main.dao.reader.LeitorDAOList)" class="member-name-link">Relatorio</a><wbr>(<a href="dao/borrowing/EmprestimoDAOList.html" title="class in main.java.app.dao.borrowing">EmprestimoDAOList</a>&nbsp;emprestimoDAOList,
+ <a href="dao/reader/LeitorDAOList.html" title="class in main.java.app.dao.reader">LeitorDAOList</a>&nbsp;leitorDAOList)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -131,29 +131,29 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que separa os empréstimos em ativos, em atraso e reservados, em forma de listas</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEmprestimosByLeitor(java.lang.Integer)" class="member-name-link">getEmprestimosByLeitor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna a lista de empréstimos de um leitor</div>
+<div class="block">Método que retorna a lista de empréstimos de um reader</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLivrosEmAtraso()" class="member-name-link">getLivrosEmAtraso</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna os empréstimos em atraso</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLivrosEmprestados()" class="member-name-link">getLivrosEmprestados</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna os empéstimos ativos (empréstimos que ainda não foram devolvidos)</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="model/Livro.html" title="class in main.model">Livro</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="model/Livro.html" title="class in main.java.app.model">Livro</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLivrosMaisPopulares()" class="member-name-link">getLivrosMaisPopulares</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna os livros mais populares (livros com mais empréstimos)
  o metodo separa os emprestimos em um HashMap com Livro : Quantidade de emprestimos
  e depois cria uma lista ordenada por quantidade de emprestimos de forma decrescente</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLivrosReservados()" class="member-name-link">getLivrosReservados</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna os empréstimos reservados (empréstimos na fila de espera)</div>
@@ -161,7 +161,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getQuantidadeEmprestimosByLeitor(java.lang.Integer)" class="member-name-link">getQuantidadeEmprestimosByLeitor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna a quantidade de empréstimos de um leitor</div>
+<div class="block">Método que retorna a quantidade de empréstimos de um reader</div>
 </div>
 </div>
 </div>
@@ -181,10 +181,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(main.dao.emprestimo.EmprestimoDAOList,main.dao.leitor.LeitorDAOList)">
+<section class="detail" id="&lt;init&gt;(main.dao.borrowing.EmprestimoDAOList,main.dao.reader.LeitorDAOList)">
 <h3>Relatorio</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Relatorio</span><wbr><span class="parameters">(<a href="dao/emprestimo/EmprestimoDAOList.html" title="class in main.dao.emprestimo">EmprestimoDAOList</a>&nbsp;emprestimoDAOList,
- <a href="dao/leitor/LeitorDAOList.html" title="class in main.dao.leitor">LeitorDAOList</a>&nbsp;leitorDAOList)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Relatorio</span><wbr><span class="parameters">(<a href="dao/borrowing/EmprestimoDAOList.html" title="class in main.java.app.dao.borrowing">EmprestimoDAOList</a>&nbsp;emprestimoDAOList,
+ <a href="dao/reader/LeitorDAOList.html" title="class in main.java.app.dao.reader">LeitorDAOList</a>&nbsp;leitorDAOList)</span></div>
 </section>
 </li>
 </ul>
@@ -205,13 +205,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getEmprestimosByLeitor(java.lang.Integer)">
 <h3>getEmprestimosByLeitor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getEmprestimosByLeitor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
-<div class="block">Método que retorna a lista de empréstimos de um leitor</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getEmprestimosByLeitor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
+<div class="block">Método que retorna a lista de empréstimos de um reader</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>id</code> - id do leitor</dd>
+<dd><code>id</code> - id do reader</dd>
 <dt>Returns:</dt>
-<dd>lista de empréstimos do leitor</dd>
+<dd>lista de empréstimos do reader</dd>
 </dl>
 </section>
 </li>
@@ -219,19 +219,19 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getQuantidadeEmprestimosByLeitor(java.lang.Integer)">
 <h3>getQuantidadeEmprestimosByLeitor</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getQuantidadeEmprestimosByLeitor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
-<div class="block">Método que retorna a quantidade de empréstimos de um leitor</div>
+<div class="block">Método que retorna a quantidade de empréstimos de um reader</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>id</code> - id do leitor</dd>
+<dd><code>id</code> - id do reader</dd>
 <dt>Returns:</dt>
-<dd>quantidade de empréstimos do leitor</dd>
+<dd>quantidade de empréstimos do reader</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getLivrosEmprestados()">
 <h3>getLivrosEmprestados</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosEmprestados</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosEmprestados</span>()</div>
 <div class="block">Método que retorna os empéstimos ativos (empréstimos que ainda não foram devolvidos)</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -242,7 +242,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getLivrosEmAtraso()">
 <h3>getLivrosEmAtraso</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosEmAtraso</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosEmAtraso</span>()</div>
 <div class="block">Método que retorna os empréstimos em atraso</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -253,7 +253,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getLivrosReservados()">
 <h3>getLivrosReservados</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosReservados</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/LinkedList.html" title="class or interface in java.util" class="external-link">LinkedList</a>&lt;<a href="model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">getLivrosReservados</span>()</div>
 <div class="block">Método que retorna os empréstimos reservados (empréstimos na fila de espera)</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -264,7 +264,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getLivrosMaisPopulares()">
 <h3>getLivrosMaisPopulares</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="model/Livro.html" title="class in main.model">Livro</a>&gt;</span>&nbsp;<span class="element-name">getLivrosMaisPopulares</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="model/Livro.html" title="class in main.java.app.model">Livro</a>&gt;</span>&nbsp;<span class="element-name">getLivrosMaisPopulares</span>()</div>
 <div class="block">Método que retorna os livros mais populares (livros com mais empréstimos)
  o metodo separa os emprestimos em um HashMap com Livro : Quantidade de emprestimos
  e depois cria uma lista ordenada por quantidade de emprestimos de forma decrescente</div>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2023-12-11">
-<meta name="description" content="declaration: package: main.dao.emprestimo, class: EmprestimoDAOList">
+<meta name="description" content="declaration: package: main.java.app.dao.borrowing, class: EmprestimoDAOList">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
@@ -83,21 +83,21 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.dao.emprestimo</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.borrowing</a></div>
 <h1 title="Class EmprestimoDAOList" class="title">Class EmprestimoDAOList</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.dao.emprestimo.EmprestimoDAOList</div>
+<div class="inheritance">main.java.app.dao.borrowing.BorrowingDAOList</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">EmprestimoDAOList</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></span></div>
+implements <a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></span></div>
 <div class="block"><b>Esta classe implementa os métodos CRUD para empréstimos</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 <dl class="notes">
@@ -106,8 +106,8 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../../model/Bibliotecario.html" title="class in main.model"><code>Bibliotecario</code></a></li>
-<li><a href="../bibliotecario/BibliotecarioDAO.html" title="interface in main.dao.bibliotecario"><code>BibliotecarioDAO</code></a></li>
+<li><a href="../../model/Bibliotecario.html" title="class in main.java.app.model"><code>Bibliotecario</code></a></li>
+<li><a href="../librarian/BibliotecarioDAO.html" title="interface in main.java.app.dao.librarian"><code>BibliotecarioDAO</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -138,8 +138,8 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#atualizar(main.model.Emprestimo)" class="member-name-link">atualizar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#atualizar(main.model.Emprestimo)" class="member-name-link">atualizar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que atualiza os atributos de um empréstimo específico</div>
 </div>
@@ -148,13 +148,13 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que carrega os Emprestimos do arquivo binário "Emprestimos.dat" para a lista "listaEmprestimos".</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criar(main.model.Emprestimo)" class="member-name-link">criar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criar(main.model.Emprestimo)" class="member-name-link">criar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que cria um novo empréstimo</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deletar(main.model.Emprestimo)" class="member-name-link">deletar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deletar(main.model.Emprestimo)" class="member-name-link">deletar</a><wbr>(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que remove um empréstimo específico</div>
 </div>
@@ -163,12 +163,12 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que remove todos os empréstimos</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#encontrarPorID(java.lang.Integer)" class="member-name-link">encontrarPorID</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna um empréstimo específico</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#lerTodos()" class="member-name-link">lerTodos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna todos os empréstimos</div>
@@ -218,7 +218,7 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="block">Método que carrega os Emprestimos do arquivo binário "Emprestimos.dat" para a lista "listaEmprestimos".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassNotFoundException.html" title="class or interface in java.lang" class="external-link">ClassNotFoundException</a></code></dd>
@@ -233,7 +233,7 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="block">Método que salva os Emprestimos da lista "listaEmprestimos" para o arquivo binário "Emprestimos.dat".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 </dl>
@@ -242,11 +242,11 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <li>
 <section class="detail" id="criar(main.model.Emprestimo)">
 <h3>criar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></span>&nbsp;<span class="element-name">criar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></span>&nbsp;<span class="element-name">criar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</span></div>
 <div class="block">Método que cria um novo empréstimo</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#criar(main.model.Emprestimo)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#criar(main.model.Emprestimo)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do empréstimo</dd>
 <dt>Returns:</dt>
@@ -257,11 +257,11 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <li>
 <section class="detail" id="lerTodos()">
 <h3>lerTodos</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">lerTodos</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&gt;</span>&nbsp;<span class="element-name">lerTodos</span>()</div>
 <div class="block">Método que retorna todos os empréstimos</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Returns:</dt>
 <dd>lista de empréstimos</dd>
 </dl>
@@ -270,11 +270,11 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <li>
 <section class="detail" id="encontrarPorID(java.lang.Integer)">
 <h3>encontrarPorID</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></span>&nbsp;<span class="element-name">encontrarPorID</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></span>&nbsp;<span class="element-name">encontrarPorID</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
 <div class="block">Método que retorna um empréstimo específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>id</code> - objeto do empréstimo</dd>
 <dt>Returns:</dt>
@@ -285,11 +285,11 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <li>
 <section class="detail" id="atualizar(main.model.Emprestimo)">
 <h3>atualizar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a></span>&nbsp;<span class="element-name">atualizar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a></span>&nbsp;<span class="element-name">atualizar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</span></div>
 <div class="block">Método que atualiza os atributos de um empréstimo específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#atualizar(main.model.Emprestimo)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#atualizar(main.model.Emprestimo)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do empréstimo</dd>
 <dt>Returns:</dt>
@@ -300,11 +300,11 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <li>
 <section class="detail" id="deletar(main.model.Emprestimo)">
 <h3>deletar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deletar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.model">Emprestimo</a>&nbsp;objeto)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deletar</span><wbr><span class="parameters">(<a href="../../model/Emprestimo.html" title="class in main.java.app.model">Emprestimo</a>&nbsp;objeto)</span></div>
 <div class="block">Método que remove um empréstimo específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#deletar(main.model.Emprestimo)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#deletar(main.model.Emprestimo)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>objeto</code> - objeto do empréstimo</dd>
 </dl>
@@ -317,7 +317,7 @@ implements <a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo"
 <div class="block">Método que remove todos os empréstimos</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="EmprestimoDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.dao.emprestimo">EmprestimoDAO</a></code></dd>
+<dd><code><a href="EmprestimoDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="EmprestimoDAO.html" title="interface in main.java.app.dao.borrowing">EmprestimoDAO</a></code></dd>
 </dl>
 </section>
 </li>

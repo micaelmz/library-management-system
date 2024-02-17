@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2023-12-11">
-<meta name="description" content="declaration: package: main.dao.leitor, class: LeitorDAOList">
+<meta name="description" content="declaration: package: main.java.app.dao.reader, class: LeitorDAOList">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
@@ -83,21 +83,21 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.dao.leitor</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.dao.reader</a></div>
 <h1 title="Class LeitorDAOList" class="title">Class LeitorDAOList</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.dao.leitor.LeitorDAOList</div>
+<div class="inheritance">main.java.app.dao.reader.ReaderDAOList</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">LeitorDAOList</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></span></div>
+implements <a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></span></div>
 <div class="block"><b>Esta classe implementa os métodos CRUD para leitores</b>
  Os métodos de armazenamento atuais são os arquivos binários ".dat"</div>
 <dl class="notes">
@@ -106,8 +106,8 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../../model/Leitor.html" title="class in main.model"><code>Leitor</code></a></li>
-<li><a href="LeitorDAO.html" title="interface in main.dao.leitor"><code>LeitorDAO</code></a></li>
+<li><a href="../../model/Leitor.html" title="class in main.java.app.model"><code>Leitor</code></a></li>
+<li><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader"><code>LeitorDAO</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -138,37 +138,37 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#atualizar(main.model.Leitor)" class="member-name-link">atualizar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#atualizar(main.model.Leitor)" class="member-name-link">atualizar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que atualiza os atributos de um leitor específico</div>
+<div class="block">Método que atualiza os atributos de um reader específico</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#carregarArquivo()" class="member-name-link">carregarArquivo</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que carrega os Leitores do arquivo binário "Leitores.dat" para a lista "listaLeitores".</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criar(main.model.Leitor)" class="member-name-link">criar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#criar(main.model.Leitor)" class="member-name-link">criar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que cria um novo leitor</div>
+<div class="block">Método que cria um novo reader</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deletar(main.model.Leitor)" class="member-name-link">deletar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deletar(main.model.Leitor)" class="member-name-link">deletar</a><wbr>(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que remove um leitor específico</div>
+<div class="block">Método que remove um reader específico</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deletarTodos()" class="member-name-link">deletarTodos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que remove todos os leitores</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#encontrarPorID(java.lang.Integer)" class="member-name-link">encontrarPorID</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna um leitor específico</div>
+<div class="block">Método que retorna um reader específico</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#lerTodos()" class="member-name-link">lerTodos</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna todos os leitores</div>
@@ -218,7 +218,7 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <div class="block">Método que carrega os Leitores do arquivo binário "Leitores.dat" para a lista "listaLeitores".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#carregarArquivo()">carregarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/ClassNotFoundException.html" title="class or interface in java.lang" class="external-link">ClassNotFoundException</a></code></dd>
@@ -233,7 +233,7 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <div class="block">Método que salva os Leitores da lista "listaLeitores" para o arquivo binário "Leitores.dat".</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#salvarArquivo()">salvarArquivo</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
 </dl>
@@ -242,26 +242,26 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <li>
 <section class="detail" id="criar(main.model.Leitor)">
 <h3>criar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></span>&nbsp;<span class="element-name">criar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</span></div>
-<div class="block">Método que cria um novo leitor</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></span>&nbsp;<span class="element-name">criar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</span></div>
+<div class="block">Método que cria um novo reader</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#criar(main.model.Leitor)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#criar(main.model.Leitor)">criar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>objeto</code> - objeto do leitor</dd>
+<dd><code>objeto</code> - objeto do reader</dd>
 <dt>Returns:</dt>
-<dd>objeto do leitor</dd>
+<dd>objeto do reader</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="lerTodos()">
 <h3>lerTodos</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&gt;</span>&nbsp;<span class="element-name">lerTodos</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&gt;</span>&nbsp;<span class="element-name">lerTodos</span>()</div>
 <div class="block">Método que retorna todos os leitores</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#lerTodos()">lerTodos</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Returns:</dt>
 <dd>lista de leitores</dd>
 </dl>
@@ -270,43 +270,43 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <li>
 <section class="detail" id="encontrarPorID(java.lang.Integer)">
 <h3>encontrarPorID</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></span>&nbsp;<span class="element-name">encontrarPorID</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
-<div class="block">Método que retorna um leitor específico</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></span>&nbsp;<span class="element-name">encontrarPorID</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;id)</span></div>
+<div class="block">Método que retorna um reader específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#encontrarPorID(java.lang.Integer)">encontrarPorID</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>id</code> - objeto do leitor</dd>
+<dd><code>id</code> - objeto do reader</dd>
 <dt>Returns:</dt>
-<dd>retorna um leitor específico</dd>
+<dd>retorna um reader específico</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="atualizar(main.model.Leitor)">
 <h3>atualizar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.model">Leitor</a></span>&nbsp;<span class="element-name">atualizar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</span></div>
-<div class="block">Método que atualiza os atributos de um leitor específico</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a></span>&nbsp;<span class="element-name">atualizar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</span></div>
+<div class="block">Método que atualiza os atributos de um reader específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#atualizar(main.model.Leitor)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#atualizar(main.model.Leitor)">atualizar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>objeto</code> - objeto do leitor</dd>
+<dd><code>objeto</code> - objeto do reader</dd>
 <dt>Returns:</dt>
-<dd>objeto do leitor</dd>
+<dd>objeto do reader</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="deletar(main.model.Leitor)">
 <h3>deletar</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deletar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.model">Leitor</a>&nbsp;objeto)</span></div>
-<div class="block">Método que remove um leitor específico</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deletar</span><wbr><span class="parameters">(<a href="../../model/Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;objeto)</span></div>
+<div class="block">Método que remove um reader específico</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#deletar(main.model.Leitor)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#deletar(main.model.Leitor)">deletar</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>objeto</code> - objeto do leitor</dd>
+<dd><code>objeto</code> - objeto do reader</dd>
 </dl>
 </section>
 </li>
@@ -317,7 +317,7 @@ implements <a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorD
 <div class="block">Método que remove todos os leitores</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="LeitorDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.dao.leitor">LeitorDAO</a></code></dd>
+<dd><code><a href="LeitorDAO.html#deletarTodos()">deletarTodos</a></code>&nbsp;in interface&nbsp;<code><a href="LeitorDAO.html" title="interface in main.java.app.dao.reader">LeitorDAO</a></code></dd>
 </dl>
 </section>
 </li>

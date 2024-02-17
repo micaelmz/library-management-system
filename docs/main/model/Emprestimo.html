@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2023-12-11">
-<meta name="description" content="declaration: package: main.model, class: Emprestimo">
+<meta name="description" content="declaration: package: main.java.app.model, class: Emprestimo">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../script-dir/jquery-ui.min.css" title="Style">
@@ -83,11 +83,11 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.model</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">main.java.app.model</a></div>
 <h1 title="Class Emprestimo" class="title">Class Emprestimo</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">main.model.Emprestimo</div>
+<div class="inheritance">main.java.app.model.Borrowing</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
@@ -98,7 +98,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Emprestimo</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></span></div>
-<div class="block"><b>Esta classe implementa os recibos de empréstimo de cada leitor</b>
+<div class="block"><b>Esta classe implementa os recibos de empréstimo de cada reader</b>
  Contendo os seguintes atributos:
  Leitor associado (Leitor)
  Livro associado (Livro)
@@ -112,17 +112,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
  Apenas os Administradores e Bibliotecários podem criar empréstimos.
 
  Exemplo de Uso:
- Emprestimo emprestimo = new Emprestimo(Leitor, Livro, diasEmprestados, renovacoes);</div>
+ Emprestimo borrowing = new Emprestimo(Leitor, Livro, diasEmprestados, renovacoes);</div>
 <dl class="notes">
 <dt>Author:</dt>
 <dd>José Victor Oliveira, Micael Muniz</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
-<li><a href="../enums/Cargo.html" title="enum class in main.enums"><code>Cargo</code></a></li>
-<li><a href="Usuario.html" title="class in main.model"><code>Usuario</code></a></li>
-<li><a href="Leitor.html" title="class in main.model"><code>Leitor</code></a></li>
-<li><a href="Livro.html" title="class in main.model"><code>Livro</code></a></li>
+<li><a href="../enums/Cargo.html" title="enum class in main.java.app.enums"><code>Cargo</code></a></li>
+<li><a href="Usuario.html" title="class in main.java.app.model"><code>Usuario</code></a></li>
+<li><a href="Leitor.html" title="class in main.java.app.model"><code>Leitor</code></a></li>
+<li><a href="Livro.html" title="class in main.java.app.model"><code>Livro</code></a></li>
 <li><a href="../../serialized-form.html#main.model.Emprestimo">Serialized Form</a></li>
 </ul>
 </dd>
@@ -138,8 +138,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)" class="member-name-link">Emprestimo</a><wbr>(<a href="Leitor.html" title="class in main.model">Leitor</a>&nbsp;leitor,
- <a href="Livro.html" title="class in main.model">Livro</a>&nbsp;livro,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)" class="member-name-link">Emprestimo</a><wbr>(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
+ <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;book,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasEmprestados,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;renovacoes)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -171,7 +171,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataEntrega()" class="member-name-link">getDataEntrega</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna a data de entrega do livro</div>
+<div class="block">Método que retorna a data de entrega do book</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDiasEmprestados()" class="member-name-link">getDiasEmprestados</a>()</code></div>
@@ -183,22 +183,22 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna o ID do empréstimo</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Leitor.html" title="class in main.model">Leitor</a></code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Leitor.html" title="class in main.java.app.model">Leitor</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLeitor()" class="member-name-link">getLeitor</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna o leitor associado ao empréstimo</div>
+<div class="block">Método que retorna o reader associado ao empréstimo</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Livro.html" title="class in main.model">Livro</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Livro.html" title="class in main.java.app.model">Livro</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLivro()" class="member-name-link">getLivro</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que retorna o livro associado ao empréstimo</div>
+<div class="block">Método que retorna o book associado ao empréstimo</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRenovacoes()" class="member-name-link">getRenovacoes</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna a quantidade de renovações do empréstimo</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../enums/StatusEmprestimo.html" title="enum class in main.enums">StatusEmprestimo</a></code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../enums/StatusEmprestimo.html" title="enum class in main.java.app.enums">StatusEmprestimo</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStatus()" class="member-name-link">getStatus</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Método que retorna o status do empréstimo</div>
@@ -241,7 +241,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDataEntrega(java.time.LocalDate)" class="member-name-link">setDataEntrega</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;dataEntrega)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Método que modifica a data de entrega do livro</div>
+<div class="block">Método que modifica a data de entrega do book</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDiasEmprestados(java.lang.Integer)" class="member-name-link">setDiasEmprestados</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasEmprestados)</code></div>
@@ -278,8 +278,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(main.model.Leitor,main.model.Livro,java.lang.Integer,java.lang.Integer)">
 <h3>Emprestimo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Emprestimo</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.model">Leitor</a>&nbsp;leitor,
- <a href="Livro.html" title="class in main.model">Livro</a>&nbsp;livro,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Emprestimo</span><wbr><span class="parameters">(<a href="Leitor.html" title="class in main.java.app.model">Leitor</a>&nbsp;reader,
+ <a href="Livro.html" title="class in main.java.app.model">Livro</a>&nbsp;book,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;diasEmprestados,
  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;renovacoes)</span></div>
 </section>
@@ -295,22 +295,22 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="getLeitor()">
 <h3>getLeitor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Leitor.html" title="class in main.model">Leitor</a></span>&nbsp;<span class="element-name">getLeitor</span>()</div>
-<div class="block">Método que retorna o leitor associado ao empréstimo</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Leitor.html" title="class in main.java.app.model">Leitor</a></span>&nbsp;<span class="element-name">getLeitor</span>()</div>
+<div class="block">Método que retorna o reader associado ao empréstimo</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>leitor associado ao empréstimo</dd>
+<dd>reader associado ao empréstimo</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getLivro()">
 <h3>getLivro</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Livro.html" title="class in main.model">Livro</a></span>&nbsp;<span class="element-name">getLivro</span>()</div>
-<div class="block">Método que retorna o livro associado ao empréstimo</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Livro.html" title="class in main.java.app.model">Livro</a></span>&nbsp;<span class="element-name">getLivro</span>()</div>
+<div class="block">Método que retorna o book associado ao empréstimo</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>livro associado ao empréstimo</dd>
+<dd>book associado ao empréstimo</dd>
 </dl>
 </section>
 </li>
@@ -329,10 +329,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <section class="detail" id="getDataEntrega()">
 <h3>getDataEntrega</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a></span>&nbsp;<span class="element-name">getDataEntrega</span>()</div>
-<div class="block">Método que retorna a data de entrega do livro</div>
+<div class="block">Método que retorna a data de entrega do book</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>data de entrega do livro</dd>
+<dd>data de entrega do book</dd>
 </dl>
 </section>
 </li>
@@ -395,10 +395,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <section class="detail" id="setDataEntrega(java.time.LocalDate)">
 <h3>setDataEntrega</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDataEntrega</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/time/LocalDate.html" title="class or interface in java.time" class="external-link">LocalDate</a>&nbsp;dataEntrega)</span></div>
-<div class="block">Método que modifica a data de entrega do livro</div>
+<div class="block">Método que modifica a data de entrega do book</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>dataEntrega</code> - data de entrega do livro</dd>
+<dd><code>dataEntrega</code> - data de entrega do book</dd>
 </dl>
 </section>
 </li>
@@ -448,7 +448,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base
 <li>
 <section class="detail" id="getStatus()">
 <h3>getStatus</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../enums/StatusEmprestimo.html" title="enum class in main.enums">StatusEmprestimo</a></span>&nbsp;<span class="element-name">getStatus</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../enums/StatusEmprestimo.html" title="enum class in main.java.app.enums">StatusEmprestimo</a></span>&nbsp;<span class="element-name">getStatus</span>()</div>
 <div class="block">Método que retorna o status do empréstimo</div>
 <dl class="notes">
 <dt>Returns:</dt>
