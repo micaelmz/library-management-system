@@ -30,9 +30,14 @@ public class BaseUserDAOList implements BaseUserDAO {
      */
     @Override
     public void loadDatFile() throws IOException, ClassNotFoundException {
-        FileInputStream file = new FileInputStream(filePath);
-        ObjectInputStream object = new ObjectInputStream(file);
-        baseusers = (LinkedList<BaseUser>) object.readObject();
+        try {
+            FileInputStream file = new FileInputStream(filePath);
+            ObjectInputStream object = new ObjectInputStream(file);
+            baseusers = (LinkedList<BaseUser>) object.readObject();
+        }
+        catch (Exception FileNotFoundException){
+            saveDatFile();
+        }
     }
 
     /**
