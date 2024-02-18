@@ -50,10 +50,10 @@ public interface BaseUserDAO {
     /**
      * Método que atualiza os atributos de um usuário específico
      *
-     * @param model model do usuário
-     * @return model do usuário
+     * @param compare model do usuário para comparar
+     * @param model model do usuário para substituir
      */
-    public BaseUser update(BaseUser model);
+    public void update(BaseUser compare, BaseUser model);
 
     /**
      * Método que remove um usuário específico

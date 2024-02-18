@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.GlobalData;
 import app.dao.baseuser.BaseUserDAOList;
 import app.model.BaseUser;
 import javafx.fxml.FXML;
@@ -30,6 +31,7 @@ public class LoginController {
         BaseUser user = users.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             statusLabel.setText("Login successful");
+            GlobalData.setLoggedUser(user);
         } else {
             statusLabel.setText("Login failed");
         }
