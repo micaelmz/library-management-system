@@ -5,6 +5,7 @@ import app.dao.baseuser.BaseUserDAOList;
 import app.model.BaseUser;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -16,6 +17,7 @@ public class ProfileController implements Initializable {
     @FXML private TextField nameInput;
     @FXML private TextField usernameInput;
     @FXML private PasswordField passwordInput;
+    @FXML private Label statusLabel;
     private BaseUserDAOList allUsers = new BaseUserDAOList();
     private BaseUser loggedUser = GlobalData.getLoggedUser();
 
@@ -31,6 +33,7 @@ public class ProfileController implements Initializable {
         loggedUser.setPassword(password);
         allUsers.update(oldUserData, loggedUser);
         allUsers.saveDatFile();
+        statusLabel.setText("Alterações salvas com sucesso!");
     }
 
     @FXML
