@@ -1,5 +1,6 @@
 package app;
 
+import app.dao.baseuser.BaseUserDAOList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,7 +13,9 @@ public class Main extends Application {
 
     public static Stage stage;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ClassNotFoundException {
+        BaseUserDAOList inicializeUserDAOList = new BaseUserDAOList();
+        inicializeUserDAOList.loadDatFile();
         Main.stage = stage;
         stage.setTitle("SGB!");
         stage.show();
