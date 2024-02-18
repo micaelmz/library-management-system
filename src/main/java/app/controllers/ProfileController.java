@@ -13,15 +13,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProfileController implements Initializable {
-    @FXML TextField nameInput;
-    @FXML TextField usernameInput;
-    @FXML PasswordField passwordInput;
-
-    BaseUserDAOList allUsers = new BaseUserDAOList();
-
-    BaseUser loggedUser = GlobalData.getLoggedUser();
-
-    Boolean erro = false;
+    @FXML private TextField nameInput;
+    @FXML private TextField usernameInput;
+    @FXML private PasswordField passwordInput;
+    private BaseUserDAOList allUsers = new BaseUserDAOList();
+    private BaseUser loggedUser = GlobalData.getLoggedUser();
 
     @FXML
     protected void onSaveButton() throws IOException, ClassNotFoundException{
