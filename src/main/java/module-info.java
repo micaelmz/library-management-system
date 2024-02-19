@@ -10,6 +10,9 @@ module app.main {
     opens app.controllers to javafx.fxml;
     exports app.controllers;
 
+    opens app.model to javafx.fxml;
+    exports app.model;
+
     opens app.views to javafx.fxml;
     exports app.views;
 
