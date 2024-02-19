@@ -4,7 +4,7 @@ import app.model.Reader;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import app.dao.reader.ReaderDAOList;
+import app.dao.ReaderDAOList;
 
 public class ReaderDAOTest {
 
@@ -26,7 +26,7 @@ public class ReaderDAOTest {
     public void testUpdate() {
         Reader reader = readerDAOList.findById(1);
         reader.setName("John Doe Jr.");
-        readerDAOList.update(reader);
+        readerDAOList.update(reader, reader);
         assertEquals("John Doe Jr.", readerDAOList.findById(1).getName());
     }
 

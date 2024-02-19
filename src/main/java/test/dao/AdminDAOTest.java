@@ -4,7 +4,7 @@ import app.model.Admin;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import app.dao.admin.AdminDAOList;
+import app.dao.AdminDAOList;
 
 import java.io.IOException;
 
@@ -28,7 +28,7 @@ public class AdminDAOTest {
     public void testUpdate() {
         Admin admin = adminDAOList.findById(1);
         admin.setName("John Doe Jr.");
-        adminDAOList.update(admin);
+        adminDAOList.update(admin, admin);
         assertEquals("John Doe Jr.", adminDAOList.findById(1).getName());
     }
 

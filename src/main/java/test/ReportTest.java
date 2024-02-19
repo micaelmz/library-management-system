@@ -1,7 +1,7 @@
 package test;
 
 import app.Report;
-import app.dao.book.BookDAOList;
+import app.dao.BookDAOList;
 import app.model.Book;
 import app.model.Reader;
 import org.junit.After;
@@ -10,8 +10,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import app.model.Librarian;
-import app.dao.reader.ReaderDAOList;
-import app.dao.borrowing.BorrowingDAOList;
+import app.dao.ReaderDAOList;
+import app.dao.BorrowingDAOList;
 
 public class ReportTest {
 

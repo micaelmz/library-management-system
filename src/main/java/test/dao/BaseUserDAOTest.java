@@ -1,6 +1,6 @@
 package test.dao;
 
-import app.dao.baseuser.BaseUserDAOList;
+import app.dao.BaseUserDAOList;
 import app.model.BaseUser;
 import org.junit.Before;
 import org.junit.Test;
