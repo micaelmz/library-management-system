@@ -6,7 +6,7 @@ import app.model.Book;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import app.dao.borrowing.BorrowingDAOList;
+import app.dao.BorrowingDAOList;
 
 import java.io.IOException;
 
@@ -49,7 +49,7 @@ public class BorrowingDAOTest {
     public void testUpdate() {
         Borrowing borrowing = borrowingDAOList.findById(1);
         borrowing.setRenewals(5);
-        borrowingDAOList.update(borrowing);
+        borrowingDAOList.update(borrowing, borrowing);
         assertEquals(5, borrowingDAOList.findById(1).getRenewals().intValue());
     }
 

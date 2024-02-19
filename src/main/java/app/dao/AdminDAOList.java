@@ -1,5 +1,6 @@
-package app.dao.admin;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
 
 import app.model.Admin;
@@ -17,7 +18,7 @@ import java.util.List;
  * @see app.model.Admin
  * @see app.dao.admin.AdminDAO
  */
-public class AdminDAOList implements AdminDAO {
+public class AdminDAOList implements CRUD<Admin> {
     private List<Admin> admins;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Admins.dat";
@@ -51,18 +52,18 @@ public class AdminDAOList implements AdminDAO {
     /**
      * Método que cria um novo administrador
      *
-     * @param model model do administrador
+     * @param object model do administrador
      * @return model do administrador
      */
     @Override
-    public Admin create(Admin model) {
+    public Admin create(Admin object) {
         // Vai verificar se o model já existe na lista.
-        if (!admins.contains(model)) {
+        if (!admins.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            admins.add(model);
+            object.setId(lastId);
+            admins.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -97,22 +98,23 @@ public class AdminDAOList implements AdminDAO {
      * @param model model do administrador
      * @return model do administrador
      */
+
     @Override
-    public Admin update(Admin model) {
-        if (admins.contains(model)) {
-            admins.set(admins.indexOf(model), model);
+    public void update(Admin oldObject, Admin newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (admins.contains(oldObject)) {
+            admins.set(admins.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um administrador específico
      *
-     * @param model model do administrador
+     * @param object model do administrador
      */
     @Override
-    public void delete(Admin model) {
-        admins.remove(model);
+    public void delete(Admin object) {
+        admins.remove(object);
     }
 
     /**

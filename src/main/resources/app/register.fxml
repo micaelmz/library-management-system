@@ -8,29 +8,29 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.RegisterController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.RegisterController">
    <children>
-      <Label layoutX="168.0" layoutY="57.0" text="Cadastro">
+      <Label layoutX="293.0" layoutY="180.0" text="Cadastro">
          <font>
-            <Font name="Poppins Medium" size="18.0" />
+            <Font name="Poppins Medium" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="fnameInput" layoutX="168.0" layoutY="98.0" prefHeight="39.0" prefWidth="129.0" promptText="Nome" styleClass="modernInput" />
-      <PasswordField fx:id="confirmPasswordInput" layoutX="168.0" layoutY="215.0" prefHeight="39.0" prefWidth="258.0" promptText="Confirmar senha" styleClass="modernInput" />
-      <Button fx:id="registerButton" layoutX="168.0" layoutY="300.0" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="43.0" prefWidth="258.0" styleClass="modernButton" stylesheets="@css/styles.css" text="Registrar-se" />
-      <Label layoutX="168.0" layoutY="264.0" prefHeight="27.0" prefWidth="149.0" text="Já tem uma conta?">
+      <TextField fx:id="fnameInput" layoutX="293.0" layoutY="230.0" prefHeight="40.0" prefWidth="150.0" promptText="Nome" styleClass="modernInput" />
+      <TextField fx:id="lnameInput" layoutX="443.0" layoutY="230.0" prefHeight="40.0" prefWidth="150.0" promptText="Sobrenome" styleClass="modernInput" />
+      <TextField fx:id="usernameInput" layoutX="293.0" layoutY="270.0" prefHeight="40.0" prefWidth="300.0" promptText="Usuário" styleClass="modernInput" />
+      <PasswordField fx:id="passwordInput" layoutX="293.0" layoutY="310.0" prefHeight="40.0" prefWidth="300.0" promptText="Senha" styleClass="modernInput" />
+      <PasswordField fx:id="confirmPasswordInput" layoutX="293.0" layoutY="350.0" prefHeight="40.0" prefWidth="300.0" promptText="Confirmar senha" styleClass="modernInput" />
+      <Label layoutX="293.0" layoutY="394.0" prefHeight="30.0" prefWidth="149.0" text="Já tem uma conta?">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="loginHyperLink" layoutX="338.0" layoutY="263.0" onAction="#onLoginClick" prefHeight="30.0" prefWidth="94.0" text="Fazer login" textAlignment="RIGHT">
+      <Hyperlink fx:id="loginHyperLink" contentDisplay="RIGHT" layoutX="501.0" layoutY="394.0" nodeOrientation="RIGHT_TO_LEFT" onAction="#onLoginClick" prefHeight="30.0" prefWidth="94.0" text="Fazer login" textAlignment="RIGHT">
          <font>
             <Font name="Poppins Regular" size="15.0" />
          </font>
       </Hyperlink>
-      <TextField fx:id="lnameInput" layoutX="297.0" layoutY="98.0" prefHeight="39.0" prefWidth="129.0" promptText="Sobrenome" styleClass="modernInput" />
-      <TextField fx:id="usernameInput" layoutX="168.0" layoutY="137.0" prefHeight="39.0" prefWidth="258.0" promptText="Usuário" styleClass="modernInput" />
-      <PasswordField fx:id="passwordInput" layoutX="168.0" layoutY="176.0" prefHeight="39.0" prefWidth="258.0" promptText="Senha" styleClass="modernInput" />
-      <Label fx:id="statusLabel" layoutX="168.0" layoutY="349.0" prefHeight="17.0" prefWidth="258.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="statusLabel" layoutX="293.0" layoutY="479.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
+      <Button fx:id="registerButton" layoutX="293.0" layoutY="430.0" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" stylesheets="@css/styles.css" text="Registrar-se" />
    </children>
 </Pane>

@@ -27,3 +27,33 @@
     -fx-border-color: #3498db; /* Cor da borda quando em foco */
 }
 
+/* Estilo para a TableView */
+.table-view {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 8;
+}
+
+/* Estilo para as células da tabela */
+.table-cell {
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
+}
+
+/* Estilo para a linha selecionada */
+.table-row-cell:selected {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* Estilo para as cabeçalhos das colunas */
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+
+/* Estilo para o cabeçalho da tabela */
+.table-header-background {
+    -fx-background-color: #2c3e50;
+    -fx-text-fill: white;
+}
+

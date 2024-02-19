@@ -1,5 +1,9 @@
 package app.dao;
 
+import app.model.Admin;
+import app.model.BaseUser;
+
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -8,10 +12,13 @@ import java.util.List;
  * @author Micael Muniz
  */
 public interface CRUD<T> {
-    public void create(T objeto);
+
+    public void saveDatFile() throws IOException;
+    public void loadDatFile() throws IOException, ClassNotFoundException;
+    public T findById(Integer id);
+    public T create(T object);
     public List<T> getAll();
-    public T findById(long id);
-    public void update(T objeto);
-    public void delete(T objeto);
+    public void update(T oldObject, T newObject);
+    public void delete(T object);
     public void deleteAll();
 }

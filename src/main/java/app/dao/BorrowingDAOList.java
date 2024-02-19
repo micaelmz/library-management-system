@@ -1,7 +1,7 @@
-package app.dao.borrowing;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
-import app.dao.librarian.LibrarianDAO;
 import app.model.Borrowing;
 import app.model.Librarian;
 
@@ -18,7 +18,7 @@ import java.util.List;
  * @see Librarian
  * @see LibrarianDAO
  */
-public class BorrowingDAOList implements BorrowingDAO {
+public class BorrowingDAOList implements CRUD<Borrowing> {
     private List<Borrowing> borrowings;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Borrowings.dat";
@@ -52,18 +52,18 @@ public class BorrowingDAOList implements BorrowingDAO {
     /**
      * Método que cria um novo empréstimo
      *
-     * @param model model do empréstimo
+     * @param object model do empréstimo
      * @return model do empréstimo
      */
     @Override
-    public Borrowing create(Borrowing model) {
+    public Borrowing create(Borrowing object) {
         // Vai verificar se o model já existe na lista.
-        if (!borrowings.contains(model)) {
+        if (!borrowings.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            borrowings.add(model);
+            object.setId(lastId);
+            borrowings.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -99,21 +99,21 @@ public class BorrowingDAOList implements BorrowingDAO {
      * @return model do empréstimo
      */
     @Override
-    public Borrowing update(Borrowing model) {
-        if (borrowings.contains(model)) {
-            borrowings.set(borrowings.indexOf(model), model);
+    public void update(Borrowing oldObject, Borrowing newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (borrowings.contains(oldObject)) {
+            borrowings.set(borrowings.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um empréstimo específico
      *
-     * @param model model do empréstimo
+     * @param object model do empréstimo
      */
     @Override
-    public void delete(Borrowing model) {
-        borrowings.remove(model);
+    public void delete(Borrowing object) {
+        borrowings.remove(object);
     }
 
     /**

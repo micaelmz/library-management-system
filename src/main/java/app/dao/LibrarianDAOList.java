@@ -1,6 +1,8 @@
-package app.dao.librarian;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
+
 import app.model.Librarian;
 
 import java.io.*;
@@ -16,7 +18,7 @@ import java.util.List;
  * @see Librarian
  * @see LibrarianDAO
  */
-public class LibrarianDAOList implements LibrarianDAO {
+public class LibrarianDAOList implements CRUD<Librarian> {
     private List<Librarian> librarians;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Librarians.dat";
@@ -50,18 +52,18 @@ public class LibrarianDAOList implements LibrarianDAO {
     /**
      * Método que cria um novo bibliotecário
      *
-     * @param model model do bibliotecário
+     * @param object model do bibliotecário
      * @return model do bibliotecário
      */
     @Override
-    public Librarian create(Librarian model) {
+    public Librarian create(Librarian object) {
         // Vai verificar se o model já existe na lista.
-        if (!librarians.contains(model)) {
+        if (!librarians.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            librarians.add(model);
+            object.setId(lastId);
+            librarians.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -97,21 +99,21 @@ public class LibrarianDAOList implements LibrarianDAO {
      * @return model do bibliotecário
      */
     @Override
-    public Librarian update(Librarian model) {
-        if (librarians.contains(model)) {
-            librarians.set(librarians.indexOf(model), model);
+    public void update(Librarian oldObject, Librarian newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (librarians.contains(oldObject)) {
+            librarians.set(librarians.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um bibliotecário específico
      *
-     * @param model model do bibliotecário
+     * @param object model do bibliotecário
      */
     @Override
-    public void delete(Librarian model) {
-        librarians.remove(model);
+    public void delete(Librarian object) {
+        librarians.remove(object);
     }
 
     /**

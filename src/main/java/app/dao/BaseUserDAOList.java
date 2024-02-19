@@ -1,6 +1,8 @@
-package app.dao.baseuser;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
+
 import app.model.BaseUser;
 
 import java.io.*;
@@ -16,7 +18,7 @@ import java.util.List;
  * @see BaseUser
  * @see BaseUserDAO
  */
-public class BaseUserDAOList implements BaseUserDAO {
+public class BaseUserDAOList implements CRUD<BaseUser>{
     private List<BaseUser> baseusers;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\BaseUsers.dat";
@@ -55,18 +57,18 @@ public class BaseUserDAOList implements BaseUserDAO {
     /**
      * Método que cria um novo usuário
      *
-     * @param model model do usuário
+     * @param object model do usuário
      * @return model do usuário
      */
     @Override
-    public BaseUser create(BaseUser model) {
+    public BaseUser create(BaseUser object) {
         // Vai verificar se o model já existe na lista.
-        if (!baseusers.contains(model)) {
+        if (!baseusers.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            baseusers.add(model);
+            object.setId(lastId);
+            baseusers.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -102,21 +104,21 @@ public class BaseUserDAOList implements BaseUserDAO {
      * @param model model do usuário para substituir
      */
     @Override
-    public void update(BaseUser compare, BaseUser model) {
+    public void update(BaseUser oldObject, BaseUser newObject) {
         // Vai verificar se o model já existe na lista.
-        if (baseusers.contains(compare)) {
-            baseusers.set(baseusers.indexOf(compare), model);
+        if (baseusers.contains(oldObject)) {
+            baseusers.set(baseusers.indexOf(oldObject), newObject);
         }
     }
 
     /**
      * Método que remove um usuário específico
      *
-     * @param model model do usuário
+     * @param object model do usuário
      */
     @Override
-    public void delete(BaseUser model) {
-        baseusers.remove(model);
+    public void delete(BaseUser object) {
+        baseusers.remove(object);
     }
 
     /**
@@ -127,7 +129,6 @@ public class BaseUserDAOList implements BaseUserDAO {
         baseusers.clear();
     }
 
-    @Override
     public BaseUser findByUsername(String username) {
         for (BaseUser user : baseusers) {
             if (user.getUsername().equals(username)) {

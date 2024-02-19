@@ -1,7 +1,7 @@
 package app;
 
-import app.dao.borrowing.BorrowingDAOList;
-import app.dao.reader.ReaderDAOList;
+import app.dao.BorrowingDAOList;
+import app.dao.ReaderDAOList;
 import app.enums.BorrowingStatus;
 import app.model.Book;
 import app.model.Borrowing;

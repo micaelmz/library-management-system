@@ -1,6 +1,6 @@
 package test.dao;
 
-import app.dao.librarian.LibrarianDAOList;
+import app.dao.LibrarianDAOList;
 import app.model.Librarian;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +28,7 @@ public class LibrarianDAOTest {
     public void testUpdate() {
         Librarian librarian = bibliotecarioDAOList.findById(1);
         librarian.setName("John Doe Jr.");
-        bibliotecarioDAOList.update(librarian);
+        bibliotecarioDAOList.update(librarian, librarian);
         assertEquals("John Doe Jr.", bibliotecarioDAOList.findById(1).getName());
     }
 

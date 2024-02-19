@@ -1,6 +1,8 @@
-package app.dao.reader;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
+
 import app.model.Reader;
 
 import java.io.*;
@@ -17,7 +19,7 @@ import java.util.List;
  * @see Reader
  * @see ReaderDAO
  */
-public class ReaderDAOList implements ReaderDAO {
+public class ReaderDAOList implements CRUD<Reader> {
     private List<Reader> readers;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Readers.dat";
@@ -50,18 +52,18 @@ public class ReaderDAOList implements ReaderDAO {
 
     /**
      * Método que cria um novo leitor
-     * @param model model do leitor
+     * @param object model do leitor
      * @return model do leitor
      */
     @Override
-    public Reader create(Reader model){
+    public Reader create(Reader object){
         // Vai verificar se o model já existe na lista.
-        if (!readers.contains(model)){
+        if (!readers.contains(object)){
             lastId++;
-            model.setId(lastId);
-            readers.add(model);
+            object.setId(lastId);
+            readers.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -94,20 +96,20 @@ public class ReaderDAOList implements ReaderDAO {
      * @return model do leitor
      */
     @Override
-    public Reader update(Reader model) {
-        if (readers.contains(model)){
-            readers.set(readers.indexOf(model), model);
+    public void update(Reader oldObject, Reader newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (readers.contains(oldObject)) {
+            readers.set(readers.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um leitor específico
-     * @param model model do leitor
+     * @param object model do leitor
      */
     @Override
-    public void delete(Reader model) {
-        readers.remove(model);
+    public void delete(Reader object) {
+        readers.remove(object);
     }
 
     /**
