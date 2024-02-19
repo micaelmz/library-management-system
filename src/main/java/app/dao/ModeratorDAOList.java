@@ -1,6 +1,8 @@
-package app.dao.moderator;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
+
 import app.model.Moderator;
 
 import java.io.*;
@@ -16,7 +18,7 @@ import java.util.List;
  * @see Moderator
  * @see ModeratorDAO
  */
-public class ModeratorDAOList implements ModeratorDAO {
+public class ModeratorDAOList implements CRUD<Moderator> {
     private List<Moderator> moderators;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Moderators.dat";
@@ -50,18 +52,18 @@ public class ModeratorDAOList implements ModeratorDAO {
     /**
      * Método que cria um novo operador
      *
-     * @param model model do operador
+     * @param object model do operador
      * @return model do operador
      */
     @Override
-    public Moderator create(Moderator model) {
+    public Moderator create(Moderator object) {
         // Vai verificar se o model já existe na lista.
-        if (!moderators.contains(model)) {
+        if (!moderators.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            moderators.add(model);
+            object.setId(lastId);
+            moderators.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -97,21 +99,21 @@ public class ModeratorDAOList implements ModeratorDAO {
      * @return model do operador
      */
     @Override
-    public Moderator update(Moderator model) {
-        if (moderators.contains(model)) {
-            moderators.set(moderators.indexOf(model), model);
+    public void update(Moderator oldObject, Moderator newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (moderators.contains(oldObject)) {
+            moderators.set(moderators.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um operador específico
      *
-     * @param model model do operador
+     * @param object model do operador
      */
     @Override
-    public void delete(Moderator model) {
-        moderators.remove(model);
+    public void delete(Moderator object) {
+        moderators.remove(object);
     }
 
     /**

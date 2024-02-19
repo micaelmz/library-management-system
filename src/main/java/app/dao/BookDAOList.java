@@ -1,6 +1,8 @@
-package app.dao.book;
+package app.dao;
 
+import app.dao.CRUD;
 import app.dao.DatFilesFolder;
+
 import app.model.Book;
 
 import java.io.*;
@@ -16,7 +18,7 @@ import java.util.List;
  * @see Book
  * @see BookDAO
  */
-public class BookDAOList implements BookDAO {
+public class BookDAOList implements CRUD<Book> {
     private List<Book> books;
     private Integer lastId = 0;
     private String filePath = System.getProperty("user.dir") + "\\files\\Books.dat";
@@ -50,18 +52,18 @@ public class BookDAOList implements BookDAO {
     /**
      * Método que cria um novo livro
      *
-     * @param model model do livro
+     * @param object model do livro
      * @return model do livro
      */
     @Override
-    public Book create(Book model) {
+    public Book create(Book object) {
         // Vai verificar se o model já existe na lista.
-        if (!books.contains(model)) {
+        if (!books.contains(object)) {
             lastId++;
-            model.setId(lastId);
-            books.add(model);
+            object.setId(lastId);
+            books.add(object);
         }
-        return model;
+        return object;
     }
 
     /**
@@ -96,22 +98,23 @@ public class BookDAOList implements BookDAO {
      * @param model model do livro
      * @return model do livro
      */
+
     @Override
-    public Book update(Book model) {
-        if (books.contains(model)) {
-            books.set(books.indexOf(model), model);
+    public void update(Book oldObject, Book newObject) {
+        // Vai verificar se o model já existe na lista.
+        if (books.contains(oldObject)) {
+            books.set(books.indexOf(oldObject), newObject);
         }
-        return model;
     }
 
     /**
      * Método que remove um livro específico
      *
-     * @param model model do livro
+     * @param object model do livro
      */
     @Override
-    public void delete(Book model) {
-        books.remove(model);
+    public void delete(Book object) {
+        books.remove(object);
     }
 
     /**

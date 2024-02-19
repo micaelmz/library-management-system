@@ -1,6 +1,6 @@
 package app.controllers;
 
-import app.dao.baseuser.BaseUserDAOList;
+import app.dao.BaseUserDAOList;
 import app.model.BaseUser;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -47,7 +47,7 @@ public class RegisterController {
         if (!erro) {
             users.create(new BaseUser(username, password, fullName));
             users.saveDatFile();
-            statusLabel.setText("Usuário criado com sucesso");
+            LoginView.show();
         }
     }
 
