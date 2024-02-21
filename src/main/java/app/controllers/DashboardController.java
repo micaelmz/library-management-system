@@ -1,10 +1,7 @@
 package app.controllers;
 
 import app.GlobalData;
-import app.dao.BaseUserDAOList;
-import app.dao.CRUD;
-import app.dao.AdminDAOList;
-import app.dao.UsersDaoList;
+import app.dao.UtilityAllUsers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,19 +10,11 @@ import app.views.LoginView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.util.List;
 
 
 public class DashboardController {
 
     private final Integer TABLE_MAX_WIDTH = 550;
-
-    private <T> void loadTableData(CRUD<T> dao) throws IOException, ClassNotFoundException {
-        dao.loadDatFile();
-        List<T> dataList = dao.getAll();
-        dataTable.getItems().clear();
-        dataTable.getItems().addAll(dataList);
-    }
 
     private <S, T> void addTableColumn(TableView<S> table, String columnName, String property, Integer width) {
         TableColumn<S, T> column = new TableColumn<>(columnName);
@@ -54,7 +43,9 @@ public class DashboardController {
         addTableColumn(dataTable, "Nome", "name", columnPercentage(30));
         addTableColumn(dataTable, "Username", "username", columnPercentage(30));
         addTableColumn(dataTable, "Cargo", "role", columnPercentage(30));
-        loadTableData(new UsersDaoList());
+
+        dataTable.getItems().clear();
+        dataTable.getItems().addAll(UtilityAllUsers.getAll());
     }
 
     @FXML

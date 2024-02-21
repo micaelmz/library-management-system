@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.Book;
 
 import java.io.*;
@@ -21,9 +18,10 @@ import java.util.List;
 public class BookDAOList implements CRUD<Book> {
     private List<Book> books;
     private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Books.dat";
+    private String filePath;
 
     public BookDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Books.dat"; // todo: verificar se isso causa acoplamento
         this.books = new LinkedList<Book>();
     }
 
@@ -42,8 +40,7 @@ public class BookDAOList implements CRUD<Book> {
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(books);
@@ -123,5 +120,9 @@ public class BookDAOList implements CRUD<Book> {
     @Override
     public void deleteAll() {
         books.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }

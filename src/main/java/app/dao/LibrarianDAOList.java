@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.Librarian;
 
 import java.io.*;
@@ -20,10 +17,10 @@ import java.util.List;
  */
 public class LibrarianDAOList implements CRUD<Librarian> {
     private List<Librarian> librarians;
-    private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Librarians.dat";
+    private String filePath;
 
     public LibrarianDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Librarians.dat"; // todo: verificar se isso causa acoplamento
         this.librarians = new LinkedList<Librarian>();
     }
 
@@ -42,8 +39,7 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(librarians);
@@ -56,11 +52,10 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      * @return model do bibliotecário
      */
     @Override
-    public Librarian create(Librarian object) {
+    public Librarian create(Librarian object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!librarians.contains(object)) {
-            lastId++;
-            object.setId(lastId);
+            object.setId(UtilityAllUsers.getNewId());
             librarians.add(object);
         }
         return object;
@@ -122,5 +117,9 @@ public class LibrarianDAOList implements CRUD<Librarian> {
     @Override
     public void deleteAll() {
         librarians.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }

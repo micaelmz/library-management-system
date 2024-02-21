@@ -2,7 +2,7 @@ package app.controllers;
 
 import app.GlobalData;
 
-import app.dao.UsersDaoList;
+import app.dao.UtilityAllUsers;
 import app.model.BaseUser;
 
 import javafx.fxml.FXML;
@@ -24,14 +24,13 @@ public class LoginController {
     @FXML
     private PasswordField passwordInput;
 
-    UsersDaoList users = new UsersDaoList();
 
     @FXML
     protected void onLoginClick() throws IOException, ClassNotFoundException {
         String username = loginInput.getText();
         String password = passwordInput.getText();
-        users.loadDatFile();
-        BaseUser user = users.findUserByUsername(username);
+        UtilityAllUsers.getAll();
+        BaseUser user = UtilityAllUsers.findUserByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             statusLabel.setText("Login successful");
             GlobalData.setLoggedUser(user);

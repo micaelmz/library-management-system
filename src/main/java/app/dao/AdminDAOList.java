@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.Admin;
 
 import java.io.*;
@@ -20,10 +17,10 @@ import java.util.List;
  */
 public class AdminDAOList implements CRUD<Admin> {
     private List<Admin> admins;
-    private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Admins.dat";
+    private String filePath;
 
     public AdminDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Admins.dat"; // todo: verificar se isso causa acoplamento
         this.admins = new LinkedList<Admin>();
     }
 
@@ -42,8 +39,7 @@ public class AdminDAOList implements CRUD<Admin> {
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(admins);
@@ -56,11 +52,9 @@ public class AdminDAOList implements CRUD<Admin> {
      * @return model do administrador
      */
     @Override
-    public Admin create(Admin object) {
-        // Vai verificar se o model já existe na lista.
+    public Admin create(Admin object) throws IOException, ClassNotFoundException {
         if (!admins.contains(object)) {
-            lastId++;
-            object.setId(lastId);
+            object.setId(UtilityAllUsers.getNewId());
             admins.add(object);
         }
         return object;
@@ -123,5 +117,9 @@ public class AdminDAOList implements CRUD<Admin> {
     @Override
     public void deleteAll() {
         admins.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }

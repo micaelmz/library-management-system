@@ -1,8 +1,11 @@
 package test.dao;
 
+import app.dao.UtilityAllUsers;
+import app.dao.UtilityDatFilesFolder;
 import app.model.Borrowing;
 import app.model.Reader;
 import app.model.Book;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,10 +15,12 @@ import java.io.IOException;
 
 public class BorrowingDAOTest {
 
-    BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
+    BorrowingDAOList borrowingDAOList;
 
     @Before
     public void setUp() {
+        UtilityDatFilesFolder.enableTestMode();
+        borrowingDAOList = new BorrowingDAOList();
         borrowingDAOList.create(
                 new Borrowing(
                         new Reader(
@@ -38,6 +43,12 @@ public class BorrowingDAOTest {
                         1
                 )
         );
+    }
+
+    @After
+    public void tearDown() throws IOException {
+        UtilityAllUsers.resetId();
+        UtilityDatFilesFolder.disableTestMode();
     }
 
     @Test

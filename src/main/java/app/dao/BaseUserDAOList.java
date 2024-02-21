@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.BaseUser;
 
 import java.io.*;
@@ -16,14 +13,13 @@ import java.util.List;
  * @author José Victor Oliveira
  * @author Micael Muniz
  * @see BaseUser
- * @see BaseUserDAO
  */
 public class BaseUserDAOList implements CRUD<BaseUser>{
     private List<BaseUser> baseusers;
-    private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\BaseUsers.dat";
+    private String filePath;
 
     public BaseUserDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\BaseUsers.dat"; // todo: verificar se isso causa acoplamento
         this.baseusers = new LinkedList<BaseUser>();
     }
 
@@ -47,8 +43,7 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(baseusers);
@@ -61,11 +56,10 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      * @return model do usuário
      */
     @Override
-    public BaseUser create(BaseUser object) {
+    public BaseUser create(BaseUser object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!baseusers.contains(object)) {
-            lastId++;
-            object.setId(lastId);
+            object.setId(UtilityAllUsers.getNewId());
             baseusers.add(object);
         }
         return object;
@@ -136,5 +130,9 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
             }
         }
         return null;
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }

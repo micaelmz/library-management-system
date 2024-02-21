@@ -1,7 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
 import app.model.Borrowing;
 import app.model.Librarian;
 
@@ -21,9 +19,10 @@ import java.util.List;
 public class BorrowingDAOList implements CRUD<Borrowing> {
     private List<Borrowing> borrowings;
     private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Borrowings.dat";
+    private String filePath;
 
     public BorrowingDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Borrowings.dat"; // todo: verificar se isso causa acoplamento
         this.borrowings = new LinkedList<Borrowing>();
     }
 
@@ -42,8 +41,7 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(borrowings);
@@ -122,5 +120,9 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
     @Override
     public void deleteAll() {
         borrowings.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }

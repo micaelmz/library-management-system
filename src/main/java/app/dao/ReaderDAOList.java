@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.Reader;
 
 import java.io.*;
@@ -21,10 +18,10 @@ import java.util.List;
  */
 public class ReaderDAOList implements CRUD<Reader> {
     private List<Reader> readers;
-    private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Readers.dat";
+    private String filePath;
 
     public ReaderDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Readers.dat"; // todo: verificar se isso causa acoplamento
         this.readers = new LinkedList<Reader>();
     }
 
@@ -43,8 +40,7 @@ public class ReaderDAOList implements CRUD<Reader> {
      */
     @Override
     public void saveDatFile() throws IOException{
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(readers);
@@ -56,11 +52,10 @@ public class ReaderDAOList implements CRUD<Reader> {
      * @return model do leitor
      */
     @Override
-    public Reader create(Reader object){
+    public Reader create(Reader object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!readers.contains(object)){
-            lastId++;
-            object.setId(lastId);
+            object.setId(UtilityAllUsers.getNewId());
             readers.add(object);
         }
         return object;
@@ -118,5 +113,9 @@ public class ReaderDAOList implements CRUD<Reader> {
     @Override
     public void deleteAll() {
         readers.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }
