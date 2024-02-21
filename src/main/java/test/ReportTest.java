@@ -1,7 +1,7 @@
 package test;
 
 import app.Report;
-import app.dao.BookDAOList;
+import app.dao.*;
 import app.model.Book;
 import app.model.Reader;
 import org.junit.After;
@@ -10,19 +10,25 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import app.model.Librarian;
-import app.dao.ReaderDAOList;
-import app.dao.BorrowingDAOList;
+
+import java.io.IOException;
 
 public class ReportTest {
 
-    BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
-    ReaderDAOList readerDAOList = new ReaderDAOList();
-    BookDAOList bookDAOList = new BookDAOList();
-    Librarian librarian = new Librarian("bibliotecario", "123456", "Bibliotecário");
+    BorrowingDAOList borrowingDAOList;
+    ReaderDAOList readerDAOList;
+    BookDAOList bookDAOList;
+    Librarian librarian;
     Report report;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, ClassNotFoundException {
+        UtilityDatFilesFolder.enableTestMode();
+        borrowingDAOList = new BorrowingDAOList();
+        readerDAOList = new ReaderDAOList();
+        bookDAOList = new BookDAOList();
+        librarian = new Librarian("bibliotecario", "123456", "Bibliotecário");
+
         bookDAOList.create(new Book("Livro 1", "Autor 1", "123B4", 1970, "Categoria 1", 5, 1));
         bookDAOList.create(new Book("Livro 2", "Autor 2", "123B5", 1970, "Categoria 1", 1, 1));
         bookDAOList.create(new Book("Livro 3", "Autor 3", "123B6", 1970, "Categoria 1", 2, 1));
@@ -33,15 +39,15 @@ public class ReportTest {
         readerDAOList.create(new Reader("joao3", "12345678910", "João", "Rua 1", "123456789"));
         readerDAOList.create(new Reader("joao4", "12345678910", "João", "Rua 1", "123456789"));
 
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(1), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(1), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(1), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(3), bookDAOList.findById(1), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(4), bookDAOList.findById(1), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(2), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(2), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(2), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(3), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(3), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(3), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(3), bookDAOList.findById(3), 7, 1));
 
         report = new Report(borrowingDAOList, readerDAOList);
         report.generateBorrowingList();
@@ -52,11 +58,13 @@ public class ReportTest {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws IOException {
         borrowingDAOList.deleteAll();
         readerDAOList.deleteAll();
         bookDAOList.deleteAll();
         report = null;
+        UtilityAllUsers.resetId();
+        UtilityDatFilesFolder.disableTestMode();
     }
 
     @Test
@@ -76,10 +84,10 @@ public class ReportTest {
 
     @Test
     public void testBorrowingQuantityByReader(){
+        assertEquals(3, report.getBorrowingQuantityByReader(0).intValue());
         assertEquals(3, report.getBorrowingQuantityByReader(1).intValue());
-        assertEquals(3, report.getBorrowingQuantityByReader(2).intValue());
-        assertEquals(2, report.getBorrowingQuantityByReader(3).intValue());
-        assertEquals(1, report.getBorrowingQuantityByReader(4).intValue());
+        assertEquals(2, report.getBorrowingQuantityByReader(2).intValue());
+        assertEquals(1, report.getBorrowingQuantityByReader(3).intValue());
     }
 
     @Test
