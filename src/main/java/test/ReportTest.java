@@ -39,15 +39,15 @@ public class ReportTest {
         readerDAOList.create(new Reader("joao3", "12345678910", "João", "Rua 1", "123456789"));
         readerDAOList.create(new Reader("joao4", "12345678910", "João", "Rua 1", "123456789"));
 
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(0), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(0), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(0), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(3), bookDAOList.findById(0), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(1), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(1), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(1), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(3), bookDAOList.findById(1), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(2), 7, 1));
         borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(2), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(0), bookDAOList.findById(3), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(1), bookDAOList.findById(3), 7, 1));
-        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(3), 7, 1));
+        borrowingDAOList.create(librarian.borrowBook(readerDAOList.findById(2), bookDAOList.findById(2), 7, 1));
 
         report = new Report(borrowingDAOList, readerDAOList);
         report.generateBorrowingList();

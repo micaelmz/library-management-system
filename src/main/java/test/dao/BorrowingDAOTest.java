@@ -53,15 +53,15 @@ public class BorrowingDAOTest {
 
     @Test
     public void testFindById() {
-        assertEquals("johndoe", borrowingDAOList.findById(1).getReader().getUsername());
+        assertEquals("johndoe", borrowingDAOList.findById(0).getReader().getUsername());
     }
 
     @Test
     public void testUpdate() {
-        Borrowing borrowing = borrowingDAOList.findById(1);
+        Borrowing borrowing = borrowingDAOList.findById(0);
         borrowing.setRenewals(5);
         borrowingDAOList.update(borrowing, borrowing);
-        assertEquals(5, borrowingDAOList.findById(1).getRenewals().intValue());
+        assertEquals(5, borrowingDAOList.findById(0).getRenewals().intValue());
     }
 
     @Test
@@ -81,6 +81,6 @@ public class BorrowingDAOTest {
         borrowingDAOList.saveDatFile();
         borrowingDAOList.deleteAll();
         borrowingDAOList.loadDatFile();
-        assertEquals("johndoe", borrowingDAOList.findById(1).getReader().getUsername());
+        assertEquals("johndoe", borrowingDAOList.findById(0).getReader().getUsername());
     }
 }

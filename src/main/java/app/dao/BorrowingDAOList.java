@@ -57,8 +57,8 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
     public Borrowing create(Borrowing object) {
         // Vai verificar se o model já existe na lista.
         if (!borrowings.contains(object)) {
-            lastId++;
             object.setId(lastId);
+            lastId++;
             borrowings.add(object);
         }
         return object;

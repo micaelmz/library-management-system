@@ -12,7 +12,7 @@ public class Main extends Application {
 
     public static Stage stage;
     @Override
-    public void start(Stage stage) throws IOException, ClassNotFoundException {
+    public void start(Stage stage) {
         Main.stage = stage;
         stage.setTitle("SGB!");
         stage.show();

@@ -56,8 +56,8 @@ public class BookDAOList implements CRUD<Book> {
     public Book create(Book object) {
         // Vai verificar se o model já existe na lista.
         if (!books.contains(object)) {
-            lastId++;
             object.setId(lastId);
+            lastId++;
             books.add(object);
         }
         return object;
