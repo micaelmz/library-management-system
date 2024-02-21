@@ -16,7 +16,7 @@ public interface CRUD<T> {
     public void saveDatFile() throws IOException;
     public void loadDatFile() throws IOException, ClassNotFoundException;
     public T findById(Integer id);
-    public T create(T object);
+    public T create(T object) throws IOException, ClassNotFoundException;
     public List<T> getAll();
     public void update(T oldObject, T newObject);
     public void delete(T object);

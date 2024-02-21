@@ -1,8 +1,5 @@
 package app.dao;
 
-import app.dao.CRUD;
-import app.dao.DatFilesFolder;
-
 import app.model.Moderator;
 
 import java.io.*;
@@ -20,10 +17,10 @@ import java.util.List;
  */
 public class ModeratorDAOList implements CRUD<Moderator> {
     private List<Moderator> moderators;
-    private Integer lastId = 0;
-    private String filePath = System.getProperty("user.dir") + "\\files\\Moderators.dat";
+    private String filePath;
 
     public ModeratorDAOList() {
+        this.filePath = UtilityDatFilesFolder.getFolderPath() + "\\Moderators.dat"; // todo: verificar se isso causa acoplamento
         this.moderators = new LinkedList<Moderator>();
     }
 
@@ -42,8 +39,7 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      */
     @Override
     public void saveDatFile() throws IOException {
-        DatFilesFolder folder = new DatFilesFolder();
-        folder.ensureDestinationFolderExists();
+        UtilityDatFilesFolder.createIfNotExists();
         FileOutputStream file = new FileOutputStream(filePath);
         ObjectOutputStream object = new ObjectOutputStream(file);
         object.writeObject(moderators);
@@ -56,11 +52,10 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      * @return model do operador
      */
     @Override
-    public Moderator create(Moderator object) {
+    public Moderator create(Moderator object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!moderators.contains(object)) {
-            lastId++;
-            object.setId(lastId);
+            object.setId(UtilityAllUsers.getNewId());
             moderators.add(object);
         }
         return object;
@@ -122,5 +117,9 @@ public class ModeratorDAOList implements CRUD<Moderator> {
     @Override
     public void deleteAll() {
         moderators.clear();
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 }
