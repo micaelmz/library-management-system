@@ -18,7 +18,7 @@ public interface CRUD<T> {
     public T findById(Integer id);
     public T create(T object) throws IOException, ClassNotFoundException;
     public List<T> getAll();
-    public void update(T oldObject, T newObject);
+    public void update(T newObject);
     public void delete(T object);
     public void deleteAll();
 }

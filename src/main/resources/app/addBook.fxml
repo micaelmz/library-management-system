@@ -20,12 +20,12 @@
         </Label>
         <TextField fx:id="titleInput" layoutX="293.0" layoutY="212.0" prefHeight="40.0" prefWidth="300.0" promptText="Titulo" styleClass="modernInput" />
         <TextField fx:id="authorInput" layoutX="293.0" layoutY="252.0" prefHeight="40.0" prefWidth="300.0" promptText="Autor" styleClass="modernInput" />
-        <Label fx:id="statusLabel" layoutX="293.0" layoutY="470.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
+        <TextField fx:id="categoryInput" layoutX="293.0" layoutY="292.0" prefHeight="40.0" prefWidth="230.0" promptText="Categoria" styleClass="modernInput" />
+        <TextField fx:id="yearInput" layoutX="523.0" layoutY="292.0" prefHeight="40.0" prefWidth="70.0" promptText="Ano" styleClass="modernInput" />
+        <TextField fx:id="isbnInput" layoutX="293.0" layoutY="332.0" prefHeight="40.0" prefWidth="300.0" promptText="ISBN" styleClass="modernInput" />
+        <TextField fx:id="quantityInput" layoutX="293.0" layoutY="372.0" prefHeight="40.0" prefWidth="150.0" promptText="Quantidade" styleClass="modernInput" />
+        <TextField fx:id="renewLimitInput" layoutX="443.0" layoutY="372.0" prefHeight="40.0" prefWidth="150.0" promptText="Limite de renovações" styleClass="modernInput" />
         <Button fx:id="saveButton" layoutX="293.0" layoutY="421.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" stylesheets="@../Downloads/css/styles.css" text="Salvar" />
-      <TextField fx:id="yearInput" layoutX="523.0" layoutY="292.0" prefHeight="40.0" prefWidth="70.0" promptText="Ano" styleClass="modernInput" />
-      <TextField fx:id="categoryInput" layoutX="293.0" layoutY="292.0" prefHeight="40.0" prefWidth="230.0" promptText="Categoria" styleClass="modernInput" />
-      <TextField fx:id="isbnInput" layoutX="293.0" layoutY="332.0" prefHeight="40.0" prefWidth="300.0" promptText="ISBN" styleClass="modernInput" />
-      <TextField fx:id="quantityInput" layoutX="293.0" layoutY="372.0" prefHeight="40.0" prefWidth="150.0" promptText="Quantidade" styleClass="modernInput" />
-      <TextField fx:id="renewLimitInput" layoutX="443.0" layoutY="372.0" prefHeight="40.0" prefWidth="150.0" promptText="Limite de renovações" styleClass="modernInput" />
+        <Label fx:id="statusLabel" layoutX="293.0" layoutY="470.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
     </children>
 </Pane>

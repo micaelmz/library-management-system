@@ -94,10 +94,11 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      * @return model do operador
      */
     @Override
-    public void update(Moderator oldObject, Moderator newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (moderators.contains(oldObject)) {
-            moderators.set(moderators.indexOf(oldObject), newObject);
+    public void update(Moderator newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            moderators.remove(findById(id));
+            moderators.add(newObject);
         }
     }
 
@@ -108,7 +109,10 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      */
     @Override
     public void delete(Moderator object) {
-        moderators.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            moderators.remove(findById(id));
+        }
     }
 
     /**
