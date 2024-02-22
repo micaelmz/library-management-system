@@ -94,10 +94,11 @@ public class AdminDAOList implements CRUD<Admin> {
      */
 
     @Override
-    public void update(Admin oldObject, Admin newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (admins.contains(oldObject)) {
-            admins.set(admins.indexOf(oldObject), newObject);
+    public void update(Admin newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            admins.remove(findById(id));
+            admins.add(newObject);
         }
     }
 
@@ -108,7 +109,10 @@ public class AdminDAOList implements CRUD<Admin> {
      */
     @Override
     public void delete(Admin object) {
-        admins.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            admins.remove(findById(id));
+        }
     }
 
     /**

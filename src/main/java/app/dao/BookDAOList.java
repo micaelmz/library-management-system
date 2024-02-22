@@ -97,10 +97,10 @@ public class BookDAOList implements CRUD<Book> {
      */
 
     @Override
-    public void update(Book oldObject, Book newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (findById(oldObject.getId()) != null) {
-            books.remove(findById(oldObject.getId()));
+    public void update(Book newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            books.remove(findById(id));
             books.add(newObject);
         }
     }
@@ -112,7 +112,10 @@ public class BookDAOList implements CRUD<Book> {
      */
     @Override
     public void delete(Book object) {
-        books.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            books.remove(findById(id));
+        }
     }
 
     /**

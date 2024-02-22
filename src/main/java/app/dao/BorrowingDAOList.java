@@ -97,10 +97,11 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      * @return model do empréstimo
      */
     @Override
-    public void update(Borrowing oldObject, Borrowing newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (borrowings.contains(oldObject)) {
-            borrowings.set(borrowings.indexOf(oldObject), newObject);
+    public void update(Borrowing newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            borrowings.remove(findById(id));
+            borrowings.add(newObject);
         }
     }
 
@@ -111,7 +112,10 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      */
     @Override
     public void delete(Borrowing object) {
-        borrowings.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            borrowings.remove(findById(id));
+        }
     }
 
     /**

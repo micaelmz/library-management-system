@@ -94,10 +94,11 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      * @return model do bibliotecário
      */
     @Override
-    public void update(Librarian oldObject, Librarian newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (librarians.contains(oldObject)) {
-            librarians.set(librarians.indexOf(oldObject), newObject);
+    public void update(Librarian newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            librarians.remove(findById(id));
+            librarians.add(newObject);
         }
     }
 
@@ -108,7 +109,10 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      */
     @Override
     public void delete(Librarian object) {
-        librarians.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            librarians.remove(findById(id));
+        }
     }
 
     /**

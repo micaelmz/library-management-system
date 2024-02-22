@@ -91,10 +91,11 @@ public class ReaderDAOList implements CRUD<Reader> {
      * @return model do leitor
      */
     @Override
-    public void update(Reader oldObject, Reader newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (readers.contains(oldObject)) {
-            readers.set(readers.indexOf(oldObject), newObject);
+    public void update(Reader newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            readers.remove(findById(id));
+            readers.add(newObject);
         }
     }
 
@@ -104,7 +105,10 @@ public class ReaderDAOList implements CRUD<Reader> {
      */
     @Override
     public void delete(Reader object) {
-        readers.remove(object);
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            readers.remove(findById(id));
+        }
     }
 
     /**

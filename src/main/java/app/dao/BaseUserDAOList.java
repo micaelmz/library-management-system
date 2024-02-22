@@ -98,10 +98,11 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      * @param model model do usuário para substituir
      */
     @Override
-    public void update(BaseUser oldObject, BaseUser newObject) {
-        // Vai verificar se o model já existe na lista.
-        if (baseusers.contains(oldObject)) {
-            baseusers.set(baseusers.indexOf(oldObject), newObject);
+    public void update(BaseUser newObject) {
+        Integer id = newObject.getId()
+        if (findById(id) != null) {
+            users.remove(findById(id));
+            users.add(newObject);
         }
     }
 
@@ -112,11 +113,9 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      */
     @Override
     public void delete(BaseUser object) {
-        for (BaseUser user : baseusers) {
-            if (user.getId().equals(object.getId())) {
-                baseusers.remove(user);
-                break;
-            }
+        Integer id = object.getId()
+        if (findById(id) != null) {
+            users.remove(findById(id));
         }
     }
 
