@@ -1,9 +1,12 @@
 package app.controllers;
 
 import app.GlobalData;
+import app.dao.BookDAOList;
 import app.dao.UtilityAllUsers;
 import app.enums.Role;
 import app.model.BaseUser;
+import app.model.Book;
+import app.views.BooksView;
 import app.views.ProfileView;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -15,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
+import java.util.function.Consumer;
 
 
 public class DashboardController {
@@ -51,11 +55,6 @@ public class DashboardController {
     }
 
     @FXML
-    protected void onBooksClicked() {
-        setSelectedBackgroundBtn(backgroundBookBtn);
-    }
-
-    @FXML
     protected void onUsersClicked() throws IOException, ClassNotFoundException {
         setSelectedBackgroundBtn(backgroundUsersBtn);
         dataTable.getColumns().clear();
@@ -63,12 +62,40 @@ public class DashboardController {
         addTableColumn(dataTable, "Nome", "name", columnPercentage(25));
         addTableColumn(dataTable, "Username", "username", columnPercentage(25));
         addTableColumn(dataTable, "Cargo", "role", columnPercentage(25));
-        addHyperlinkColumn(dataTable, "Perfil", columnPercentage(17));
+        addHyperlinkColumn(dataTable, "Perfil", columnPercentage(17), this::showUserProfile);
         dataTable.getItems().clear();
         dataTable.getItems().addAll(UtilityAllUsers.getAll());
 
         sortTableBy(dataTable, 0);
     }
+
+    @FXML
+    protected void onBooksClicked() throws IOException, ClassNotFoundException {
+        BookDAOList bookDAO = new BookDAOList();
+        bookDAO.loadDatFile();
+        setSelectedBackgroundBtn(backgroundBookBtn);
+        dataTable.getColumns().clear();
+        addTableColumn(dataTable, "ID", "id", columnPercentage(6));
+        addTableColumn(dataTable, "Título", "title", columnPercentage(30));
+        addTableColumn(dataTable, "Autor", "author", columnPercentage(20));
+        addTableColumn(dataTable, "Categoria", "category", columnPercentage(13));
+        addTableColumn(dataTable, "Quantidade", "quantity", columnPercentage(6));
+        addTableColumn(dataTable, "Ano", "publicationYear", columnPercentage(9));
+        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(16), this::showBookDetails);
+        dataTable.getItems().clear();
+        dataTable.getItems().addAll(bookDAO.getAll());
+
+        sortTableBy(dataTable, 0);
+    }
+
+    private void showUserProfile(BaseUser user) {
+        ProfileView.show(user);
+    }
+
+    private void showBookDetails(Book book) {
+        BooksView.show(book);
+    }
+
 
     @FXML
     protected void onBorrowingClicked() {
@@ -93,7 +120,7 @@ public class DashboardController {
 
     @FXML
     protected void onSearchClicked() {
-        System.out.println("Search clicked");
+
     }
 
 
@@ -106,12 +133,12 @@ public class DashboardController {
         target.setFill(javafx.scene.paint.Color.web("#58a1dd"));
     }
 
-    private <S, T> void addHyperlinkColumn(TableView<S> table, String columnName, Integer width) {
+    private <S, T> void addHyperlinkColumn(TableView<S> table, String columnName, Integer width, Consumer<S> onHyperlinkClicked) {
         TableColumn<S, T> column = new TableColumn<>(columnName);
         column.setMinWidth(width);
         column.setMaxWidth(width);
 
-        // Crie a fábrica de células personalizada
+        // Define a fábrica de células personalizada
         column.setCellValueFactory(cellData -> (ObservableValue<T>) new ReadOnlyObjectWrapper<>(cellData.getValue()));
 
         // Crie a célula personalizada com Hyperlink
@@ -123,8 +150,7 @@ public class DashboardController {
                     // Adicione um listener para o clique no Hyperlink
                     link.setOnAction(event -> {
                         S rowData = getTableView().getItems().get(getIndex());
-                        BaseUser user = UtilityAllUsers.findById(((app.model.BaseUser) rowData).getId());
-                        ProfileView.show(user);
+                        onHyperlinkClicked.accept(rowData); // Execute a ação definida
                     });
                 }
 
@@ -135,7 +161,7 @@ public class DashboardController {
                     if (empty || item == null) {
                         setGraphic(null);
                     } else {
-                        link.setText("Ver Perfil");
+                        link.setText("Detalhes");
                         setGraphic(link);
                     }
                 }
@@ -146,6 +172,7 @@ public class DashboardController {
 
         table.getColumns().add(column);
     }
+
 
 
     private <S, T> void addTableColumn(TableView<S> table, String columnName, String property, Integer width) {
