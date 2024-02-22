@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.FinishRegisterController">
+    <children>
+        <Label layoutX="290.0" layoutY="188.0" text="Finalize o cadastro">
+            <font>
+                <Font name="Poppins Medium" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="291.0" layoutY="225.0" prefHeight="27.0" prefWidth="300.0" text="Preencha as informações para contato. ">
+            <font>
+                <Font name="Poppins Regular" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="cityInput" layoutX="290.0" layoutY="264.0" prefHeight="40.0" prefWidth="150.0" promptText="Cidade" styleClass="modernInput" />
+        <ComboBox fx:id="stateInput" layoutX="440.0" layoutY="264.0" prefHeight="40.0" prefWidth="150.0" promptText="Estado" styleClass="modernChooseBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Acre" />
+                    <String fx:value="Alagoas" />
+                    <String fx:value="Amapá" />
+                    <String fx:value="Amazonas" />
+                    <String fx:value="Bahia" />
+                    <String fx:value="Ceará" />
+                    <String fx:value="Distrito Federal" />
+                    <String fx:value="Espírito Santo" />
+                    <String fx:value="Goiás" />
+                    <String fx:value="Maranhão" />
+                    <String fx:value="Mato Grosso" />
+                    <String fx:value="Mato Grosso do Sul" />
+                    <String fx:value="Minas Gerais" />
+                    <String fx:value="Pará" />
+                    <String fx:value="Paraíba" />
+                    <String fx:value="Paraná" />
+                    <String fx:value="Pernambuco" />
+                    <String fx:value="Piauí" />
+                    <String fx:value="Rio de Janeiro" />
+                    <String fx:value="Rio Grande do Norte" />
+                    <String fx:value="Rio Grande do Sul" />
+                    <String fx:value="Rondônia" />
+                    <String fx:value="Roraima" />
+                    <String fx:value="Santa Catarina" />
+                    <String fx:value="São Paulo" />
+                    <String fx:value="Sergipe" />
+                    <String fx:value="Tocantins" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <TextField fx:id="streetInput" layoutX="290.0" layoutY="304.0" prefHeight="40.0" prefWidth="250.0" promptText="Rua" styleClass="modernInput" />
+        <TextField fx:id="numberInput" layoutX="540.0" layoutY="304.0" prefHeight="40.0" prefWidth="50.0" promptText="N°" styleClass="modernInput" />
+        <TextField fx:id="telephoneInput" layoutX="290.0" layoutY="344.0" prefHeight="40.0" prefWidth="300.0" promptText="Telefone" styleClass="modernInput" />
+        <Label fx:id="statusLabel" layoutX="293.0" layoutY="450.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
+        <Button fx:id="registerButton" layoutX="290.0" layoutY="398.0" mnemonicParsing="false" onAction="#onRegisterClick" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" stylesheets="@css/styles.css" text="Registrar-se" />
+    </children>
+</Pane>

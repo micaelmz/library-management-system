@@ -1,14 +1,18 @@
 package app.controllers;
 
 import app.GlobalData;
+import app.dao.ReaderDAOList;
 import app.dao.UtilityAllUsers;
 import app.enums.Role;
+import app.model.Admin;
 import app.model.BaseUser;
 import app.model.Reader;
 import app.views.DashboardView;
+import app.views.FinishRegisterView;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -25,6 +29,11 @@ public class ProfileController {
     Label addressLabel;
     @FXML
     Label phoneLabel;
+    @FXML
+    Label bannedUntilLabel;
+
+    @FXML
+    TextField banDaysInput;
 
     @FXML
     Pane adminPane;
@@ -47,6 +56,7 @@ public class ProfileController {
         usernameLabel.setText("@" + user.getUsername());
         Role userRole = user.getRole();
 
+
         if (userRole != null) {
             roleLabel.setText(userRole.toString());
         }
@@ -55,6 +65,10 @@ public class ProfileController {
             Reader reader = (Reader) user;
             addressLabel.setText(reader.getAddress());
             phoneLabel.setText(reader.getPhoneNumber());
+
+            if (reader.isBanned()) {
+                bannedUntilLabel.setText("Banido até " + reader.getBannedUntil());
+            }
         }
 
     }
@@ -65,7 +79,15 @@ public class ProfileController {
     }
 
     @FXML
-    protected void onBanClicked() {
+    protected void onBanClicked() throws IOException, ClassNotFoundException {
+        BaseUser loggedUser = GlobalData.getLoggedUser();
+        if (loggedUser.getRole() == Role.ADMIN) {
+            Admin admin = (Admin) loggedUser;
+            admin.banReader((Reader) currentUser, Integer.parseInt(banDaysInput.getText()));
+            bannedUntilLabel.setText("Banido até " + ((Reader) currentUser).getBannedUntil());
+            banDaysInput.clear();
+        }
+        UtilityAllUsers.saveAll();
     }
 
     @FXML
@@ -81,9 +103,9 @@ public class ProfileController {
                 roleLabel.setText(Role.LIBRARIAN.toString());
             }
             case "LEITOR" -> {
-                currentUser.setRole(Role.READER);
+//                currentUser.setRole(Role.READER);
                 roleLabel.setText(Role.READER.toString());
-                // todo: chamar a tela de edição de leitor
+                FinishRegisterView.show(currentUser);
             }
             case "VISITANTE" -> {
                 currentUser.setRole(null);

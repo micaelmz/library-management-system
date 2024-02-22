@@ -99,8 +99,9 @@ public class BookDAOList implements CRUD<Book> {
     @Override
     public void update(Book oldObject, Book newObject) {
         // Vai verificar se o model já existe na lista.
-        if (books.contains(oldObject)) {
-            books.set(books.indexOf(oldObject), newObject);
+        if (findById(oldObject.getId()) != null) {
+            books.remove(findById(oldObject.getId()));
+            books.add(newObject);
         }
     }
 

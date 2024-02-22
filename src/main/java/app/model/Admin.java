@@ -32,13 +32,8 @@ public class Admin extends Moderator implements Serializable {
      *
      * @param reader objeto do leitor
      * @param days   quantidade de dias de banimento
-     * @return banimento bem-sucedido (caso o leitor NÃO tenha banimentos posteriores) ou banimento mal-sucedido
      */
-    public boolean banReader(Reader reader, Integer days) {
-        if (!reader.isBanned()) {
-            reader.setBannedUntil(LocalDate.now().plusDays(days));
-            return true;
-        }
-        return false;
+    public void banReader(Reader reader, Integer days) {
+        reader.setBannedUntil(LocalDate.now().plusDays(days));
     }
 }
