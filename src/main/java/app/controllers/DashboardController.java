@@ -6,6 +6,7 @@ import app.dao.UtilityAllUsers;
 import app.enums.Role;
 import app.model.BaseUser;
 import app.model.Book;
+import app.model.Borrowing;
 import app.views.BooksView;
 import app.views.ProfileView;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -96,15 +97,55 @@ public class DashboardController {
         BooksView.show(book);
     }
 
+    private void showBorrowingDetails(Borrowing borrowing) {
+        BorrowingView.show(borrowing);
+    }
+
 
     @FXML
     protected void onBorrowingClicked() {
+        BookDAOList bookDAO = new BookDAOList();
+        bookDAO.loadDatFile();
         setSelectedBackgroundBtn(backgroundBorrowingBtn);
+        dataTable.getColumns().clear();
+        addTableColumn(dataTable, "ID", "id", columnPercentage(6));
+        addTableColumn(dataTable, "Título", "book.getId()", columnPercentage(30));
+        addTableColumn(dataTable, "ID do Leitor", "reader.getId()", columnPercentage(20));
+        addTableColumn(dataTable, "Inicio", "loanDate", columnPercentage(13));
+        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(6));
+        addTableColumn(dataTable, "Dias", "loanDays", columnPercentage(13));
+        addTableColumn(dataTable, "Renovações", "renewals", columnPercentage(9));
+        addTableColumn(dataTable, "Status", "status", columnPercentage(9));
+        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(16), this::showBorrowingDetails);
+        dataTable.getItems().clear();
+        for (Book book : bookDAO.getAll()) {
+            dataTable.getItems().add(book.getBorrowedBooks());
+        }
+
+        sortTableBy(dataTable, 0);
     }
 
     @FXML
     protected void onReservationsClicked() {
+        BookDAOList bookDAO = new BookDAOList();
+        bookDAO.loadDatFile();
         setSelectedBackgroundBtn(backgroundReservationsBtn);
+        dataTable.getColumns().clear();
+        addTableColumn(dataTable, "ID", "id", columnPercentage(6));
+        addTableColumn(dataTable, "Título", "book.getId()", columnPercentage(30));
+        addTableColumn(dataTable, "ID do Leitor", "reader.getId()", columnPercentage(20));
+        addTableColumn(dataTable, "Inicio", "loanDate", columnPercentage(13));
+        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(6));
+        addTableColumn(dataTable, "Dias", "loanDays", columnPercentage(13));
+        addTableColumn(dataTable, "Renovações", "renewals", columnPercentage(9));
+        addTableColumn(dataTable, "Status", "status", columnPercentage(9));
+        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(16), this::showBorrowingDetails);
+        dataTable.getItems().clear();
+        for (Book book : bookDAO.getAll()) {
+            dataTable.getItems().add(book.getReservations());
+        }
+
+        sortTableBy(dataTable, 0);
     }
 
     @FXML
