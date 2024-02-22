@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #F8F8F8;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ProfileController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#232843" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="850.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f8f8f8" height="412.0" layoutX="175.0" layoutY="150.0" stroke="TRANSPARENT" strokeType="INSIDE" width="500.0" />
+      <Circle fill="#c4c8cc" layoutX="425.0" layoutY="150.0" radius="75.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <SVGPath content="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16zm-4.785-6.145a.428.428 0 1 0 0-.855.426.426 0 0 0-.43.43c0 .238.192.425.43.425m.336.563h-.672v4.105h.672zm-6.867 4.105v-2.3h2.261v-.61H4.684V7.801h2.464v-.61H4v5.332zm3.296 0h.676V9.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a2 2 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98z" fill="#232843" layoutX="417.0" layoutY="142.0" scaleX="7.0" scaleY="7.0" />
+      <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="249.0" prefHeight="35.0" prefWidth="250.0" text="BookTitle" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="766.0" layoutY="41.0" onMouseClicked="#onCloseClicked" prefHeight="30.0" prefWidth="30.0">
+         <children>
+            <Circle centerX="20.0" centerY="20.0" fill="#414762" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <SVGPath content="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" fill="#ff1515" layoutX="12.0" layoutY="12.0" scaleX="1.5" scaleY="1.5" strokeWidth="3.0" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE" height="17.0" layoutX="488.0" layoutY="240.0" stroke="#ffffff00" strokeType="INSIDE" width="68.0" />
+      <Label fx:id="roleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="488.0" layoutY="241.0" prefHeight="17.0" prefWidth="68.0" text="STATUS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Poppins SemiBold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="addressLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="326.0" prefHeight="35.0" prefWidth="300.0" text="Desde 10/02" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="361.0" prefHeight="35.0" prefWidth="250.0" text="Até 10/20" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="usernameLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="280.0" prefHeight="35.0" prefWidth="250.0" text="com Micael Muniz" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Pane fx:id="adminPane" layoutX="230.0" layoutY="450.0" prefHeight="115.0" prefWidth="400.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#232843" height="115.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" />
+            <Text fill="WHITE" layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciar empréstimo" wrappingWidth="187.61669921875">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="20.0" layoutY="50.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="moderButton" text="Devolver" />
+            <Button layoutX="205.0" layoutY="50.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" styleClass="moderButton" text="Renovar" />
+         </children>
+      </Pane>
+      <Label fx:id="bannedUntilLabel" alignment="CENTER" layoutX="333.0" layoutY="419.0" prefHeight="17.0" prefWidth="194.0" text="3 renovaçoes restantes" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Poppins SemiBold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
