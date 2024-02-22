@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #F8F8F8;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.BookController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#232843" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="850.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f8f8f8" height="412.0" layoutX="175.0" layoutY="150.0" stroke="TRANSPARENT" strokeType="INSIDE" width="500.0" />
+      <Circle fill="#c4c8cc" layoutX="425.0" layoutY="150.0" radius="75.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <SVGPath content="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783" fill="#232843" layoutX="417.0" layoutY="142.0" scaleX="6.8" scaleY="6.8" />
+      <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="249.0" prefHeight="35.0" prefWidth="300.0" text="John Doe" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="766.0" layoutY="41.0" onMouseClicked="#onCloseClicked" prefHeight="30.0" prefWidth="30.0">
+         <children>
+            <Circle centerX="20.0" centerY="20.0" fill="#414762" radius="20.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <SVGPath content="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" fill="#ff1515" layoutX="12.0" layoutY="12.0" scaleX="1.5" scaleY="1.5" strokeWidth="3.0" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE" height="17.0" layoutX="488.0" layoutY="240.0" stroke="#ffffff00" strokeType="INSIDE" width="68.0" />
+      <Label fx:id="quantityAvailableLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="488.0" layoutY="241.0" prefHeight="17.0" prefWidth="68.0" text="Disponivel" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Poppins SemiBold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="categoryLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="326.0" prefHeight="35.0" prefWidth="300.0" text="category" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="isbnLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="361.0" prefHeight="35.0" prefWidth="300.0" text="sdf" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="authorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="280.0" prefHeight="35.0" prefWidth="300.0" text="\@johndoe" textAlignment="CENTER">
+         <font>
+            <Font name="Poppins Medium" size="14.0" />
+         </font>
+      </Label>
+      <Pane fx:id="moderatorPane" disable="true" layoutX="230.0" layoutY="450.0" prefHeight="115.0" prefWidth="400.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#232843" height="115.0" stroke="TRANSPARENT" strokeType="INSIDE" width="400.0" />
+            <Text fill="WHITE" layoutX="20.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opções de Moderador" wrappingWidth="187.61669921875">
+               <font>
+                  <Font name="Poppins Medium" size="14.0" />
+               </font>
+            </Text>
+            <Pane layoutX="20.0" layoutY="50.0" prefHeight="40.0" prefWidth="160.0">
+               <children>
+                  <TextField fx:id="addQuantityInput" layoutY="2.0" prefHeight="40.0" prefWidth="162.0" promptText="Adicionar" styleClass="modernInput" />
+                  <Pane fx:id="addButton" layoutX="122.0" layoutY="2.0" onMouseClicked="#onAddClick" prefHeight="40.0" prefWidth="40.0">
+                     <children>
+                        <SVGPath content="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" fill="#e41010" fillRule="EVEN_ODD" layoutX="10.0" layoutY="13.0" scaleX="1.3" scaleY="1.3" stroke="#00ba00">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </SVGPath>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+               </children>
+            </Pane>
+            <ComboBox fx:id="changeComboBox" layoutX="205.0" layoutY="50.0" onAction="#onOptionChange" prefHeight="40.0" prefWidth="160.0" promptText="Modificar" styleClass="modernChooseBox">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Atualizar dados" />
+                        <String fx:value="Deletar livro" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+         </children>
+      </Pane>
+      <Label fx:id="booksAvaliableLabel" alignment="CENTER" layoutX="333.0" layoutY="419.0" prefHeight="17.0" prefWidth="194.0" text="restante" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Poppins SemiBold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

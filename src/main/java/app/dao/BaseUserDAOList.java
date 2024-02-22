@@ -112,7 +112,12 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      */
     @Override
     public void delete(BaseUser object) {
-        baseusers.remove(object);
+        for (BaseUser user : baseusers) {
+            if (user.getId().equals(object.getId())) {
+                baseusers.remove(user);
+                break;
+            }
+        }
     }
 
     /**

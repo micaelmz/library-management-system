@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -12,10 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<Pane maxHeight="-Infinity" fx:controller="app.controllers.ProfileController" stylesheets="@css/styles.css" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="850.0" style="-fx-background-color: #F8F8F8;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.controllers.ProfileController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#232843" height="200.0" stroke="TRANSPARENT" strokeType="INSIDE" width="850.0" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f8f8f8" height="412.0" layoutX="175.0" layoutY="150.0" stroke="TRANSPARENT" strokeType="INSIDE" width="500.0" />
@@ -41,12 +40,12 @@
             <Font name="Poppins SemiBold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="addressLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="340.0" prefHeight="35.0" prefWidth="300.0" text="Rua Linda Muito Bonita 123" textAlignment="CENTER">
+      <Label fx:id="addressLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="326.0" prefHeight="35.0" prefWidth="300.0" textAlignment="CENTER">
          <font>
             <Font name="Poppins Medium" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="phoneLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="375.0" prefHeight="35.0" prefWidth="250.0" text="+55 75 992809130" textAlignment="CENTER">
+      <Label fx:id="phoneLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="300.0" layoutY="361.0" prefHeight="35.0" prefWidth="250.0" textAlignment="CENTER">
          <font>
             <Font name="Poppins Medium" size="14.0" />
          </font>
@@ -66,7 +65,7 @@
             </Text>
             <Pane layoutX="20.0" layoutY="50.0" prefHeight="40.0" prefWidth="160.0">
                <children>
-                  <TextField fx:id="searchInput" layoutY="2.0" prefHeight="40.0" prefWidth="162.0" promptText="Banir (dias)" styleClass="modernInput" />
+                  <TextField fx:id="banDaysInput" layoutY="2.0" prefHeight="40.0" prefWidth="162.0" promptText="Banir (dias)" styleClass="modernInput" />
                   <Pane fx:id="banButton" layoutX="122.0" layoutY="2.0" onMouseClicked="#onBanClicked" prefHeight="40.0" prefWidth="40.0">
                      <children>
                         <SVGPath content="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0" fill="#e41010" layoutX="10.0" layoutY="13.0" stroke="#fd0000" strokeWidth="1.5">
@@ -81,7 +80,7 @@
                   </Pane>
                </children>
             </Pane>
-            <ComboBox onAction="#onRoleChange" fx:id="roleComboBox" layoutX="205.0" layoutY="50.0" prefHeight="40.0" prefWidth="160.0" promptText="Alterar cargo" styleClass="modernChooseBox">
+            <ComboBox fx:id="roleComboBox" layoutX="205.0" layoutY="50.0" onAction="#onRoleChange" prefHeight="40.0" prefWidth="160.0" promptText="Alterar cargo" styleClass="modernChooseBox">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="VISITANTE" />
@@ -93,5 +92,10 @@
             </ComboBox>
          </children>
       </Pane>
+      <Label fx:id="bannedUntilLabel" alignment="CENTER" layoutX="333.0" layoutY="419.0" prefHeight="17.0" prefWidth="194.0" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="Poppins SemiBold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

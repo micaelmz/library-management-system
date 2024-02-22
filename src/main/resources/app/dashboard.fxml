@@ -146,7 +146,7 @@
             </Pane>
          </children>
       </Pane>
-      <TableView fx:id="dataTable" editable="true" layoutX="279.0" layoutY="137.0" prefHeight="400.0" prefWidth="550.0" styleClass="modernTable">
+      <TableView fx:id="dataTable" editable="true" layoutX="260.0" layoutY="160.0" prefHeight="400.0" prefWidth="550.0" styleClass="modernTable">
          <columns>
          </columns>
          <columnResizePolicy>
