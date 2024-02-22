@@ -3,7 +3,6 @@ package app.dao;
 import app.model.BaseUser;
 
 import java.io.*;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -41,7 +40,15 @@ public class UtilityAllUsers {
         return everyone;
     }
 
-    public BaseUser findById(Integer id) {
+    public static void saveAll() throws IOException {
+        baseUserDAOList.saveDatFile();
+        adminDAOList.saveDatFile();
+        librarianDAOList.saveDatFile();
+        moderatorDAOList.saveDatFile();
+        readerDAOList.saveDatFile();
+    }
+
+    public static BaseUser findById(Integer id) {
         BaseUser user = baseUserDAOList.findById(id);
         if (user == null) {
             user = adminDAOList.findById(id);

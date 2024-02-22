@@ -1,11 +1,9 @@
 package app;
 
-import app.dao.BaseUserDAOList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import app.views.LoginView;
 
 public class Main extends Application {

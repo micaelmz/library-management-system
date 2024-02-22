@@ -57,3 +57,12 @@
     -fx-text-fill: white;
 }
 
+.modernChooseBox {
+    -fx-background-color: #ecf0f1; /* Cor de fundo */
+    -fx-text-fill: #34495e; /* Cor do texto */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-padding: 2; /* Espaçamento interno */
+    -fx-border-radius: 5; /* Raio do canto do input */
+    -fx-background-radius: 5; /* Raio do canto do fundo */
+    -fx-border-color: #bdc3c7; /* Cor da borda */
+}
