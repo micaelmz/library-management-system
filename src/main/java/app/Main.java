@@ -1,18 +1,16 @@
 package app;
 
-import app.dao.BaseUserDAOList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import app.views.LoginView;
 
 public class Main extends Application {
 
     public static Stage stage;
     @Override
-    public void start(Stage stage) throws IOException, ClassNotFoundException {
+    public void start(Stage stage) {
         Main.stage = stage;
         stage.setTitle("SGB!");
         stage.show();
