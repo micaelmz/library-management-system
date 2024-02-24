@@ -110,7 +110,6 @@ public class DashboardController {
 
         BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
         borrowingDAOList.loadDatFile();
-        setSelectedBackgroundBtn(backgroundBorrowingBtn);
         dataTable.getColumns().clear();
 
         addTableColumn(dataTable, "ID", "id", columnPercentage(6));
@@ -138,7 +137,34 @@ public class DashboardController {
 
     @FXML
     protected void onReservationsClicked() throws IOException, ClassNotFoundException {
+
         setMenu("reservations");
+
+        BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
+        borrowingDAOList.loadDatFile();
+        dataTable.getColumns().clear();
+
+        addTableColumn(dataTable, "ID", "id", columnPercentage(6));
+
+        // Create a custom Callback for the ID of the Reader
+        Callback<TableColumn.CellDataFeatures<Borrowing, String>, ObservableValue<String>> readerNameCallback = param ->
+                new ReadOnlyObjectWrapper<>(param.getValue().getReader().getName()).asString();
+
+        addTableColumnWithCallback(dataTable, "Leitor", "readerName", columnPercentage(20), readerNameCallback);
+
+        Callback<TableColumn.CellDataFeatures<Borrowing, String>, ObservableValue<String>> bookTitleCallback = param ->
+                new ReadOnlyObjectWrapper<>(param.getValue().getBook().getTitle()).asString();
+
+        addTableColumnWithCallback(dataTable, "Livro", "bookTitle", columnPercentage(28), bookTitleCallback);
+
+        addTableColumn(dataTable, "Data", "loanDate", columnPercentage(15));
+        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(15));
+
+        addHyperlinkColumn(dataTable, "Cancelar", columnPercentage(15), this::cancelReservation);
+        dataTable.getItems().clear();
+        dataTable.getItems().addAll(borrowingDAOList.getOnlyReserved());
+
+        sortTableBy(dataTable, 0);
     }
 
     @FXML
@@ -175,6 +201,10 @@ public class DashboardController {
 
     private void showBorrowingDetails(Borrowing borrowing) {
         BorrowingView.show(borrowing);
+    }
+
+    private void cancelReservation(Borrowing borrowing){
+
     }
 
     private void setMenu(String menu) {
@@ -237,7 +267,7 @@ public class DashboardController {
         target.setFill(javafx.scene.paint.Color.web("#58a1dd"));
     }
 
-    private <S, T> void addHyperlinkColumn(TableView<S> table, String columnName, Integer width, Consumer<S> onHyperlinkClicked) {
+    private <S, T> void addHyperlinkColumn(TableView<S> table, String columnName, Integer width, Consumer<S> onHyperlinkClicked){
         TableColumn<S, T> column = new TableColumn<>(columnName);
         column.setMinWidth(width);
         column.setMaxWidth(width);

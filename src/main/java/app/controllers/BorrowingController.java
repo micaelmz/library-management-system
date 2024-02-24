@@ -3,6 +3,7 @@ package app.controllers;
 import app.dao.BookDAOList;
 import app.dao.BorrowingDAOList;
 import app.dao.ReaderDAOList;
+import app.enums.BorrowingStatus;
 import app.model.Borrowing;
 import app.views.DashboardView;
 import javafx.fxml.FXML;
@@ -60,26 +61,32 @@ public class BorrowingController {
     protected void onReturnBookClicked() throws IOException, ClassNotFoundException {
         BorrowingDAOList borrowingDAO = new BorrowingDAOList();
         borrowingDAO.loadDatFile();
+
         BookDAOList bookDAO = new BookDAOList();
         bookDAO.loadDatFile();
-        boolean success = borrowing.returnBook();
-        if (success) {
-            borrowingDAO.update(borrowing);
-            borrowingDAO.saveDatFile();
 
-            if (borrowing.getReader().isBanned()){
-                ReaderDAOList readerDAO = new ReaderDAOList();
-                readerDAO.loadDatFile();
-                readerDAO.update(borrowing.getReader());
-                readerDAO.saveDatFile();
-            }
+        borrowing.setBook(bookDAO.findById(borrowing.getBook().getId()));
+        Integer oldId = null;
+        if (!borrowing.getBook().getReservations().isEmpty()){
+            oldId = borrowing.getBook().getReservations().getFirst().getId();
+        }
 
-            bookDAO.update(borrowing.getBook());
-            bookDAO.saveDatFile();
-            DashboardView.show("borrowing");
+        Borrowing result = borrowing.returnBook();
+        borrowingDAO.update(result);
+        borrowingDAO.saveDatFile();
+
+        if (result.getReader().isBanned()){
+            ReaderDAOList readerDAO = new ReaderDAOList();
+            readerDAO.loadDatFile();
+            readerDAO.update(result.getReader());
+            readerDAO.saveDatFile();
         }
-        else{
-            renewalsLabel.setText("Não foi possível devolver o empréstimo.");
+        if (oldId != null){
+            borrowingDAO.delete(borrowingDAO.findById(oldId));
         }
+        borrowingDAO.saveDatFile();
+        bookDAO.update(result.getBook());
+        bookDAO.saveDatFile();
+        DashboardView.show("borrowing");
     }
 }

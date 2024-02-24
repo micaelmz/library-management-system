@@ -32,7 +32,7 @@ import java.time.LocalDate;
  */
 public class Borrowing implements Serializable {
     private final Reader reader;
-    private final Book book;
+    private Book book;
     private LocalDate loanDate;
     private LocalDate dueDate;
     private Integer loanDays;
@@ -243,13 +243,11 @@ public class Borrowing implements Serializable {
      *
      * @return devolução bem-sucedida
      */
-    public boolean returnBook() {
+    public Borrowing returnBook() {
         if (isOverdue()) {
             // Banir leitor por 2 dias para cada dia de atraso.
             reader.setBannedUntil(LocalDate.now().plusDays(calculatePenalty()));
         }
-
-        this.setAsFinished();
 
         if (!book.getReservations().isEmpty()) {
             Borrowing proximoBorrowing = book.getReservations().getFirst();
@@ -257,11 +255,18 @@ public class Borrowing implements Serializable {
             proximoBorrowing.setDueDate(LocalDate.now().plusDays(proximoBorrowing.getLoanDays()));
             book.addBorrowing(proximoBorrowing);
             book.removeReservation(proximoBorrowing);
+            proximoBorrowing.setId(this.getId());
+            return proximoBorrowing;
         }
+        else{
+            book.removeBorrowing(this);
+            book.setQuantity(book.getQuantity() + 1);
+            this.setAsFinished();
+            return this;
+        }
+    }
 
-        book.removeBorrowing(this);
-        book.setQuantity(book.getQuantity() + 1);
-
-        return true;
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

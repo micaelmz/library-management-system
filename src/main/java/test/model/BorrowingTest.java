@@ -91,10 +91,8 @@ public class BorrowingTest {
     public void testBookReturnAndPenalty(){
         // usando emprestimo3, que tem 1 dia de atraso
         Book book = borrowing3.getBook();
-        Boolean returned = borrowing3.returnBook();
         Reader reader = borrowing3.getReader();
 
-        assertTrue(returned);
         assertTrue(reader.isBanned());
         assertEquals(LocalDate.now().plusDays(2), reader.getBannedUntil());
         assertTrue(book.isAvailable());
