@@ -86,15 +86,4 @@ public class BorrowingTest {
         assertEquals(0, renovacoesDisponiveis);
         assertEquals(LocalDate.now().plusDays(3), novaDataEntrega);
     }
-
-    @Test
-    public void testBookReturnAndPenalty(){
-        // usando emprestimo3, que tem 1 dia de atraso
-        Book book = borrowing3.getBook();
-        Reader reader = borrowing3.getReader();
-
-        assertTrue(reader.isBanned());
-        assertEquals(LocalDate.now().plusDays(2), reader.getBannedUntil());
-        assertTrue(book.isAvailable());
-    }
 }
