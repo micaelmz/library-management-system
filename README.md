@@ -25,6 +25,19 @@ Um sistema de gerenciamento de biblioteca desenvolvido para a disciplina de MI P
 
 </details>
 
+<details>
+    <summary style="font-size: 1.2rem;">📷 Screenshot</summary>
+    <h3>Lista de livros</h3>
+    <img src="https://github.com/micaelmz/micaelmz/blob/main/images/library_management_system/booklist.png"/>
+    <h3>Detalhe do livro</h3>
+    <img src="https://github.com/micaelmz/micaelmz/blob/main/images/library_management_system/bookdetails.png"/>
+    <h3>Login</h3>
+    <img src="https://github.com/micaelmz/micaelmz/blob/main/images/library_management_system/login.png"/>
+    <h3>Perfil de usuario</h3>
+    <img src="https://github.com/micaelmz/micaelmz/blob/main/images/library_management_system/userprofile.png"/>
+
+</details>
+
 
 ## Requisitos
 ![Java Version](https://img.shields.io/badge/OpenJDK-20.0.2-yellow) ![jUnit Version](https://img.shields.io/badge/JUnit-4.13.1-blue) 
