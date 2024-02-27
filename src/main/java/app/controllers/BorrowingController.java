@@ -37,7 +37,7 @@ public class BorrowingController {
 
     @FXML
     protected void onCloseClicked() {
-        DashboardView.show();
+        DashboardView.show("borrowing");
     }
 
     @FXML
@@ -71,7 +71,7 @@ public class BorrowingController {
                 readerDAO.saveDatFile();
             }
 
-            DashboardView.show();
+            DashboardView.show("borrowing");
         }
         else{
             renewalsLabel.setText("Não foi possível devolver o empréstimo.");

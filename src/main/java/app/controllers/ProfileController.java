@@ -75,7 +75,7 @@ public class ProfileController {
 
     @FXML
     protected void onCloseClicked() {
-        DashboardView.show();
+        DashboardView.show("users");
     }
 
     @FXML

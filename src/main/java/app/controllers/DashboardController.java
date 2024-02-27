@@ -52,11 +52,12 @@ public class DashboardController {
     @FXML
     private TableView dataTable;
 
+    public void initData(String menu) throws IOException, ClassNotFoundException {
+        forceClick(menu);
+    }
 
-    // todo: criar metodo setMenu que define background, muda o valor de currentMenu e define a visibilidade do botão de adicionar
     @FXML
-    protected void initialize() throws IOException, ClassNotFoundException {
-        this.onBooksClicked();
+    protected void initialize() {
         usernameLabel.setText(GlobalData.getLoggedUser().getUsername());
         Role userRole = GlobalData.getLoggedUser().getRole();
         if (userRole != null) {
@@ -216,6 +217,17 @@ public class DashboardController {
             }
         }
     }
+
+    private void forceClick(String where) throws IOException, ClassNotFoundException {
+        switch (where) {
+            case "books" -> onBooksClicked();
+            case "users" -> onUsersClicked();
+            case "borrowing" -> onBorrowingClicked();
+            case "reservations" -> onReservationsClicked();
+            case "statistics" -> onStatisticsClicked();
+        }
+    }
+
     private void setSelectedBackgroundBtn(Rectangle target) {
         backgroundBookBtn.setFill(javafx.scene.paint.Color.web("#223a4e"));
         backgroundUsersBtn.setFill(javafx.scene.paint.Color.web("#223a4e"));

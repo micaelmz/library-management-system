@@ -34,7 +34,7 @@ public class LoginController {
         if (user != null && user.getPassword().equals(password)) {
             statusLabel.setText("Login successful");
             GlobalData.setLoggedUser(user);
-            DashboardView.show();
+            DashboardView.show("books");
         } else {
             statusLabel.setText("Login failed");
         }

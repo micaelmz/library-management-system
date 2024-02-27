@@ -40,11 +40,11 @@ public class AddBookController {
         bookDAO.create(new Book(titleInput.getText(), authorInput.getText(), isbnInput.getText(), Integer.parseInt(yearInput.getText()), categoryInput.getText(), Integer.parseInt(quantityInput.getText()), Integer.parseInt(renewLimitInput.getText())));
         bookDAO.saveDatFile();
 
-        DashboardView.show();
+        DashboardView.show("books");
     }
 
     @FXML
     protected void onCloseClicked() {
-        DashboardView.show();
+        DashboardView.show("books");
     }
 }

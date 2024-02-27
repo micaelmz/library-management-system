@@ -55,7 +55,7 @@ public class BookController {
 
     @FXML
     private void onCloseClicked(){
-        DashboardView.show();
+        DashboardView.show("books");
     }
 
     @FXML

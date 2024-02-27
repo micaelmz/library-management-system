@@ -12,6 +12,6 @@ public class AddBorrowingController {
 
     @FXML
     protected void onCloseClicked() {
-        DashboardView.show();
+        DashboardView.show("borrowing");
     }
 }

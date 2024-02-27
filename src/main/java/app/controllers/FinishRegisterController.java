@@ -55,6 +55,6 @@ public class FinishRegisterController {
         readerDAO.create(reader).setId(id);
         readerDAO.saveDatFile();
 
-        DashboardView.show();
+        DashboardView.show("users");
     }
 }
