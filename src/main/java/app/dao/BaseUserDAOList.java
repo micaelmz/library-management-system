@@ -99,10 +99,10 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      */
     @Override
     public void update(BaseUser newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
-            users.remove(findById(id));
-            users.add(newObject);
+            baseusers.remove(findById(id));
+            baseusers.add(newObject);
         }
     }
 
@@ -113,9 +113,9 @@ public class BaseUserDAOList implements CRUD<BaseUser>{
      */
     @Override
     public void delete(BaseUser object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
-            users.remove(findById(id));
+            baseusers.remove(findById(id));
         }
     }
 

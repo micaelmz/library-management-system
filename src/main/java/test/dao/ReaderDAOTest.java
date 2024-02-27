@@ -39,7 +39,7 @@ public class ReaderDAOTest {
     public void testUpdate() {
         Reader reader = readerDAOList.findById(0);
         reader.setName("John Doe Jr.");
-        readerDAOList.update(reader, reader);
+        readerDAOList.update(reader);
         assertEquals("John Doe Jr.", readerDAOList.findById(0).getName());
     }
 

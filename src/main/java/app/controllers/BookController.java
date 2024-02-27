@@ -66,7 +66,7 @@ public class BookController {
         book.setQuantity(book.getQuantity() + quantity);
         booksAvaliableLabel.setText(book.getQuantity() + " livros restantes");
         addQuantityInput.clear();
-        bookDAOList.update(book, book);
+        bookDAOList.update(book);
         bookDAOList.saveDatFile();
     }
 

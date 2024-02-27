@@ -95,7 +95,7 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      */
     @Override
     public void update(Moderator newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             moderators.remove(findById(id));
             moderators.add(newObject);
@@ -109,7 +109,7 @@ public class ModeratorDAOList implements CRUD<Moderator> {
      */
     @Override
     public void delete(Moderator object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             moderators.remove(findById(id));
         }

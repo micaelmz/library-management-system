@@ -1,5 +1,6 @@
 package app.dao;
 
+import app.enums.BorrowingStatus;
 import app.model.Borrowing;
 import app.model.Librarian;
 
@@ -98,7 +99,7 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      */
     @Override
     public void update(Borrowing newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             borrowings.remove(findById(id));
             borrowings.add(newObject);
@@ -112,7 +113,7 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      */
     @Override
     public void delete(Borrowing object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             borrowings.remove(findById(id));
         }
@@ -128,5 +129,25 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
 
     public String getFilePath() {
         return filePath;
+    }
+
+    public List<Borrowing> getOnlyBorrowed(){
+        List<Borrowing> onlyBorrowed = new LinkedList<Borrowing>();
+        for (Borrowing borrowing : borrowings) {
+            if (borrowing.getStatus().equals(BorrowingStatus.ACTIVE)) {
+                onlyBorrowed.add(borrowing);
+            }
+        }
+        return onlyBorrowed;
+    }
+
+    public List<Borrowing> getOnlyReserved(){
+        List<Borrowing> onlyReserved = new LinkedList<Borrowing>();
+        for (Borrowing borrowing : borrowings) {
+            if (borrowing.getStatus().equals(BorrowingStatus.RESERVED)) {
+                onlyReserved.add(borrowing);
+            }
+        }
+        return onlyReserved;
     }
 }

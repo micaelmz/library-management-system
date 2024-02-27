@@ -15,11 +15,13 @@ public class ADD_SAMPLE_DATA {
     static LibrarianDAOList librarians;
     static ReaderDAOList readers;
     static BookDAOList books;
+    static BorrowingDAOList borrowings;
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         admins = new AdminDAOList();
         librarians = new LibrarianDAOList();
         readers = new ReaderDAOList();
         books = new BookDAOList();
+        borrowings = new BorrowingDAOList();
 
         // Admins
         Admin admin1 = new Admin("admin", "admin", "Admin");
@@ -60,5 +62,14 @@ public class ADD_SAMPLE_DATA {
         books.create(book6);
         books.create(book7);
         books.saveDatFile();
+
+
+        // Borrowed
+        borrowings.create(librarian1.borrowBook(reader1, book1, 1, 1));
+        borrowings.create(librarian1.borrowBook(reader1, book2, 1, 1));
+
+        borrowings.saveDatFile();
+        books.saveDatFile();
+        readers.saveDatFile();
     }
 }

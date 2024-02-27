@@ -60,7 +60,7 @@ public class BorrowingDAOTest {
     public void testUpdate() {
         Borrowing borrowing = borrowingDAOList.findById(0);
         borrowing.setRenewals(5);
-        borrowingDAOList.update(borrowing, borrowing);
+        borrowingDAOList.update(borrowing);
         assertEquals(5, borrowingDAOList.findById(0).getRenewals().intValue());
     }
 

@@ -98,7 +98,7 @@ public class BookDAOList implements CRUD<Book> {
 
     @Override
     public void update(Book newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             books.remove(findById(id));
             books.add(newObject);
@@ -112,7 +112,7 @@ public class BookDAOList implements CRUD<Book> {
      */
     @Override
     public void delete(Book object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             books.remove(findById(id));
         }

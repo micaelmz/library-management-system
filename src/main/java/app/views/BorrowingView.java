@@ -1,6 +1,7 @@
 package app.views;
 
 import app.Main;
+import app.controllers.BorrowingController;
 import app.model.Borrowing;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,8 +14,8 @@ public class BorrowingView {
             FXMLLoader fxmlLoader = new FXMLLoader(ProfileView.class.getResource("/app/borrowing.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 
-            //BookController bookController = fxmlLoader.getController();
-            //bookController.initData(borrowing);
+            BorrowingController borrowingController = fxmlLoader.getController();
+            borrowingController.initData(borrowing);
 
             Main.setScene(scene);
         } catch (IOException e) {

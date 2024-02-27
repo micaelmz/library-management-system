@@ -2,12 +2,14 @@ package app.controllers;
 
 import app.GlobalData;
 import app.dao.BookDAOList;
+import app.dao.BorrowingDAOList;
 import app.dao.UtilityAllUsers;
 import app.enums.Role;
 import app.model.BaseUser;
 import app.model.Book;
 import app.model.Borrowing;
 import app.views.BooksView;
+import app.views.BorrowingView;
 import app.views.ProfileView;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -17,6 +19,7 @@ import javafx.scene.control.*;
 import app.views.LoginView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.function.Consumer;
@@ -103,49 +106,38 @@ public class DashboardController {
 
 
     @FXML
-    protected void onBorrowingClicked() {
-        BookDAOList bookDAO = new BookDAOList();
-        bookDAO.loadDatFile();
+    protected void onBorrowingClicked() throws IOException, ClassNotFoundException {
+        BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
+        borrowingDAOList.loadDatFile();
         setSelectedBackgroundBtn(backgroundBorrowingBtn);
         dataTable.getColumns().clear();
+
         addTableColumn(dataTable, "ID", "id", columnPercentage(6));
-        addTableColumn(dataTable, "Título", "book.getId()", columnPercentage(30));
-        addTableColumn(dataTable, "ID do Leitor", "reader.getId()", columnPercentage(20));
-        addTableColumn(dataTable, "Inicio", "loanDate", columnPercentage(13));
-        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(6));
-        addTableColumn(dataTable, "Dias", "loanDays", columnPercentage(13));
-        addTableColumn(dataTable, "Renovações", "renewals", columnPercentage(9));
-        addTableColumn(dataTable, "Status", "status", columnPercentage(9));
-        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(16), this::showBorrowingDetails);
+
+        // Create a custom Callback for the ID of the Reader
+        Callback<TableColumn.CellDataFeatures<Borrowing, String>, ObservableValue<String>> readerNameCallback = param ->
+                new ReadOnlyObjectWrapper<>(param.getValue().getReader().getName()).asString();
+
+        addTableColumnWithCallback(dataTable, "Leitor", "readerName", columnPercentage(20), readerNameCallback);
+
+        Callback<TableColumn.CellDataFeatures<Borrowing, String>, ObservableValue<String>> bookTitleCallback = param ->
+                new ReadOnlyObjectWrapper<>(param.getValue().getBook().getTitle()).asString();
+
+        addTableColumnWithCallback(dataTable, "Livro", "bookTitle", columnPercentage(28), bookTitleCallback);
+
+        addTableColumn(dataTable, "Data", "loanDate", columnPercentage(15));
+        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(15));
+
+        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(15), this::showBorrowingDetails);
         dataTable.getItems().clear();
-        for (Book book : bookDAO.getAll()) {
-            dataTable.getItems().add(book.getBorrowedBooks());
-        }
+        dataTable.getItems().addAll(borrowingDAOList.getOnlyBorrowed());
 
         sortTableBy(dataTable, 0);
     }
 
     @FXML
-    protected void onReservationsClicked() {
-        BookDAOList bookDAO = new BookDAOList();
-        bookDAO.loadDatFile();
-        setSelectedBackgroundBtn(backgroundReservationsBtn);
-        dataTable.getColumns().clear();
-        addTableColumn(dataTable, "ID", "id", columnPercentage(6));
-        addTableColumn(dataTable, "Título", "book.getId()", columnPercentage(30));
-        addTableColumn(dataTable, "ID do Leitor", "reader.getId()", columnPercentage(20));
-        addTableColumn(dataTable, "Inicio", "loanDate", columnPercentage(13));
-        addTableColumn(dataTable, "Devolução", "dueDate", columnPercentage(6));
-        addTableColumn(dataTable, "Dias", "loanDays", columnPercentage(13));
-        addTableColumn(dataTable, "Renovações", "renewals", columnPercentage(9));
-        addTableColumn(dataTable, "Status", "status", columnPercentage(9));
-        addHyperlinkColumn(dataTable, "Detalhes", columnPercentage(16), this::showBorrowingDetails);
-        dataTable.getItems().clear();
-        for (Book book : bookDAO.getAll()) {
-            dataTable.getItems().add(book.getReservations());
-        }
+    protected void onReservationsClicked() throws IOException, ClassNotFoundException {
 
-        sortTableBy(dataTable, 0);
     }
 
     @FXML
@@ -219,6 +211,14 @@ public class DashboardController {
     private <S, T> void addTableColumn(TableView<S> table, String columnName, String property, Integer width) {
         TableColumn<S, T> column = new TableColumn<>(columnName);
         column.setCellValueFactory(new PropertyValueFactory<>(property));
+        column.setMinWidth(width);
+        column.setMaxWidth(width);
+        table.getColumns().add(column);
+    }
+
+    private <S, T> void addTableColumnWithCallback(TableView<S> table, String columnName, String property, Integer width, Callback<TableColumn.CellDataFeatures<S, T>, ObservableValue<T>> callback) {
+        TableColumn<S, T> column = new TableColumn<>(columnName);
+        column.setCellValueFactory(callback);
         column.setMinWidth(width);
         column.setMaxWidth(width);
         table.getColumns().add(column);

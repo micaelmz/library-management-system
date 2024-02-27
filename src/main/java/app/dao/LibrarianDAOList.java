@@ -95,7 +95,7 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      */
     @Override
     public void update(Librarian newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             librarians.remove(findById(id));
             librarians.add(newObject);
@@ -109,7 +109,7 @@ public class LibrarianDAOList implements CRUD<Librarian> {
      */
     @Override
     public void delete(Librarian object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             librarians.remove(findById(id));
         }

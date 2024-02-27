@@ -204,7 +204,7 @@ public class Borrowing implements Serializable {
      * @return empréstimo pode ser renovado (true ou false)
      */
     public boolean isEligibleForRenewal() {
-        return renewals > 0 && !isOverdue() && status == BorrowingStatus.ACTIVE && book.getReservations().isEmpty();
+        return this.renewals > 0 && !isOverdue() && this.status == BorrowingStatus.ACTIVE && this.book.getReservations().isEmpty();
     }
 
     /**
@@ -230,8 +230,8 @@ public class Borrowing implements Serializable {
     public boolean renew() {
         //todo: verificar se é o usuário atual é um bibliotecário.
         if (isEligibleForRenewal()) {
-            renewals--;
-            dueDate = dueDate.plusDays(loanDays);
+            this.renewals--;
+            this.dueDate = this.dueDate.plusDays(this.loanDays);
             return true;
         }
         return false;

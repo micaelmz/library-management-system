@@ -39,7 +39,7 @@ public class AdminDAOTest {
     public void testUpdate() {
         Admin admin = adminDAOList.findById(0);
         admin.setName("John Doe Jr.");
-        adminDAOList.update(admin, admin);
+        adminDAOList.update(admin);
         assertEquals("John Doe Jr.", adminDAOList.findById(0).getName());
     }
 

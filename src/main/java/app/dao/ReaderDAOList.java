@@ -92,7 +92,7 @@ public class ReaderDAOList implements CRUD<Reader> {
      */
     @Override
     public void update(Reader newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             readers.remove(findById(id));
             readers.add(newObject);
@@ -105,7 +105,7 @@ public class ReaderDAOList implements CRUD<Reader> {
      */
     @Override
     public void delete(Reader object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             readers.remove(findById(id));
         }

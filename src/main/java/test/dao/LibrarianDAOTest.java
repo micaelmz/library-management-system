@@ -39,7 +39,7 @@ public class LibrarianDAOTest {
     public void testUpdate() {
         Librarian librarian = bibliotecarioDAOList.findById(0);
         librarian.setName("John Doe Jr.");
-        bibliotecarioDAOList.update(librarian, librarian);
+        bibliotecarioDAOList.update(librarian);
         assertEquals("John Doe Jr.", bibliotecarioDAOList.findById(0).getName());
     }
 

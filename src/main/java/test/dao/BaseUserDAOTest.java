@@ -40,7 +40,7 @@ public class BaseUserDAOTest {
         BaseUser oldUserInfo = baseUserDAOList.findById(0);
         BaseUser newUserInfo = oldUserInfo;
         newUserInfo.setName("John Doe 2");
-        baseUserDAOList.update(oldUserInfo, newUserInfo);
+        baseUserDAOList.update(newUserInfo);
         assertEquals("John Doe 2", baseUserDAOList.findById(0).getName());
     }
 

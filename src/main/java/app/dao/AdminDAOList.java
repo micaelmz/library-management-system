@@ -95,7 +95,7 @@ public class AdminDAOList implements CRUD<Admin> {
 
     @Override
     public void update(Admin newObject) {
-        Integer id = newObject.getId()
+        Integer id = newObject.getId();
         if (findById(id) != null) {
             admins.remove(findById(id));
             admins.add(newObject);
@@ -109,7 +109,7 @@ public class AdminDAOList implements CRUD<Admin> {
      */
     @Override
     public void delete(Admin object) {
-        Integer id = object.getId()
+        Integer id = object.getId();
         if (findById(id) != null) {
             admins.remove(findById(id));
         }
