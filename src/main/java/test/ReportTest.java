@@ -64,6 +64,8 @@ public class ReportTest {
         bookDAOList.deleteAll();
         report = null;
         UtilityAllUsers.resetId();
+        borrowingDAOList.resetId();
+        bookDAOList.resetId();
         UtilityDatFilesFolder.disableTestMode();
     }
 

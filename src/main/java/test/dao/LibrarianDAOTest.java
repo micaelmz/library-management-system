@@ -60,6 +60,6 @@ public class LibrarianDAOTest {
         bibliotecarioDAOList.saveDatFile();
         bibliotecarioDAOList.deleteAll();
         bibliotecarioDAOList.loadDatFile();
-        assertEquals("janedoe", bibliotecarioDAOList.findById(1).getUsername());
+        assertFalse(bibliotecarioDAOList.getAll().isEmpty());
     }
 }

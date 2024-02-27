@@ -87,7 +87,7 @@ public class UtilityAllUsers {
     }
 
     private static Integer readIdFromFile() throws IOException, ClassNotFoundException {
-        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id.dat";
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_users.dat";
         File idFile = new File(filePath);
 
         if (!idFile.exists()) {
@@ -105,7 +105,7 @@ public class UtilityAllUsers {
     }
 
     private static void writeIdToFile(Integer id) throws IOException {
-        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id.dat";
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_users.dat";
         try (FileOutputStream file = new FileOutputStream(filePath);
              ObjectOutputStream object = new ObjectOutputStream(file)) {
             object.writeObject(id);

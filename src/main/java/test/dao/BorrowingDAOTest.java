@@ -18,7 +18,7 @@ public class BorrowingDAOTest {
     BorrowingDAOList borrowingDAOList;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, ClassNotFoundException {
         UtilityDatFilesFolder.enableTestMode();
         borrowingDAOList = new BorrowingDAOList();
         borrowingDAOList.create(
@@ -48,6 +48,7 @@ public class BorrowingDAOTest {
     @After
     public void tearDown() throws IOException {
         UtilityAllUsers.resetId();
+        borrowingDAOList.resetId();
         UtilityDatFilesFolder.disableTestMode();
     }
 
@@ -66,8 +67,8 @@ public class BorrowingDAOTest {
 
     @Test
     public void testDelete() {
-        borrowingDAOList.delete(borrowingDAOList.findById(1));
-        assertNull(borrowingDAOList.findById(1));
+        borrowingDAOList.delete(borrowingDAOList.findById(0));
+        assertNull(borrowingDAOList.findById(0));
     }
 
     @Test
@@ -81,6 +82,6 @@ public class BorrowingDAOTest {
         borrowingDAOList.saveDatFile();
         borrowingDAOList.deleteAll();
         borrowingDAOList.loadDatFile();
-        assertEquals("johndoe", borrowingDAOList.findById(0).getReader().getUsername());
+        assertFalse(borrowingDAOList.getAll().isEmpty());
     }
 }

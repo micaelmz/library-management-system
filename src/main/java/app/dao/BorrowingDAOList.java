@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class BorrowingDAOList implements CRUD<Borrowing> {
     private List<Borrowing> borrowings;
-    private Integer lastId = 0;
     private String filePath;
 
     public BorrowingDAOList() {
@@ -55,11 +54,10 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
      * @return model do empréstimo
      */
     @Override
-    public Borrowing create(Borrowing object) {
+    public Borrowing create(Borrowing object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!borrowings.contains(object)) {
-            object.setId(lastId);
-            lastId++;
+            object.setId(getNewId());
             borrowings.add(object);
         }
         return object;
@@ -149,5 +147,41 @@ public class BorrowingDAOList implements CRUD<Borrowing> {
             }
         }
         return onlyReserved;
+    }
+
+    public Integer getNewId() throws IOException, ClassNotFoundException {
+        Integer id = readIdFromFile();
+        writeIdToFile(id + 1);
+        return id;
+    }
+
+    public void resetId() throws IOException {
+        writeIdToFile(0);
+    }
+
+    private Integer readIdFromFile() throws IOException, ClassNotFoundException {
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_borrowing.dat";
+        File idFile = new File(filePath);
+
+        if (!idFile.exists()) {
+            if (!idFile.getParentFile().exists()) {
+                idFile.getParentFile().mkdirs();
+            }
+            idFile.createNewFile();
+            return 0;
+        } else {
+            try (FileInputStream file = new FileInputStream(filePath);
+                 ObjectInputStream object = new ObjectInputStream(file)) {
+                return (Integer) object.readObject();
+            }
+        }
+    }
+
+    private void writeIdToFile(Integer id) throws IOException {
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_borrowing.dat";
+        try (FileOutputStream file = new FileOutputStream(filePath);
+             ObjectOutputStream object = new ObjectOutputStream(file)) {
+            object.writeObject(id);
+        }
     }
 }

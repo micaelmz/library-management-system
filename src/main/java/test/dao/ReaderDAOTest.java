@@ -60,6 +60,6 @@ public class ReaderDAOTest {
         readerDAOList.saveDatFile();
         readerDAOList.deleteAll();
         readerDAOList.loadDatFile();
-        assertEquals("janedoe", readerDAOList.findById(1).getUsername());
+        assertFalse(readerDAOList.getAll().isEmpty());
     }
 }

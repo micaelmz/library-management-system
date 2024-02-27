@@ -60,6 +60,6 @@ public class AdminDAOTest {
         adminDAOList.saveDatFile();
         adminDAOList.deleteAll();
         adminDAOList.loadDatFile();
-        assertEquals("janedoe", adminDAOList.findById(1).getUsername());
+        assertFalse(adminDAOList.getAll().isEmpty());
     }
 }

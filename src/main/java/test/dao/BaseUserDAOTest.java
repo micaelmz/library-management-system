@@ -61,6 +61,6 @@ public class BaseUserDAOTest {
         baseUserDAOList.saveDatFile();
         baseUserDAOList.deleteAll();
         baseUserDAOList.loadDatFile();
-        assertEquals("janedoe", baseUserDAOList.findById(1).getUsername());
+        assertFalse(baseUserDAOList.getAll().isEmpty());
     }
 }

@@ -53,11 +53,10 @@ public class BookDAOList implements CRUD<Book> {
      * @return model do livro
      */
     @Override
-    public Book create(Book object) {
+    public Book create(Book object) throws IOException, ClassNotFoundException {
         // Vai verificar se o model já existe na lista.
         if (!books.contains(object)) {
-            object.setId(lastId);
-            lastId++;
+            object.setId(getNewId());
             books.add(object);
         }
         return object;
@@ -128,5 +127,41 @@ public class BookDAOList implements CRUD<Book> {
 
     public String getFilePath() {
         return filePath;
+    }
+
+    public Integer getNewId() throws IOException, ClassNotFoundException {
+        Integer id = readIdFromFile();
+        writeIdToFile(id + 1);
+        return id;
+    }
+
+    public void resetId() throws IOException {
+        writeIdToFile(0);
+    }
+
+    private Integer readIdFromFile() throws IOException, ClassNotFoundException {
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_books.dat";
+        File idFile = new File(filePath);
+
+        if (!idFile.exists()) {
+            if (!idFile.getParentFile().exists()) {
+                idFile.getParentFile().mkdirs();
+            }
+            idFile.createNewFile();
+            return 0;
+        } else {
+            try (FileInputStream file = new FileInputStream(filePath);
+                 ObjectInputStream object = new ObjectInputStream(file)) {
+                return (Integer) object.readObject();
+            }
+        }
+    }
+
+    private void writeIdToFile(Integer id) throws IOException {
+        String filePath = UtilityDatFilesFolder.getFolderPath() + "\\id_books.dat";
+        try (FileOutputStream file = new FileOutputStream(filePath);
+             ObjectOutputStream object = new ObjectOutputStream(file)) {
+            object.writeObject(id);
+        }
     }
 }
