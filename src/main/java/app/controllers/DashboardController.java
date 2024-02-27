@@ -8,16 +8,14 @@ import app.enums.Role;
 import app.model.BaseUser;
 import app.model.Book;
 import app.model.Borrowing;
-import app.views.BooksView;
-import app.views.BorrowingView;
-import app.views.ProfileView;
+import app.views.*;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import app.views.LoginView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Callback;
 
@@ -28,6 +26,7 @@ import java.util.function.Consumer;
 public class DashboardController {
 
     private final Integer TABLE_MAX_WIDTH = 550;
+    private String currentMenu = "books";
 
     @FXML
     Rectangle backgroundBookBtn;
@@ -46,8 +45,13 @@ public class DashboardController {
     Label roleLabel;
 
     @FXML
+    AnchorPane addButton;
+
+    @FXML
     private TableView dataTable;
 
+
+    // todo: criar metodo setMenu que define background, muda o valor de currentMenu e define a visibilidade do botão de adicionar
     @FXML
     protected void initialize() {
         setSelectedBackgroundBtn(backgroundBookBtn);
@@ -60,6 +64,10 @@ public class DashboardController {
 
     @FXML
     protected void onUsersClicked() throws IOException, ClassNotFoundException {
+
+        addButton.setVisible(false);
+        addButton.setDisable(true);
+
         setSelectedBackgroundBtn(backgroundUsersBtn);
         dataTable.getColumns().clear();
         addTableColumn(dataTable, "ID", "id", columnPercentage(8));
@@ -75,6 +83,12 @@ public class DashboardController {
 
     @FXML
     protected void onBooksClicked() throws IOException, ClassNotFoundException {
+
+        boolean loggedUserIsLibrarianOrAdmin = GlobalData.getLoggedUser().getRole() == Role.LIBRARIAN || GlobalData.getLoggedUser().getRole() == Role.ADMIN;
+        addButton.setVisible(loggedUserIsLibrarianOrAdmin);
+        addButton.setDisable(!loggedUserIsLibrarianOrAdmin);
+        currentMenu = "books";
+
         BookDAOList bookDAO = new BookDAOList();
         bookDAO.loadDatFile();
         setSelectedBackgroundBtn(backgroundBookBtn);
@@ -107,6 +121,11 @@ public class DashboardController {
 
     @FXML
     protected void onBorrowingClicked() throws IOException, ClassNotFoundException {
+
+        addButton.setVisible(true);
+        addButton.setDisable(false);
+        currentMenu = "borrowing";
+
         BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
         borrowingDAOList.loadDatFile();
         setSelectedBackgroundBtn(backgroundBorrowingBtn);
@@ -137,12 +156,16 @@ public class DashboardController {
 
     @FXML
     protected void onReservationsClicked() throws IOException, ClassNotFoundException {
-
+        setSelectedBackgroundBtn(backgroundReservationsBtn);
+        addButton.setVisible(false);
+        addButton.setDisable(true);
     }
 
     @FXML
     protected void onStatisticsClicked() {
         setSelectedBackgroundBtn(backgroundStatisticsBtn);
+        addButton.setVisible(false);
+        addButton.setDisable(true);
     }
 
     @FXML
@@ -154,6 +177,14 @@ public class DashboardController {
     @FXML
     protected void onSearchClicked() {
 
+    }
+
+    @FXML
+    protected void onAddClicked() {
+        switch (currentMenu) {
+            case "books" -> AddBookView.show();
+            case "borrowing" -> AddBorrowingView.show();
+        }
     }
 
 
