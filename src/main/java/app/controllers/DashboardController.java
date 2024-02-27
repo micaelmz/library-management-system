@@ -43,6 +43,8 @@ public class DashboardController {
     Label usernameLabel;
     @FXML
     Label roleLabel;
+    @FXML
+    Label pageTitleLabel;
 
     @FXML
     AnchorPane addButton;
@@ -65,16 +67,14 @@ public class DashboardController {
     @FXML
     protected void onUsersClicked() throws IOException, ClassNotFoundException {
 
-        addButton.setVisible(false);
-        addButton.setDisable(true);
+        setMenu("users");
 
-        setSelectedBackgroundBtn(backgroundUsersBtn);
         dataTable.getColumns().clear();
         addTableColumn(dataTable, "ID", "id", columnPercentage(8));
         addTableColumn(dataTable, "Nome", "name", columnPercentage(25));
         addTableColumn(dataTable, "Username", "username", columnPercentage(25));
         addTableColumn(dataTable, "Cargo", "role", columnPercentage(25));
-        addHyperlinkColumn(dataTable, "Perfil", columnPercentage(17), this::showUserProfile);
+        addHyperlinkColumn(dataTable, "Perfil", columnPercentage(17), this::showUserDetails);
         dataTable.getItems().clear();
         dataTable.getItems().addAll(UtilityAllUsers.getAll());
 
@@ -84,14 +84,10 @@ public class DashboardController {
     @FXML
     protected void onBooksClicked() throws IOException, ClassNotFoundException {
 
-        boolean loggedUserIsLibrarianOrAdmin = GlobalData.getLoggedUser().getRole() == Role.LIBRARIAN || GlobalData.getLoggedUser().getRole() == Role.ADMIN;
-        addButton.setVisible(loggedUserIsLibrarianOrAdmin);
-        addButton.setDisable(!loggedUserIsLibrarianOrAdmin);
-        currentMenu = "books";
+        setMenu("books");
 
         BookDAOList bookDAO = new BookDAOList();
         bookDAO.loadDatFile();
-        setSelectedBackgroundBtn(backgroundBookBtn);
         dataTable.getColumns().clear();
         addTableColumn(dataTable, "ID", "id", columnPercentage(6));
         addTableColumn(dataTable, "Título", "title", columnPercentage(30));
@@ -106,25 +102,10 @@ public class DashboardController {
         sortTableBy(dataTable, 0);
     }
 
-    private void showUserProfile(BaseUser user) {
-        ProfileView.show(user);
-    }
-
-    private void showBookDetails(Book book) {
-        BooksView.show(book);
-    }
-
-    private void showBorrowingDetails(Borrowing borrowing) {
-        BorrowingView.show(borrowing);
-    }
-
-
     @FXML
     protected void onBorrowingClicked() throws IOException, ClassNotFoundException {
 
-        addButton.setVisible(true);
-        addButton.setDisable(false);
-        currentMenu = "borrowing";
+        setMenu("borrowing");
 
         BorrowingDAOList borrowingDAOList = new BorrowingDAOList();
         borrowingDAOList.loadDatFile();
@@ -156,16 +137,12 @@ public class DashboardController {
 
     @FXML
     protected void onReservationsClicked() throws IOException, ClassNotFoundException {
-        setSelectedBackgroundBtn(backgroundReservationsBtn);
-        addButton.setVisible(false);
-        addButton.setDisable(true);
+        setMenu("reservations");
     }
 
     @FXML
     protected void onStatisticsClicked() {
-        setSelectedBackgroundBtn(backgroundStatisticsBtn);
-        addButton.setVisible(false);
-        addButton.setDisable(true);
+        setMenu("statistics");
     }
 
     @FXML
@@ -187,7 +164,58 @@ public class DashboardController {
         }
     }
 
+    private void showUserDetails(BaseUser user) {
+        ProfileView.show(user);
+    }
 
+    private void showBookDetails(Book book) {
+        BooksView.show(book);
+    }
+
+    private void showBorrowingDetails(Borrowing borrowing) {
+        BorrowingView.show(borrowing);
+    }
+
+    private void setMenu(String menu) {
+        switch (menu) {
+            case "books" -> {
+                currentMenu = "books";
+                setSelectedBackgroundBtn(backgroundBookBtn);
+                pageTitleLabel.setText("Livros");
+                boolean loggedUserIsLibrarianOrAdmin = GlobalData.getLoggedUser().getRole() == Role.LIBRARIAN || GlobalData.getLoggedUser().getRole() == Role.ADMIN;
+                addButton.setVisible(loggedUserIsLibrarianOrAdmin);
+                addButton.setDisable(!loggedUserIsLibrarianOrAdmin);
+            }
+            case "users" -> {
+                currentMenu = "users";
+                setSelectedBackgroundBtn(backgroundUsersBtn);
+                pageTitleLabel.setText("Usuários");
+                addButton.setVisible(false);
+                addButton.setDisable(true);
+            }
+            case "borrowing" -> {
+                currentMenu = "borrowing";
+                setSelectedBackgroundBtn(backgroundBorrowingBtn);
+                pageTitleLabel.setText("Empréstimos");
+                addButton.setVisible(true);
+                addButton.setDisable(false);
+            }
+            case "reservations" -> {
+                currentMenu = "reservations";
+                setSelectedBackgroundBtn(backgroundReservationsBtn);
+                pageTitleLabel.setText("Reservas");
+                addButton.setVisible(false);
+                addButton.setDisable(true);
+            }
+            case "statistics" -> {
+                currentMenu = "statistics";
+                setSelectedBackgroundBtn(backgroundStatisticsBtn);
+                pageTitleLabel.setText("Estatísticas");
+                addButton.setVisible(false);
+                addButton.setDisable(true);
+            }
+        }
+    }
     private void setSelectedBackgroundBtn(Rectangle target) {
         backgroundBookBtn.setFill(javafx.scene.paint.Color.web("#223a4e"));
         backgroundUsersBtn.setFill(javafx.scene.paint.Color.web("#223a4e"));
@@ -236,8 +264,6 @@ public class DashboardController {
 
         table.getColumns().add(column);
     }
-
-
 
     private <S, T> void addTableColumn(TableView<S> table, String columnName, String property, Integer width) {
         TableColumn<S, T> column = new TableColumn<>(columnName);
