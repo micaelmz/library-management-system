@@ -162,7 +162,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </AnchorPane>
-      <Label fx:id="pageTitleLabel" contentDisplay="CENTER" layoutX="260.0" layoutY="116.0" prefHeight="35.0" prefWidth="300.0" text="Page title">
+      <Label fx:id="pageTitleLabel" contentDisplay="CENTER" layoutX="270.0" layoutY="116.0" prefHeight="35.0" prefWidth="300.0" text="Page title">
          <font>
             <Font name="Poppins Medium" size="24.0" />
          </font>

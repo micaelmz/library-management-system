@@ -55,8 +55,8 @@ public class DashboardController {
 
     // todo: criar metodo setMenu que define background, muda o valor de currentMenu e define a visibilidade do botão de adicionar
     @FXML
-    protected void initialize() {
-        setSelectedBackgroundBtn(backgroundBookBtn);
+    protected void initialize() throws IOException, ClassNotFoundException {
+        this.onBooksClicked();
         usernameLabel.setText(GlobalData.getLoggedUser().getUsername());
         Role userRole = GlobalData.getLoggedUser().getRole();
         if (userRole != null) {
