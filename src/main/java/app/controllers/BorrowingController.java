@@ -1,5 +1,6 @@
 package app.controllers;
 
+import app.dao.BookDAOList;
 import app.dao.BorrowingDAOList;
 import app.dao.ReaderDAOList;
 import app.model.Borrowing;
@@ -59,6 +60,8 @@ public class BorrowingController {
     protected void onReturnBookClicked() throws IOException, ClassNotFoundException {
         BorrowingDAOList borrowingDAO = new BorrowingDAOList();
         borrowingDAO.loadDatFile();
+        BookDAOList bookDAO = new BookDAOList();
+        bookDAO.loadDatFile();
         boolean success = borrowing.returnBook();
         if (success) {
             borrowingDAO.update(borrowing);
@@ -71,6 +74,8 @@ public class BorrowingController {
                 readerDAO.saveDatFile();
             }
 
+            bookDAO.update(borrowing.getBook());
+            bookDAO.saveDatFile();
             DashboardView.show("borrowing");
         }
         else{

@@ -25,7 +25,10 @@
             </font>
         </Label>
         <Label fx:id="statusLabel" layoutX="275.0" layoutY="450.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
-        <Button fx:id="saveButton" layoutX="275.0" layoutY="400.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" text="Criar" />
+        <Button fx:id="saveButton" layoutX="275.0" layoutY="400.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" text="Criar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TextField fx:id="userIdInput" layoutX="275.0" layoutY="256.0" prefHeight="40.0" prefWidth="150.0" promptText="ID do Usuario" styleClass="modernInput" />
       <TextField fx:id="bookIdInput" layoutX="425.0" layoutY="256.0" prefHeight="40.0" prefWidth="150.0" promptText="ID do Livro" styleClass="modernInput" />
       <PasswordField fx:id="passwordInput" layoutX="275.0" layoutY="344.0" prefHeight="40.0" prefWidth="300.0" promptText="Sua senha" styleClass="modernInput" />

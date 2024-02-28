@@ -260,6 +260,7 @@ public class Borrowing implements Serializable {
         }
 
         book.removeBorrowing(this);
+        book.setQuantity(book.getQuantity() + 1);
 
         return true;
     }

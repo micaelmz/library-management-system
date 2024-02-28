@@ -29,7 +29,10 @@
         <TextField fx:id="isbnInput" layoutX="275.0" layoutY="338.0" prefHeight="40.0" prefWidth="300.0" promptText="ISBN" styleClass="modernInput" />
         <TextField fx:id="quantityInput" layoutX="275.0" layoutY="378.0" prefHeight="40.0" prefWidth="150.0" promptText="Quantidade" styleClass="modernInput" />
         <TextField fx:id="renewLimitInput" layoutX="425.0" layoutY="378.0" prefHeight="40.0" prefWidth="150.0" promptText="Limite de renovações" styleClass="modernInput" />
-        <Button fx:id="saveButton" layoutX="275.0" layoutY="427.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" text="Salvar" />
+        <Button fx:id="saveButton" layoutX="275.0" layoutY="427.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="43.0" prefWidth="300.0" styleClass="modernButton" text="Salvar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
         <Label fx:id="statusLabel" layoutX="275.0" layoutY="476.0" prefHeight="17.0" prefWidth="300.0" textAlignment="CENTER" textFill="RED" />
       <HBox layoutX="275.0" layoutY="107.0" onMouseClicked="#onCloseClicked" spacing="10.0">
          <children>
